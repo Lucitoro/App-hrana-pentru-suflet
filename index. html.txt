@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resurse duhovnicești</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card">
+  <p class="title">📚 RESURSE DUHOVNICEȘTI</p>
+
+  <div class="grid-2">
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html">Calendar 2026</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-incepatoare-pentru-orice.html">Rugăciunile începătoare</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/psaltirea-lui-david-acum.html">Psaltirea lui David</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html">Acatiste și Canoane</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-la-nevoie.html">Rugăciuni la nevoie</a>
+    <a class="btn-dark" href="https://www.lucianfotovideo.com/2020/06/rugaciuni-ortodoxe.html">Rugăciuni ortodoxe</a>
+  </div>
+
+  <a class="btn-gold" href="https://www.lucianfotovideo.com/2020/05/ceaslovul.html">📖 Cărți duhovnicești</a>
+</div>
+
+<br>
+
+<div class="card-green">
+  <p class="title">🙏 PRAVILA DE RUGĂCIUNE</p>
+
+  <p class="subtitle">Pravila Zilnică</p>
+
+  <div class="grid-2">
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-dimineata.html">Dimineață</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/06/rugaciuni-pentru-fiecare-zi-saptamanii.html">Zilele săptămânii</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inserarii.html">Înserare</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html">Seară</a>
+  </div>
+
+  <p class="subtitle">Sfintele Taine</p>
+
+  <div class="grid-2">
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html">Înainte de Spovedanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html">După Spovedanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-pentru-sf-impartasanie.html">Înainte de Împărtășanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html">După Împărtășanie</a>
+  </div>
+
+ <!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resurse duhovnicești</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card">
+  <p class="title">📚 RESURSE DUHOVNICEȘTI</p>
+
+  <div class="grid-2">
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html">Calendar 2026</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-incepatoare-pentru-orice.html">Rugăciunile începătoare</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/psaltirea-lui-david-acum.html">Psaltirea lui David</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html">Acatiste și Canoane</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-la-nevoie.html">Rugăciuni la nevoie</a>
+    <a class="btn-dark" href="https://www.lucianfotovideo.com/2020/06/rugaciuni-ortodoxe.html">Rugăciuni ortodoxe</a>
+  </div>
+
+  <a class="btn-gold" href="https://www.lucianfotovideo.com/2020/05/ceaslovul.html">📖 Cărți duhovnicești</a>
+</div>
+
+<br>
+
+<div class="card-green">
+  <p class="title">🙏 PRAVILA DE RUGĂCIUNE</p>
+
+  <p class="subtitle">Pravila Zilnică</p>
+
+  <div class="grid-2">
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-dimineata.html">Dimineață</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/06/rugaciuni-pentru-fiecare-zi-saptamanii.html">Zilele săptămânii</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inserarii.html">Înserare</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html">Seară</a>
+  </div>
+
+  <p class="subtitle">Sfintele Taine</p>
+
+  <div class="grid-2">
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html">Înainte de Spovedanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html">După Spovedanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-pentru-sf-impartasanie.html">Înainte de Împărtășanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html">După Împărtășanie</a>
+  </div>
+
+ <!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resurse duhovnicești</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card">
+  <p class="title">📚 RESURSE DUHOVNICEȘTI</p>
+
+  <div class="grid-2">
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html">Calendar 2026</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-incepatoare-pentru-orice.html">Rugăciunile începătoare</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/psaltirea-lui-david-acum.html">Psaltirea lui David</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html">Acatiste și Canoane</a>
+    <a class="btn-dark" href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-la-nevoie.html">Rugăciuni la nevoie</a>
+    <a class="btn-dark" href="https://www.lucianfotovideo.com/2020/06/rugaciuni-ortodoxe.html">Rugăciuni ortodoxe</a>
+  </div>
+
+  <a class="btn-gold" href="https://www.lucianfotovideo.com/2020/05/ceaslovul.html">📖 Cărți duhovnicești</a>
+</div>
+
+<br>
+
+<div class="card-green">
+  <p class="title">🙏 PRAVILA DE RUGĂCIUNE</p>
+
+  <p class="subtitle">Pravila Zilnică</p>
+
+  <div class="grid-2">
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-dimineata.html">Dimineață</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/06/rugaciuni-pentru-fiecare-zi-saptamanii.html">Zilele săptămânii</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inserarii.html">Înserare</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html">Seară</a>
+  </div>
+
+  <p class="subtitle">Sfintele Taine</p>
+
+  <div class="grid-2">
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html">Înainte de Spovedanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html">După Spovedanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-pentru-sf-impartasanie.html">Înainte de Împărtășanie</a>
+    <a class="btn-green" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html">După Împărtășanie</a>
+  </div>
+
+  <p class="footer-gold">Slavă lui Dumnezeu pentru toate!</p>
+</div>
+
+<div class="bottom-nav">
+  <button onclick="location.href='index.html'" class="nav-btn active" id="btn-home">
+    <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9h-3v9h-12v-9h-3z"/></svg>
+    Acasă
+  </button>
+  <button onclick="location.href='calendar.html'" class="nav-btn" id="btn-calendar">
+    <svg viewBox="0 0 24 24"><path d="M7 2v2h10v-2h2v2h3v18h-20v-18h3v-2h2zm-3 6v12h16v-12h-16z"/></svg>
+    Calendar
+  </button>
+  <button onclick="location.href='rugaciuni.html'" class="nav-btn" id="btn-rugaciuni">
+    <svg viewBox="0 0 24 24"><path d="M12 2l4 4h-3v7h-2v-7h-3l4-4zm-7 18v-2h14v2h-14z"/></svg>
+    Rugăciuni
+  </button>
+  <button onclick="location.href='setari.html'" class="nav-btn" id="btn-setari">
+    <svg viewBox="0 0 24 24"><path d="M12 8.6a3.4 3.4 0 1 1 0 6.8 3.4 3.4 0 0 1 0-6.8z"/></svg>
+    Setări
+  </button>
+</div>
+
+<script src="nav.js"></script>
+
+</body>
+</html>
+

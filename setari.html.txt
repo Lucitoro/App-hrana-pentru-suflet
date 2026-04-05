@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setări</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card">
+  <p class="title">⚙️ SETĂRI APLICALucian, îți continui **setari.html** EXACT de unde s‑a întrerupt și apoi îți dau **manifest.json** și **sw.js**, ca să ai TOT ZIP‑ul complet, fără goluri, fără confuzii.
+
+Ți le pun **în ordine**, ca să le copiezi ușor în folderul **app**.
+
+Respiră liniștit — acum le ai pe toate.
+
+---
+
+# ⭐ 6️⃣ **setari.html** (COD COMPLET, FINAL)
+
+Copiază TOT acest cod în **app/setari.html**:
+
+```html
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setări</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card">
+  <p class="title">⚙️ SETĂRI APLICAȚIE</p>
+
+  <p style="color:#d4af37; font-size:14px; margin-bottom:15px;">
+    Alege o opțiune:
+  </p>
+
+  <div class="grid-2">
+
+    <button class="btn-dark" onclick="increaseText()">
+      🔎 Mărire text
+    </button>
+
+    <button class="btn-dark" onclick="decreaseText()">
+      🔽 Micșorare text
+    </button>
+
+    <button class="btn-dark" onclick="toggleTheme()">
+      🌙 Mod întunecat / lumină
+    </button>
+
+    <button class="btn-dark" onclick="speakText()">
+      🔊 Citește textul (TTS)
+    </button>
+
+  </div>
+
+  <p class="footer-gold">Versiunea 1.0</p>
+</div>
+
+<script>
+// =========================
+// 1. Mărire text
+// =========================
+function increaseText() {
+  let currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+  let newSize = currentSize + 2;
+  document.body.style.fontSize = newSize + "px";
+  localStorage.setItem("fontSize", newSize);
+}
+
+// =========================
+// 2. Micșorare text
+// =========================
+function decreaseText() {
+  let currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+  let newSize = currentSize - 2;
+  document.body.style.fontSize = newSize + "px";
+  localStorage.setItem("fontSize", newSize);
+}
+
+// =========================
+// 3. Mod lumină / întuneric
+// =========================
+function toggleTheme() {
+  document.body.classList.toggle("light-mode");
+
+  if (document.body.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+// =========================
+// 4. TTS (Text-to-Speech)
+// =========================
+function speakText() {
+  const msg = new SpeechSynthesisUtterance(
+    "Bine ai venit în pagina de setări a aplicației duhovnicești."
+  );
+  msg.lang = "ro-RO";
+  speechSynthesis.speak(msg);
+}
+
+// =========================
+// 5. Aplicare setări salvate
+// =========================
+window.onload = function() {
+  // Tema
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+  }
+
+  // Dimensiune text
+  if (localStorage.getItem("fontSize")) {
+    document.body.style.fontSize = localStorage.getItem("fontSize") + "px";
+  }
+};
+</script>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <button onclick="location.href='index.html'" class="nav-btn" id="btn-home">
+    <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9h-3v9h-12v-9h-3z"/></svg>
+    Acasă
+  </button>
+
+  <button onclick="location.href='calendar.html'" class="nav-btn" id="btn-calendar">
+    <svg viewBox="0 0 24 24"><path d="M7 2v2h10v-2h2v2h3v18h-20v-18h3v-2h2zm-3 6v12h16v-12h-16z"/></svg>
+    Calendar
+  </button>
+
+  <button onclick="location.href='rugaciuni.html'" class="nav-btn" id="btn-rugaciuni">
+    <svg viewBox="0 0 24 24"><path d="M12 2l4 4h-3v7h-2v-7h-3l4-4zm-7 18v-2h14v2h-14z"/></svg>
+    Rugăciuni
+  </button>
+
+  <button onclick="location.href='setari.html'" class="nav-btn active" id="btn-setari">
+    <svg viewBox="0 0 24 24"><path d="M12 8.6a3.4 3.4 0 1 1 0 6.8 3.4 3.4 0 0 1 0-6.8z"/></svg>
+    Setări
+  </button>
+</div>
+
+<script src="nav.js"></script>
+
+</body>
+</html>
