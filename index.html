@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hrana pentru suflet</title>
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d4af37">
+<script>
+  // Registrare Service Worker per funzionamento offline
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(registration => {
+      console.log('Service Worker registrato:', registration);
+    }).catch(error => {
+      console.log('Errore registrazione Service Worker:', error);
+    });
+  }
+</script>
 </head>
 
 <body>
