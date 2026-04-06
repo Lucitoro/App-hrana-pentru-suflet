@@ -1,0 +1,6 @@
+const page = location.pathname.split("/").pop();
+
+if (page === "index.html") document.getElementById("btn-home").classList.add("active");
+if (page === "calendar.html") document.getElementById("btn-calendar").classList.add("active");
+if (page === "rugaciuni.html") document.getElementById("btn-rugaciuni").classList.add("active");
+if (page === "setari.html") document.getElementById("btn-setari").classList.add("active");
