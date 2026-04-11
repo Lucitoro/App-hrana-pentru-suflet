@@ -1,0 +1,16 @@
+App-hrana-pentru-suflet/
+│
+├── index.html
+├── calendar.html
+├── rugaciuni.html
+├── setari.html
+│
+├── style.css
+├── nav.js
+│
+├── manifest.json
+├── sw.js
+│
+└── icons/
+    ├── icon-192.png
+    └── icon-512.png
