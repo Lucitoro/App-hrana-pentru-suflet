@@ -171,4 +171,50 @@ a {
 .dark-mode .navbar a {
   color: #fff !important;
 }
+/* ===========================
+      TEMA ÎNTUNECATĂ
+   =========================== */
+
+.dark-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Text */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode li {
+  color: #fff !important;
+}
+
+/* Butoane */
+.dark-mode button {
+  background-color: #222 !important;
+  color: #fff !important;
+  border-color: #444 !important;
+}
+
+/* Linkuri */
+.dark-mode a {
+  color: #d4af37 !important;
+}
+
+/* Navbar */
+.dark-mode .navbar {
+  background-color: #111 !important;
+  border-top: 1px solid #333 !important;
+}
+
+.dark-mode .navbar a {
+  color: #fff !important;
+}
+
+/* Carduri / secțiuni */
+.dark-mode .card,
+.dark-mode .section {
+  background-color: #111 !important;
+  color: #fff !important;
+}
 
