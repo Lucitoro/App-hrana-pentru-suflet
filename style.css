@@ -149,4 +149,26 @@ a {
 
 .btn-download:hover .icon-download svg {
     transform: rotate(90deg) scale(1.18);
+}/* Tema întunecată */
+.dark-mode {
+  background-color: #000 !important;
+  color: #fff !important;
 }
+
+.dark-mode button,
+.dark-mode a,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p {
+  color: #fff !important;
+}
+
+.dark-mode .navbar {
+  background-color: #111 !important;
+}
+
+.dark-mode .navbar a {
+  color: #fff !important;
+}
+
