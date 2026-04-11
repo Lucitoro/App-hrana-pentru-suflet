@@ -5,96 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Setări</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* ===== TITLURI PREMIUM ===== */
+h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: #d4af37;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(212,175,55,0.4);
+}
+
+/* ===== BUTOANE PREMIUM ===== */
+.settings-btn {
+  width: 90%;
+  margin: 10px auto;
+  display: block;
+  padding: 15px;
+  background: linear-gradient(135deg, #d4af37, #b8922a);
+  color: black;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(212,175,55,0.4);
+  transition: 0.2s;
+}
+
+.settings-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 4px rgba(212,175,55,0.6);
+}
+
+/* ===== BUTON INSTALARE ===== */
+#installBtn {
+  display: none;
+}
+
+/* ===== DARK MODE PREMIUM ===== */
+.dark-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.dark-mode h1 {
+  color: #d4af37 !important;
+}
+
+.dark-mode .settings-btn {
+  background: #222 !important;
+  color: #fff !important;
+  border: 1px solid #444 !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .bottom-nav {
+  background: #111 !important;
+}
+
+.dark-mode .bottom-nav button {
+  color: #fff !important;
+}
+</style>
 </head>
 
 <body>
 
 <h1>⚙️ SETĂRI APLICAȚIE</h1>
 
-<!-- Mărire text -->
-<button onclick="increaseText()">🔎 Mărire text</button>
+<button class="settings-btn" onclick="increaseText()">🔎 Mărire text</button>
+<button class="settings-btn" onclick="decreaseText()">🔎 Micșorare text</button>
+<button class="settings-btn" id="themeToggle">🌙 Mod întunecat / lumină</button>
+<button class="settings-btn" onclick="speakText()">🔊 Citește textul</button>
 
-<!-- Micșorare text -->
-<button onclick="decreaseText()">🔎 Micșorare text</button>
+<!-- BUTON INSTALARE APLICAȚIE -->
+<button class="settings-btn" id="installBtn">📥 Instalează aplicația</button>
 
-<!-- Mod întunecat / lumină -->
-<button id="themeToggle">🌙 Mod întunecat / lumină</button>
-
-<!-- Citește textul -->
-<button onclick="speakText()">🔊 Citește textul</button>
-
-<!-- Buton instalare aplicație -->
-<button id="installBtn" style="
-  width: 100%;
-  padding: 15px;
-  margin-top: 20px;
-  background: #d4af37;
-  color: black;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  display: none;
-">
-📥 Instalează aplicația
-</button>
-
-<p style="margin-top:20px; opacity:0.7;">Versiunea 1.0</p>
-
-<!-- ========================= -->
-<!-- SCRIPTURI FUNCȚIONALE     -->
-<!-- ========================= -->
+<p style="text-align:center; margin-top:20px; opacity:0.7;">Versiunea 1.0</p>
 
 <script>
-// 1. Mărire text
+// ===== Mărire text =====
 function increaseText() {
-  let currentSize = parseFloat(getComputedStyle(document.body).fontSize);
-  let newSize = currentSize + 2;
-  document.body.style.fontSize = newSize + "px";
-  localStorage.setItem("fontSize", newSize);
+  let size = parseFloat(getComputedStyle(document.body).fontSize);
+  size += 2;
+  document.body.style.fontSize = size + "px";
+  localStorage.setItem("fontSize", size);
 }
 
-// 2. Micșorare text
+// ===== Micșorare text =====
 function decreaseText() {
-  let currentSize = parseFloat(getComputedStyle(document.body).fontSize);
-  let newSize = currentSize - 2;
-  document.body.style.fontSize = newSize + "px";
-  localStorage.setItem("fontSize", newSize);
+  let size = parseFloat(getComputedStyle(document.body).fontSize);
+  size -= 2;
+  document.body.style.fontSize = size + "px";
+  localStorage.setItem("fontSize", size);
 }
 
-// 3. Text-to-Speech
+// ===== Text to Speech =====
 function speakText() {
-  const msg = new SpeechSynthesisUtterance("Bine ai venit în pagina de setări a aplicației duhovnicești.");
+  const msg = new SpeechSynthesisUtterance("Aceasta este pagina de setări a aplicației.");
   msg.lang = "ro-RO";
   speechSynthesis.speak(msg);
 }
 
-// 4. Aplicare setări salvate
-window.onload = function() {
-  // Tema
+// ===== Aplicare setări salvate =====
+window.onload = () => {
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
   }
-
-  // Dimensiune text
   if (localStorage.getItem("fontSize")) {
     document.body.style.fontSize = localStorage.getItem("fontSize") + "px";
   }
 };
 
-// 5. Dark Mode
-const toggleBtn = document.getElementById("themeToggle");
-toggleBtn.addEventListener("click", () => {
+// ===== Dark Mode =====
+document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
-
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark-mode") ? "dark" : "light"
+  );
 });
 
-// 6. Instalare aplicație (PWA)
+// ===== Instalare aplicație =====
 let deferredPrompt;
 const installBtn = document.getElementById("installBtn");
 
@@ -105,7 +139,6 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) return;
   deferredPrompt.prompt();
   await deferredPrompt.userChoice;
   deferredPrompt = null;
