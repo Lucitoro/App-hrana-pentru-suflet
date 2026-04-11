@@ -13,7 +13,7 @@ h1 {
     color: gold;
     text-shadow: 0 0 15px gold;
     margin-bottom: 25px;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 /* CONTAINER BUTOANE */
@@ -21,37 +21,42 @@ h1 {
     padding: 20px;
 }
 
-/* BUTOANE PREMIUM CU CRUCE VIZIBILĂ */
+/* BUTOANE PREMIUM CU CRUCE MARE */
 .section button {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 12px;
-    font-size: 20px;
-    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 14px;
+    font-size: 22px;
+    border-radius: 14px;
     border: 2px solid gold;
-    background: linear-gradient(145deg, #111, #222);
+    background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
     color: gold;
     font-weight: bold;
-    box-shadow: 0 0 12px gold;
-    transition: 0.3s;
+    box-shadow: 0 0 14px gold;
+    transition: 0.25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
 }
 
-/* CRUCE PREMIUM AURIE */
+/* CRUCE PREMIUM MARE + GLOW */
 .section button::before {
     content: "✝️";
-    font-size: 24px;
-    filter: drop-shadow(0 0 6px gold);
+    font-size: 32px;
+    filter: drop-shadow(0 0 8px gold);
+    transition: 0.25s ease;
 }
 
-.section button:hover {
-    background: gold;
-    color: black;
-    box-shadow: 0 0 25px gold;
-    transform: scale(1.05);
+/* EFECT LA ATINGERE (MĂRIRE + GLOW PUTERNIC) */
+.section button:active {
+    transform: scale(1.12);
+    box-shadow: 0 0 28px gold;
+}
+
+.section button:active::before {
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 16px gold);
 }
 
 /* SUBMENIU DESCĂRCARE */
