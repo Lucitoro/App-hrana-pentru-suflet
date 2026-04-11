@@ -2,60 +2,51 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Setări</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="card">
-  <p class="title">⚙️ SETĂRI APLICAȚIE</p>
+<h1>⚙️ SETĂRI APLICAȚIE</h1>
 
-  <p style="color:#d4af37; font-size:14px; margin-bottom:15px;">
-    Alege o opțiune:
-  </p>
+<!-- Mărire text -->
+<button onclick="increaseText()">🔎 Mărire text</button>
 
-  <div class="grid-2">
+<!-- Micșorare text -->
+<button onclick="decreaseText()">🔎 Micșorare text</button>
 
-    <button class="btn-dark" onclick="increaseText()">
-      🔎 Mărire text
-    </button>
+<!-- Mod întunecat / lumină -->
+<button id="themeToggle">🌙 Mod întunecat / lumină</button>
 
-    <button class="btn-dark" onclick="decreaseText()">
-      🔽 Micșorare text
-    </button>
+<!-- Citește textul -->
+<button onclick="speakText()">🔊 Citește textul</button>
 
-    <button class="btn-dark" onclick="toggleTheme()">
-      🌙 <button id="themeToggle" style="
+<!-- Buton instalare aplicație -->
+<button id="installBtn" style="
   width: 100%;
   padding: 15px;
-  margin-top: 10px;
-  background: #333;
-  color: white;
+  margin-top: 20px;
+  background: #d4af37;
+  color: black;
   border: none;
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
+  display: none;
 ">
-🌙 Mod întunecat / lumină
+📥 Instalează aplicația
 </button>
 
-    </button>
+<p style="margin-top:20px; opacity:0.7;">Versiunea 1.0</p>
 
-    <button class="btn-dark" onclick="speakText()">
-      🔊 Citește textul (TTS)
-    </button>
-
-  </div>
-
-  <p class="footer-gold">Versiunea 1.0</p>
-</div>
+<!-- ========================= -->
+<!-- SCRIPTURI FUNCȚIONALE     -->
+<!-- ========================= -->
 
 <script>
-// =========================
 // 1. Mărire text
-// =========================
 function increaseText() {
   let currentSize = parseFloat(getComputedStyle(document.body).fontSize);
   let newSize = currentSize + 2;
@@ -63,9 +54,7 @@ function increaseText() {
   localStorage.setItem("fontSize", newSize);
 }
 
-// =========================
 // 2. Micșorare text
-// =========================
 function decreaseText() {
   let currentSize = parseFloat(getComputedStyle(document.body).fontSize);
   let newSize = currentSize - 2;
@@ -73,37 +62,18 @@ function decreaseText() {
   localStorage.setItem("fontSize", newSize);
 }
 
-// =========================
-// 3. Mod lumină / întuneric
-// =========================
-function toggleTheme() {
-  document.body.classList.toggle("light-mode");
-
-  if (document.body.classList.contains("light-mode")) {
-    localStorage.setItem("theme", "light");
-  } else {
-    localStorage.setItem("theme", "dark");
-  }
-}
-
-// =========================
-// 4. TTS (Text-to-Speech)
-// =========================
+// 3. Text-to-Speech
 function speakText() {
-  const msg = new SpeechSynthesisUtterance(
-    "Bine ai venit în pagina de setări a aplicației duhovnicești."
-  );
+  const msg = new SpeechSynthesisUtterance("Bine ai venit în pagina de setări a aplicației duhovnicești.");
   msg.lang = "ro-RO";
   speechSynthesis.speak(msg);
 }
 
-// =========================
-// 5. Aplicare setări salvate
-// =========================
+// 4. Aplicare setări salvate
 window.onload = function() {
   // Tema
-  if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
   }
 
   // Dimensiune text
@@ -111,29 +81,44 @@ window.onload = function() {
     document.body.style.fontSize = localStorage.getItem("fontSize") + "px";
   }
 };
+
+// 5. Dark Mode
+const toggleBtn = document.getElementById("themeToggle");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// 6. Instalare aplicație (PWA)
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = "block";
+});
+
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.style.display = "none";
+});
 </script>
 
-<!-- Bottom Navigation -->
+<!-- Bara de navigare -->
 <div class="bottom-nav">
-  <button onclick="location.href='index.html'" class="nav-btn" id="btn-home">
-    <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9h-3v9h-12v-9h-3z"/></svg>
-    Acasă
-  </button>
-
-  <button onclick="location.href='calendar.html'" class="nav-btn" id="btn-calendar">
-    <svg viewBox="0 0 24 24"><path d="M7 2v2h10v-2h2v2h3v18h-20v-18h3v-2h2zm-3 6v12h16v-12h-16z"/></svg>
-    Calendar
-  </button>
-
-  <button onclick="location.href='rugaciuni.html'" class="nav-btn" id="btn-rugaciuni">
-    <svg viewBox="0 0 24 24"><path d="M12 2l4 4h-3v7h-2v-7h-3l4-4zm-7 18v-2h14v2h-14z"/></svg>
-    Rugăciuni
-  </button>
-
-  <button onclick="location.href='setari.html'" class="nav-btn active" id="btn-setari">
-    <svg viewBox="0 0 24 24"><path d="M12 8.6a3.4 3.4 0 1 1 0 6.8 3.4 3.4 0 0 1 0-6.8z"/></svg>
-    Setări
-  </button>
+  <button onclick="location.href='index.html'" class="nav-btn">Acasă</button>
+  <button onclick="location.href='calendar.html'" class="nav-btn">Calendar</button>
+  <button onclick="location.href='rugaciuni.html'" class="nav-btn">Rugăciuni</button>
+  <button onclick="location.href='setari.html'" class="nav-btn active">Setări</button>
 </div>
 
 <script src="nav.js"></script>
