@@ -7,25 +7,27 @@
 <link rel="stylesheet" href="style.css2?v=3">
 
 <style>
-/* TITLU PREMIUM */
+/* TITLU PREMIUM CENTRAT */
 h1 {
     text-align: center;
     color: gold;
     text-shadow: 0 0 15px gold;
     margin-bottom: 25px;
-    font-size: 30px;
+    font-size: 32px;
 }
 
-/* CONTAINER BUTOANE */
+/* BLOC UNIC PE O COLOANĂ */
 .section {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
-/* BUTOANE PREMIUM CU CRUCE MARE */
+/* BUTOANE PREMIUM CU CRUCE */
 .section button {
     width: 100%;
     padding: 18px;
-    margin-bottom: 14px;
     font-size: 22px;
     border-radius: 14px;
     border: 2px solid gold;
@@ -40,7 +42,7 @@ h1 {
     gap: 16px;
 }
 
-/* CRUCE PREMIUM MARE + GLOW */
+/* CRUCE PREMIUM MARE */
 .section button::before {
     content: "✝️";
     font-size: 32px;
@@ -48,7 +50,7 @@ h1 {
     transition: 0.25s ease;
 }
 
-/* EFECT LA ATINGERE (MĂRIRE + GLOW PUTERNIC) */
+/* EFECT LA ATINGERE */
 .section button:active {
     transform: scale(1.12);
     box-shadow: 0 0 28px gold;
@@ -114,7 +116,7 @@ h1 {
 
 <body>
 
-<h1>⚙️ Setări Premium</h1>
+<h1>✝️ Setări Premium ✝️</h1>
 
 <div class="section">
 
