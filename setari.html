@@ -3,159 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setări</title>
+<title>Setări — Premium</title>
 <link rel="stylesheet" href="style.css2?v=3">
 
-
 <style>
-/* ===== TITLURI PREMIUM ===== */
+/* TITLU PREMIUM */
 h1 {
-  text-align: center;
-  font-size: 28px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  color: #d4af37;
-  letter-spacing: 1px;
-  text-shadow: 0 0 8px rgba(212,175,55,0.4);
+    text-align: center;
+    color: gold;
+    text-shadow: 0 0 15px gold;
+    margin-bottom: 25px;
+    font-size: 28px;
 }
 
-/* ===== BUTOANE PREMIUM ===== */
-.settings-btn {
-  width: 90%;
-  margin: 10px auto;
-  display: block;
-  padding: 15px;
-  background: linear-gradient(135deg, #d4af37, #b8922a);
-  color: black;
-  border: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(212,175,55,0.4);
-  transition: 0.2s;
+/* CONTAINER BUTOANE */
+.section {
+    padding: 20px;
 }
 
-.settings-btn:active {
-  transform: scale(0.97);
-  box-shadow: 0 0 4px rgba(212,175,55,0.6);
+/* BUTOANE PREMIUM CU CRUCE VIZIBILĂ */
+.section button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: 2px solid gold;
+    background: linear-gradient(145deg, #111, #222);
+    color: gold;
+    font-weight: bold;
+    box-shadow: 0 0 12px gold;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
 }
 
-/* ===== BUTON INSTALARE ===== */
-#installBtn {
-  display: none;
+/* CRUCE PREMIUM AURIE */
+.section button::before {
+    content: "✝️";
+    font-size: 24px;
+    filter: drop-shadow(0 0 6px gold);
 }
 
-/* ===== DARK MODE PREMIUM ===== */
-.dark-mode {
-  background-color: #000 !important;
-  color: #fff !important;
+.section button:hover {
+    background: gold;
+    color: black;
+    box-shadow: 0 0 25px gold;
+    transform: scale(1.05);
 }
 
-.dark-mode h1 {
-  color: #d4af37 !important;
+/* SUBMENIU DESCĂRCARE */
+.submenu {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
-.dark-mode .settings-btn {
-  background: #222 !important;
-  color: #fff !important;
-  border: 1px solid #444 !important;
-  box-shadow: none !important;
+.submenu button {
+    background: #000;
+    border: 1px solid gold;
+    color: gold;
+    margin-top: 10px;
 }
 
-.dark-mode .bottom-nav {
-  background: #111 !important;
+.submenu button:hover {
+    background: gold;
+    color: black;
 }
 
-.dark-mode .bottom-nav button {
-  color: #fff !important;
+/* ANIMAȚIE */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* NAVIGAȚIE JOS PREMIUM */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-top: 2px solid gold;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: gold;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 0 10px gold;
+}
+
+.nav-btn.active {
+    color: white;
+    text-shadow: 0 0 15px white;
 }
 </style>
 </head>
 
 <body>
 
-<h1>⚙️ SETĂRI APLICAȚIE</h1>
+<h1>⚙️ Setări Premium</h1>
 
-<button class="settings-btn" onclick="increaseText()">🔎 Mărire text</button>
-<button class="settings-btn" onclick="decreaseText()">🔎 Micșorare text</button>
-<button class="settings-btn" id="themeToggle">🌙 Mod întunecat / lumină</button>
-<button class="settings-btn" onclick="speakText()">🔊 Citește textul</button>
+<div class="section">
 
-<!-- BUTON INSTALARE APLICAȚIE -->
-<button class="settings-btn" id="installBtn">📥 Instalează aplicația</button>
+    <button onclick="changeTextSize(1)">Mărire text</button>
+    <button onclick="changeTextSize(-1)">Micșorare text</button>
+    <button onclick="toggleDarkMode()">Mod întunecat / lumină</button>
+    <button onclick="speakText()">Citește textul (TTS)</button>
 
-<p style="text-align:center; margin-top:20px; opacity:0.7;">Versiunea 1.0</p>
+    <!-- BUTON DESCĂRCARE PREMIUM -->
+    <button onclick="toggleSubmenu()">Descarcă aplicația</button>
 
-<script>
-// ===== Mărire text =====
-function increaseText() {
-  let size = parseFloat(getComputedStyle(document.body).fontSize);
-  size += 2;
-  document.body.style.fontSize = size + "px";
-  localStorage.setItem("fontSize", size);
-}
+    <!-- SUBMENIU PREMIUM -->
+    <div id="downloadMenu" class="submenu">
+        <button onclick="location.href='app.apk'">📱 Descarcă APK</button>
+        <button onclick="installPWA()">📲 Instalează PWA</button>
+        <button onclick="location.href='document.pdf'">📄 Descarcă PDF</button>
+        <button onclick="location.href='fisier.zip'">📦 Alt fișier</button>
+    </div>
 
-// ===== Micșorare text =====
-function decreaseText() {
-  let size = parseFloat(getComputedStyle(document.body).fontSize);
-  size -= 2;
-  document.body.style.fontSize = size + "px";
-  localStorage.setItem("fontSize", size);
-}
-
-// ===== Text to Speech =====
-function speakText() {
-  const msg = new SpeechSynthesisUtterance("Aceasta este pagina de setări a aplicației.");
-  msg.lang = "ro-RO";
-  speechSynthesis.speak(msg);
-}
-
-// ===== Aplicare setări salvate =====
-window.onload = () => {
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-  }
-  if (localStorage.getItem("fontSize")) {
-    document.body.style.fontSize = localStorage.getItem("fontSize") + "px";
-  }
-};
-
-// ===== Dark Mode =====
-document.getElementById("themeToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  localStorage.setItem("theme",
-    document.body.classList.contains("dark-mode") ? "dark" : "light"
-  );
-});
-
-// ===== Instalare aplicație =====
-let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = "block";
-});
-
-installBtn.addEventListener("click", async () => {
-  deferredPrompt.prompt();
-  await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  installBtn.style.display = "none";
-});
-</script>
-
-<!-- Bara de navigare -->
-<div class="bottom-nav">
-  <button onclick="location.href='index.html'" class="nav-btn">Acasă</button>
-  <button onclick="location.href='calendar.html'" class="nav-btn">Calendar</button>
-  <button onclick="location.href='rugaciuni.html'" class="nav-btn">Rugăciuni</button>
-  <button onclick="location.href='setari.html'" class="nav-btn active">Setări</button>
 </div>
 
-<script src="nav.js"></script>
+<p style="text-align:center; color:gold; margin-bottom:80px;">Versiunea 2.0 — Premium Edition ✝️</p>
+
+<div class="bottom-nav">
+    <button class="nav-btn" onclick="location.href='index.html'">Acasă</button>
+    <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
+    <button class="nav-btn" onclick="location.href='rugaciuni.html'">Rugăciuni</button>
+    <button class="nav-btn active" onclick="location.href='setari.html'">Setări</button>
+</div>
+
+<script>
+function changeTextSize(amount) {
+    document.body.style.fontSize =
+        (parseInt(window.getComputedStyle(document.body).fontSize) + amount) + "px";
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+function speakText() {
+    const msg = new SpeechSynthesisUtterance(document.body.innerText);
+    window.speechSynthesis.speak(msg);
+}
+
+function toggleSubmenu() {
+    const menu = document.getElementById("downloadMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+function installPWA() {
+    alert("Instalarea PWA va funcționa după ce adăugăm manifest.json și service worker.");
+}
+</script>
 
 </body>
 </html>
