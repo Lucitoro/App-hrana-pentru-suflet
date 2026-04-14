@@ -5,101 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setări – Hrana pentru suflet</title>
 
-    <!-- Manifest + Service Worker -->
-    <link rel="manifest" href="manifest.json">
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("sw.js");
-        }
-    </script>
-
-    <!-- Font Awesome pentru iconițe -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- Stiluri premium -->
     <link rel="stylesheet" href="style.css2">
+
+    <style>
+        /* Card premium */
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .setting-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .slider {
+            width: 100%;
+        }
+
+        .select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: var(--btn-bg);
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            border-radius: 12px;
+            background: var(--btn-bg);
+            color: var(--text);
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+    </style>
 </head>
 
 <body>
 
 <header class="header">
-    <h1>Setări</h1>
+    Setări
 </header>
 
 <main class="container">
 
-    <!-- Mărime text -->
-    <section class="card">
-        <h2><i class="fas fa-text-height"></i> Mărime text</h2>
-        <input type="range" id="fontRange" min="14" max="30" value="18">
-        <p id="fontValue">Mărime actuală: 18px</p>
-    </section>
+    <!-- 🔹 Mărimea textului -->
+    <div class="card scroll-appear">
+        <div class="setting-title"><i class="fas fa-text-height"></i> Mărimea textului</div>
+        <input type="range" id="fontSize" min="14" max="28" value="18" class="slider">
+    </div>
 
-    <!-- Tema aplicației -->
-    <section class="card">
-        <h2><i class="fas fa-palette"></i> Tema aplicației</h2>
-        <select id="themeSelect" class="select-premium">
-            <option value="light">Luminos</option>
-            <option value="dark">Întunecat</option>
-            <option value="sepia">Sepia</option>
-        </select>
-    </section>
+    <!-- 🔹 Selectare voce TTS -->
+    <div class="card scroll-appear">
+        <div class="setting-title"><i class="fas fa-microphone"></i> Selectează vocea</div>
+        <select id="voiceSelect" class="select"></select>
+    </div>
 
-    <!-- Citire automată -->
-    <section class="card">
-        <h2><i class="fas fa-volume-up"></i> Citire automată</h2>
-        <button id="toggleVoice" class="btn-premium">
-            <i class="fas fa-play"></i> Activează citirea
-        </button>
-    </section>
+    <!-- 🔹 Citire automată -->
+    <div class="card scroll-appear">
+        <div class="setting-title"><i class="fas fa-volume-high"></i> Citire automată</div>
+        <button class="btn-action" onclick="testVoice()">Testează vocea</button>
+    </div>
 
-    <!-- Resetare setări -->
-    <section class="card">
-        <h2><i class="fas fa-undo"></i> Resetare setări</h2>
-        <button id="resetBtn" class="btn-premium">
-            <i class="fas fa-trash"></i> Resetează tot
-        </button>
-    </section>
+    <!-- 🔹 Mod întunecat -->
+    <div class="card scroll-appear">
+        <div class="setting-title"><i class="fas fa-moon"></i> Mod întunecat</div>
+        <button class="btn-action" onclick="toggleDark()">Comută mod întunecat</button>
+    </div>
 
-    <!-- Înapoi -->
-    <a href="index.html" class="btn-premium">
-        <i class="fas fa-arrow-left"></i> Înapoi la meniu
-    </a>
+    <!-- 🔹 Resetare setări -->
+    <div class="card scroll-appear">
+        <div class="setting-title"><i class="fas fa-rotate-left"></i> Resetare setări</div>
+        <button class="btn-action" onclick="resetSettings()">Resetează tot</button>
+    </div>
 
 </main>
 
+<footer class="footer">
+    Slavă lui Dumnezeu pentru toate!  
+    <br>© 2026 Hrana pentru suflet
+</footer>
+
 <script>
-    // Slider mărime text
-    const fontRange = document.getElementById("fontRange");
-    const fontValue = document.getElementById("fontValue");
+/* 🌙 Dark mode */
+function toggleDark() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+}
 
-    fontRange.addEventListener("input", () => {
-        fontValue.textContent = "Mărime actuală: " + fontRange.value + "px";
-        document.body.style.fontSize = fontRange.value + "px";
-    });
+if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark");
+}
 
-    // Tema aplicației
-    const themeSelect = document.getElementById("themeSelect");
-    themeSelect.addEventListener("change", () => {
-        document.body.setAttribute("data-theme", themeSelect.value);
-    });
+/* 🔊 Text-to-Speech */
+let voices = [];
 
-    // Citire automată
-    const toggleVoice = document.getElementById("toggleVoice");
-    toggleVoice.addEventListener("click", () => {
-        alert("Funcția de citire automată va fi activată în versiunea APK.");
-    });
+function loadVoices() {
+    voices = speechSynthesis.getVoices();
+    const select = document.getElementById("voiceSelect");
+    select.innerHTML = "";
 
-    // Resetare setări
-    const resetBtn = document.getElementById("resetBtn");
-    resetBtn.addEventListener("click", () => {
-        fontRange.value = 18;
-        fontValue.textContent = "Mărime actuală: 18px";
-        document.body.style.fontSize = "18px";
-        themeSelect.value = "light";
-        document.body.setAttribute("data-theme", "light");
-        alert("Setările au fost resetate.");
+    voices.forEach((voice, i) => {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = voice.name + " (" + voice.lang + ")";
+        select.appendChild(option);
     });
+}
+
+speechSynthesis.onvoiceschanged = loadVoices;
+
+function testVoice() {
+    const msg = new SpeechSynthesisUtterance("Aceasta este o probă de voce.");
+    msg.voice = voices[document.getElementById("voiceSelect").value];
+    speechSynthesis.speak(msg);
+}
+
+/* 🔤 Mărimea textului */
+const fontSlider = document.getElementById("fontSize");
+fontSlider.addEventListener("input", () => {
+    document.documentElement.style.fontSize = fontSlider.value + "px";
+    localStorage.setItem("fontSize", fontSlider.value);
+});
+
+if (localStorage.getItem("fontSize")) {
+    fontSlider.value = localStorage.getItem("fontSize");
+    document.documentElement.style.fontSize = fontSlider.value + "px";
+}
+
+/* ♻ Resetare */
+function resetSettings() {
+    localStorage.clear();
+    location.reload();
+}
+
+/* ✨ Scroll animations */
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".scroll-appear");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+});
 </script>
 
 </body>
