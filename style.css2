@@ -1,397 +1,225 @@
-/* BAZĂ */
+/* ------------------------------
+   VARIABILE TEMA
+------------------------------ */
+:root {
+    --bg: #f5f5f5;
+    --text: #222;
+    --card-bg: rgba(255, 255, 255, 0.35);
+    --shadow: 0 8px 25px rgba(0,0,0,0.15);
+    --accent: #4a6cf7;
+}
 
+body.dark {
+    --bg: #0f0f0f;
+    --text: #fff;
+    --card-bg: rgba(20, 20, 20, 0.45);
+    --shadow: 0 8px 25px rgba(0,0,0,0.6);
+    --accent: #6a8cff;
+}
+
+/* ------------------------------
+   GLOBAL
+------------------------------ */
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f2f2f5;
-  color: #222;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", sans-serif;
+    overflow-x: hidden;
 }
 
-/* HEADER */
-
-.app-header {
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background: radial-gradient(circle at top, #4c8bf5, #1b3b7a);
-  color: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+/* ------------------------------
+   FUNDAL ANIMAT
+------------------------------ */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, #6a8cff33, transparent),
+                radial-gradient(circle at 80% 80%, #4a6cf733, transparent);
+    filter: blur(40px);
+    z-index: -1;
+    animation: moveBg 12s infinite alternate ease-in-out;
 }
 
-.app-header h1 {
-  margin: 0;
-  font-size: 1.9rem;
-  letter-spacing: 0.03em;
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-40px, 40px); }
 }
 
-.subtitle {
-  margin-top: 0.4rem;
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
-/* MAIN */
-
-.app-main {
-  padding: 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* GRID 2 COLOANE – BUTOANE PREMIUM */
-
-.grid-section {
-  margin-bottom: 1.5rem;
-}
-
-.grid-buttons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-}
-
-.btn-card {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.9rem 1rem;
-  background: #ffffff;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #222;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s;
-}
-
-.btn-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-  border-color: #4c8bf5;
-}
-
-.btn-icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: #f3f6ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: #1b3b7a;
-}
-
-.btn-text h2 {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.btn-text p {
-  margin: 0.2rem 0 0;
-  font-size: 0.85rem;
-  color: #555;
-}
-
-/* BUTON DESCĂRCARE – MAI EVIDENT */
-
-.download-section {
-  background: #ffffff;
-  padding: 1.2rem 1.3rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  margin-bottom: 1.5rem;
-  border-left: 4px solid #28a745;
-}
-
-.download-section h2 {
-  margin-top: 0;
-}
-
-.btn-download-main {
-  display: inline-block;
-  margin-top: 0.4rem;
-  padding: 0.9rem 1.4rem;
-  background: linear-gradient(135deg, #28a745, #1e7e34);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
-  letter-spacing: 0.02em;
-}
-
-.btn-download-main:hover {
-  background: linear-gradient(135deg, #23913d, #18642a);
-}
-
-.note {
-  font-size: 0.85rem;
-  color: #555;
-  margin-top: 0.5rem;
-}
-
-/* SETĂRI */
-
-.settings-section {
-  background: #ffffff;
-  padding: 1.1rem 1.3rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  margin-bottom: 1.5rem;
-}
-
-.btn-settings-link {
-  display: inline-block;
-  margin-top: 0.4rem;
-  padding: 0.7rem 1.2rem;
-  background: #6c757d;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 999px;
-  font-weight: 500;
-}
-
-.btn-settings-link:hover {
-  background: #545b62;
-}
-
-/* FOOTER */
-
-.app-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: #777;
-}
-
-/* RESPONSIVE MIC */
-
-@media (max-width: 480px) {
-  .app-main {
-    padding: 1rem;
-  }
-
-  .btn-card {
-    padding: 0.8rem 0.9rem;
-  }
-}/* ================================
-   OPTIMIZARE ULTRA-PREMIUM
-   (se poate lipi direct sub codul existent)
-================================ */
-
-/* TITLURI CENTRATE PREMIUM */
-.section-title {
-    text-align: center;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 40px 0 20px;
-    color: #2a3bb8;
-    letter-spacing: 0.5px;
-}
-
-/* CARDURI PREMIUM 3D */
-.card {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(12px);
-    padding: 22px;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    margin: 20px 0;
-    transition: all 0.35s ease;
-    transform-style: preserve-3d;
-}
-
-.card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-}
-
-/* BUTOANE PREMIUM CU GLOW */
-.btn-premium {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    padding: 16px 22px;
-    font-size: 17px;
-    background: linear-gradient(135deg, #6a8dff, #4a6cf7);
-    box-shadow: 0 6px 18px rgba(74,108,247,0.35);
-}
-
-.btn-premium:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 26px rgba(74,108,247,0.45);
-}
-
-.btn-premium::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%);
-    transform: scale(0);
-    transition: transform 0.4s ease;
-}
-
-.btn-premium:hover::after {
-    transform: scale(1);
-}
-
-/* ICONIȚE PERSONALIZATE */
-.btn-premium i,
-.menu-auto i {
-    background: rgba(255,255,255,0.25);
-    padding: 6px;
-    border-radius: 10px;
-    backdrop-filter: blur(4px);
-}
-
-/* MENIU PREMIUM */
-.menu-auto {
-    display: flex;
-    justify-content: space-around;
-    background: linear-gradient(135deg, #eef2ff, #dce4ff);
-    padding: 14px;
-    border-radius: 16px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-}
-
-.menu-auto a {
-    text-decoration: none;
-    color: #3a4fd9;
-    font-weight: 700;
-    font-size: 15px;
+/* ------------------------------
+   HEADER
+------------------------------ */
+.header {
     display: flex;
     align-items: center;
-    gap: 6px;
-    transition: 0.25s ease;
+    padding: 15px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.menu-auto a:hover {
-    transform: translateY(-3px);
-    color: #1e2bb8;
+.menu-btn {
+    font-size: 1.6rem;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
-/* FUNDAL PREMIUM */
-body {
-    background: linear-gradient(135deg, #e8eeff, #f6f9ff);
-    font-family: 'Segoe UI', sans-serif;
+.app-title {
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
-.container {
-    padding: 20px;
-}/* ================================
-   OPTIMIZARE ULTRA-PREMIUM
-   (se poate lipi direct sub codul existent)
-================================ */
-
-/* TITLURI CENTRATE PREMIUM */
-.section-title {
-    text-align: center;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 40px 0 20px;
-    color: #2a3bb8;
-    letter-spacing: 0.5px;
+/* ------------------------------
+   MENIU LATERAL
+------------------------------ */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    box-shadow: var(--shadow);
+    padding-top: 70px;
+    transition: 0.35s ease;
+    z-index: 20;
 }
 
-/* CARDURI PREMIUM 3D */
-.card {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(12px);
-    padding: 22px;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    margin: 20px 0;
-    transition: all 0.35s ease;
-    transform-style: preserve-3d;
+.side-menu.open {
+    left: 0;
 }
 
-.card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-}
-
-/* BUTOANE PREMIUM CU GLOW */
-.btn-premium {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    padding: 16px 22px;
-    font-size: 17px;
-    background: linear-gradient(135deg, #6a8dff, #4a6cf7);
-    box-shadow: 0 6px 18px rgba(74,108,247,0.35);
-}
-
-.btn-premium:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 26px rgba(74,108,247,0.45);
-}
-
-.btn-premium::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%);
-    transform: scale(0);
-    transition: transform 0.4s ease;
-}
-
-.btn-premium:hover::after {
-    transform: scale(1);
-}
-
-/* ICONIȚE PERSONALIZATE */
-.btn-premium i,
-.menu-auto i {
-    background: rgba(255,255,255,0.25);
-    padding: 6px;
-    border-radius: 10px;
-    backdrop-filter: blur(4px);
-}
-
-/* MENIU PREMIUM */
-.menu-auto {
-    display: flex;
-    justify-content: space-around;
-    background: linear-gradient(135deg, #eef2ff, #dce4ff);
-    padding: 14px;
-    border-radius: 16px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-}
-
-.menu-auto a {
+.side-menu a {
+    display: block;
+    padding: 18px;
+    font-size: 1.1rem;
+    color: var(--text);
     text-decoration: none;
-    color: #3a4fd9;
-    font-weight: 700;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: 0.25s ease;
 }
 
-.menu-auto a:hover {
-    transform: translateY(-3px);
-    color: #1e2bb8;
+.side-menu a i {
+    margin-right: 10px;
 }
 
-/* FUNDAL PREMIUM */
-body {
-    background: linear-gradient(135deg, #e8eeff, #f6f9ff);
-    font-family: 'Segoe UI', sans-serif;
-}
-
+/* ------------------------------
+   CARDURI 3D
+------------------------------ */
 .container {
     padding: 20px;
 }
 
+.card3d {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    text-align: center;
+}
 
+.card3d:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.card3d i {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.card3d h2 {
+    margin: 5px 0;
+}
+
+.card3d p {
+    opacity: 0.8;
+}
+
+/* ------------------------------
+   MENIU JOS
+------------------------------ */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: var(--shadow);
+}
+
+.bottom-nav a {
+    color: var(--text);
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.bottom-nav a i {
+    font-size: 1.4rem;
+}
+
+.bottom-nav .active {
+    color: var(--accent);
+}
+
+/* ------------------------------
+   BUTON TTS PLUTITOR
+------------------------------ */
+.floating-tts {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.floating-tts:hover {
+    transform: scale(1.1);
+}
+
+/* ------------------------------
+   ANIMAȚII SCROLL
+------------------------------ */
+.scroll-appear {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.5s ease;
+}
+
+.scroll-appear.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media (min-width: 700px) {
+    .card3d {
+        max-width: 500px;
+        margin: 20px auto;
+    }
+}
