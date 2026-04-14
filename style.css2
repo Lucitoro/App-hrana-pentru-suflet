@@ -284,5 +284,114 @@ body {
 
 .container {
     padding: 20px;
+}/* ================================
+   OPTIMIZARE ULTRA-PREMIUM
+   (se poate lipi direct sub codul existent)
+================================ */
+
+/* TITLURI CENTRATE PREMIUM */
+.section-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 40px 0 20px;
+    color: #2a3bb8;
+    letter-spacing: 0.5px;
 }
+
+/* CARDURI PREMIUM 3D */
+.card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    margin: 20px 0;
+    transition: all 0.35s ease;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+}
+
+/* BUTOANE PREMIUM CU GLOW */
+.btn-premium {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    padding: 16px 22px;
+    font-size: 17px;
+    background: linear-gradient(135deg, #6a8dff, #4a6cf7);
+    box-shadow: 0 6px 18px rgba(74,108,247,0.35);
+}
+
+.btn-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(74,108,247,0.45);
+}
+
+.btn-premium::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%);
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+.btn-premium:hover::after {
+    transform: scale(1);
+}
+
+/* ICONIȚE PERSONALIZATE */
+.btn-premium i,
+.menu-auto i {
+    background: rgba(255,255,255,0.25);
+    padding: 6px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+}
+
+/* MENIU PREMIUM */
+.menu-auto {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #eef2ff, #dce4ff);
+    padding: 14px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.menu-auto a {
+    text-decoration: none;
+    color: #3a4fd9;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.25s ease;
+}
+
+.menu-auto a:hover {
+    transform: translateY(-3px);
+    color: #1e2bb8;
+}
+
+/* FUNDAL PREMIUM */
+body {
+    background: linear-gradient(135deg, #e8eeff, #f6f9ff);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
+
 
