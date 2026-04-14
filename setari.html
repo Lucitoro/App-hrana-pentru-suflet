@@ -88,6 +88,30 @@
         <div class="setting-title"><i class="fas fa-moon"></i> Mod întunecat</div>
         <button class="btn-action" onclick="toggleDark()">Comută mod întunecat</button>
     </div>
+<!-- 🔹 Citire cu voce (cu sub-meniu) -->
+<div class="card scroll-appear">
+    <div class="setting-title"><i class="fas fa-volume-up"></i> Citire cu voce</div>
+
+    <button class="btn-action" onclick="toggleReadMenu()">
+        <i class="fas fa-chevron-down"></i> Afișează opțiunile
+    </button>
+
+    <div id="readMenu" style="display:none; margin-top:15px;">
+
+        <button class="btn-action" onclick="readSelection()">
+            <i class="fas fa-highlighter"></i> Citește textul selectat
+        </button>
+
+        <button class="btn-action" onclick="readPage()">
+            <i class="fas fa-file-alt"></i> Citește toată pagina
+        </button>
+
+        <button class="btn-action" onclick="readSection()">
+            <i class="fas fa-align-left"></i> Citește secțiunea curentă
+        </button>
+
+    </div>
+</div>
 
     <!-- 🔹 Resetare setări -->
     <div class="card scroll-appear">
