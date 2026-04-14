@@ -12,31 +12,74 @@
 
 <header class="app-header">
   <h1>Setări</h1>
-  <p class="subtitle">Personalizează experiența aplicației</p>
+  <p class="subtitle">Controlează aplicația după preferințele tale</p>
 </header>
 
 <main class="app-main">
 
-  <!-- NOTIFICĂRI -->
-  <section class="settings-section">
-    <h2>🔔 Notificări zilnice</h2>
-    <p>(Opțiune viitoare – notificări push sau remindere.)</p>
+  <!-- GRID 2 COLOANE – BUTOANE PREMIUM -->
+  <section class="grid-section">
+    <div class="grid-buttons">
+
+      <!-- NOTIFICĂRI -->
+      <a class="btn-card">
+        <div class="btn-icon">🔔</div>
+        <div class="btn-text">
+          <h2>Notificări zilnice</h2>
+          <p>Opțiune viitoare pentru remindere și alerte.</p>
+        </div>
+      </a>
+
+      <!-- TEMA -->
+      <a class="btn-card">
+        <div class="btn-icon">🎨</div>
+        <div class="btn-text">
+          <h2>Temă aplicație</h2>
+          <p>Mod luminos / întunecat (în curând).</p>
+        </div>
+      </a>
+
+      <!-- ACTUALIZĂRI -->
+      <a class="btn-card">
+        <div class="btn-icon">📥</div>
+        <div class="btn-text">
+          <h2>Actualizări</h2>
+          <p>Aplicația se actualizează automat.</p>
+        </div>
+      </a>
+
+      <!-- DESCĂRCĂRI -->
+      <a href="#downloads" class="btn-card">
+        <div class="btn-icon">⬇️</div>
+        <div class="btn-text">
+          <h2>Descărcări</h2>
+          <p>APK, Web, PWA – toate versiunile.</p>
+        </div>
+      </a>
+
+      <!-- CITIRE TEXT -->
+      <a href="#reader" class="btn-card">
+        <div class="btn-icon">🔊</div>
+        <div class="btn-text">
+          <h2>Citire text</h2>
+          <p>Voce naturală în mai multe limbi.</p>
+        </div>
+      </a>
+
+      <!-- AVANSATE -->
+      <a class="btn-card">
+        <div class="btn-icon">⚙️</div>
+        <div class="btn-text">
+          <h2>Preferințe avansate</h2>
+          <p>Opțiuni suplimentare în dezvoltare.</p>
+        </div>
+      </a>
+
+    </div>
   </section>
 
-  <!-- TEMA -->
-  <section class="settings-section">
-    <h2>🎨 Temă aplicație</h2>
-    <p>(În viitor: mod luminos / întunecat.)</p>
-  </section>
-
-  <!-- ACTUALIZĂRI -->
-  <section class="settings-section">
-    <h2>📥 Actualizări</h2>
-    <p>Aplicația se actualizează automat când este deschisă.</p>
-  </section>
-
-  <!-- DESCĂRCARE ÎN MAI MULTE VERSIUNI -->
-  <section class="settings-section">
+  <!-- SECȚIUNE DESCĂRCĂRI -->
+  <section id="downloads" class="settings-section">
     <h2>⬇️ Descărcări</h2>
 
     <a href="app.apk" download class="btn-download-main" style="display:block; margin-bottom:10px;">
@@ -52,12 +95,12 @@
     </a>
 
     <p class="note" style="margin-top:10px;">
-      *Versiunea PWA se instalează direct din browser (Chrome / Edge / Safari).*
+      *Versiunea PWA se instalează direct din browser.*
     </p>
   </section>
 
-  <!-- CITIRE TEXT SELECTAT -->
-  <section class="settings-section">
+  <!-- SECȚIUNE CITIRE TEXT -->
+  <section id="reader" class="settings-section">
     <h2>🔊 Citire text selectat</h2>
     <p>Selectează orice text din aplicație și apasă butonul de mai jos.</p>
 
@@ -78,12 +121,6 @@
     <p class="note">Funcționează pe Chrome, Edge, Android, iOS.</p>
   </section>
 
-  <!-- PREFERINȚE AVANSATE -->
-  <section class="settings-section">
-    <h2>⚙️ Preferințe avansate</h2>
-    <p>Opțiuni viitoare: limba, fontul, dimensiunea textului, notificări personalizate.</p>
-  </section>
-
   <!-- ÎNAPOI -->
   <div style="text-align:center; margin-top:1.5rem;">
     <a href="index.html" class="btn-settings-link">⬅️ Înapoi la aplicație</a>
@@ -95,7 +132,6 @@
   <p>&copy; Hrana pentru suflet</p>
 </footer>
 
-<!-- SCRIPT CITIRE TEXT -->
 <script>
 function readSelectedText() {
   const selectedText = window.getSelection().toString().trim();
