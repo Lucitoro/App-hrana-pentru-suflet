@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hrana pentru suflet</title>
 
-    <!-- Manifest + Service Worker -->
+    <!-- Manifest PWA -->
     <link rel="manifest" href="manifest.json">
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("sw.js");
-        }
-    </script>
+
+    <!-- Iconițe PWA -->
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -22,95 +21,250 @@
 
 <body>
 
-<!-- ⭐ HEADER PREMIUM -->
+<!-- 🔹 HEADER PREMIUM -->
 <header class="header">
-    Hrana pentru suflet
+    <div class="menu-btn" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+    <h1 class="app-title">Hrana pentru suflet</h1>
 </header>
 
-<!-- ⭐ DARK MODE BUTTON -->
-<button onclick="document.body.classList.toggle('dark')" class="btn-premium scroll-appear">
-    🌙 Mod întunecat
-</button>
+<!-- 🔹 MENIU LATERAL PREMIUM -->
+<nav id="sideMenu" class="side-menu">
+    <a href="index.html"><i class="fas fa-home"></i> Acasă</a>
+    <a href="rugaciuni.html"><i class="fas fa-book"></i> Rugăciuni</a>
+    <a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a>
+    <a href="setari.html"><i class="fas fa-gear"></i> Setări</a>
+</nav>
 
+<!-- 🔹 FUNDAL ANIMAT -->
+<div class="background-animation"></div>
+
+<!-- 🔹 CONȚINUT PRINCIPAL -->
 <main class="container">
 
-    <!-- Butoanele principale -->
-    <a href="rugaciuni.html" class="btn-premium scroll-appear">
+    <!-- CARDURI 3D PREMIUM -->
+    <div class="card3d" onclick="goTo('rugaciuni.html')">
         <i class="fas fa-book-open"></i>
-        Rugăciuni
-    </a>
+        <h2>Rugăciuni</h2>
+        <p>Rugăciuni zilnice, acatiste, psalmi</p>
+    </div>
 
-    <a href="calendar.html" class="btn-premium scroll-appear">
-        <i class="fas fa-calendar-alt"></i>
-        Calendar Ortodox
-    </a>
+    <div class="card3d" onclick="goTo('calendar.html')">
+        <i class="fas fa-calendar"></i>
+        <h2>Calendar</h2>
+        <p>Sfinții zilei și sărbători</p>
+    </div>
 
-    <a href="setari.html" class="btn-premium scroll-appear">
-        <i class="fas fa-cog"></i>
-        Setări
-    </a>
+    <div class="card3d" onclick="goTo('carti.html')">
+        <i class="fas fa-book-bible"></i>
+        <h2>Cărți duhovnicești</h2>
+        <p>Lecturi pentru suflet</p>
+    </div>
 
-    <a href="https://lucitoro.github.io/App-hrana-pentru-suflet" class="btn-premium scroll-appear">
-        <i class="fas fa-globe"></i>
-        Versiunea Web (Online)
-    </a>
-
-    <a href="app.apk" class="btn-premium scroll-appear">
-        <i class="fas fa-download"></i>
-        Descarcă versiunea Android (APK)
-    </a>
-
-    <!-- 📚 RESURSE DUHOVNICEȘTI -->
-    <h2 class="section-title scroll-appear">📚 Resurse duhovnicești</h2>
-
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-search"></i> Caută în calendar 2026</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-hands-praying"></i> Rugăciunile începătoare</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-scroll"></i> Psaltirea lui David</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-book-bible"></i> Acatiste și Canoane pe tot anul</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-heart"></i> Rugăciuni la diferite trebuințe</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-cross"></i> Rugăciuni ortodoxe</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-book-open"></i> 📖 Cărți duhovnicești (citește sau descarcă)</a>
-
-    <!-- 🙏 PRAVILA DE RUGĂCIUNE -->
-    <h2 class="section-title scroll-appear">🙏 Pravila de rugăciune</h2>
-
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-book"></i> Pravila Zilnică</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-sun"></i> Rugăciunile de dimineață</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-calendar-week"></i> Rugăciuni săptămânale</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-cloud-sun"></i> Rugăciunile înserării</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-moon"></i> Rugăciunile de seară</a>
-
-    <!-- ✝️ SFINTELE TAINE -->
-    <h2 class="section-title scroll-appear">✝️ Sfintele Taine</h2>
-
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-user-check"></i> Înainte de Spovedanie</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-user-shield"></i> După Spovedanie</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-bread-slice"></i> Înainte de Împărtășanie</a>
-    <a href="#" class="btn-premium scroll-appear"><i class="fas fa-hands"></i> După Împărtășanie</a>
+    <div class="card3d" onclick="goTo('setari.html')">
+        <i class="fas fa-gear"></i>
+        <h2>Setări</h2>
+        <p>Personalizează aplicația</p>
+    </div>
 
 </main>
 
-<!-- ⭐ FOOTER PREMIUM -->
-<footer class="footer">
-    Slavă lui Dumnezeu pentru toate!  
-    <br>© 2026 Hrana pentru suflet
+<!-- 🔹 MENIU JOS (stil aplicație mobilă) -->
+<footer class="bottom-nav">
+    <a href="index.html" class="active"><i class="fas fa-home"></i><span>Acasă</span></a>
+    <a href="rugaciuni.html"><i class="fas fa-book"></i><span>Rugăciuni</span></a>
+    <a href="calendar.html"><i class="fas fa-calendar"></i><span>Calendar</span></a>
+    <a href="setari.html"><i class="fas fa-gear"></i><span>Setări</span></a>
 </footer>
 
-<!-- ⭐ SCRIPT EFECTE DE SCROLL -->
+<!-- 🔹 BUTON PLUTITOR CITIRE CU VOCE -->
+<button class="floating-tts" onclick="openTTS()">
+    <i class="fas fa-volume-up"></i>
+</button>
+
 <script>
+
+/* 🔹 MENIU LATERAL */
+function toggleMenu() {
+    document.getElementById("sideMenu").classList.toggle("open");
+}
+
+/* 🔹 NAVIGARE */
+function goTo(page) {
+    window.location.href = page;
+}
+
+/* 🔹 DESCHIDE SETĂRILE DIRECT LA TTS */
+function openTTS() {
+    window.location.href = "setari.html#tts";
+}
+
+/* 🔹 ANIMAȚII LA SCROLL */
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll(".scroll-appear");
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
+            if (entry.isIntersecting) entry.target.classList.add("visible");
         });
     }, { threshold: 0.2 });
 
     elements.forEach(el => observer.observe(el));
 });
+
+/* 🔹 TTS – ÎNCĂRCARE VOCILE */
+let voices = [];
+
+function loadVoices() {
+    voices = speechSynthesis.getVoices();
+}
+
+speechSynthesis.onvoiceschanged = loadVoices;
+
+/* 🔹 TTS – FUNCȚII PREMIUM */
+
+/* Citește textul selectat */
+function readSelection() {
+    let text = window.getSelection().toString();
+    if (!text) {
+        alert("Selectează textul pe care vrei să îl citească.");
+        return;
+    }
+    speakText(text);
+}
+
+/* Citește toată pagina */
+function readPage() {
+    let text = document.body.innerText;
+    speakText(text);
+}
+
+/* Citește secțiunea curentă */
+function readSection() {
+    let el = document.activeElement;
+    if (!el || !el.innerText) {
+        alert("Apasă pe o secțiune înainte de citire.");
+        return;
+    }
+    speakText(el.innerText);
+}
+
+/* Citește cu voce reală */
+function readRealVoice() {
+    let text = window.getSelection().toString() || document.body.innerText;
+
+    const msg = new SpeechSynthesisUtterance(text);
+
+    const realVoice = voices.find(v =>
+        v.name.toLowerCase().includes("natural") ||
+        v.name.toLowerCase().includes("neural") ||
+        v.name.toLowerCase().includes("premium") ||
+        v.lang.startsWith("ro")
+    );
+
+    msg.voice = realVoice || voices[0];
+    msg.pitch = 1;
+    msg.rate = 0.95;
+    msg.volume = 1;
+
+    speechSynthesis.speak(msg);
+}
+
+/* Citește cu voce masculină */
+function readMale() {
+    let text = window.getSelection().toString() || document.body.innerText;
+
+    const msg = new SpeechSynthesisUtterance(text);
+
+    const maleVoice = voices.find(v =>
+        v.name.toLowerCase().includes("male") ||
+        v.name.toLowerCase().includes("bariton") ||
+        v.name.toLowerCase().includes("bass")
+    );
+
+    msg.voice = maleVoice || voices[0];
+    msg.pitch = 0.9;
+    msg.rate = 1;
+
+    speechSynthesis.speak(msg);
+}
+
+/* Citește cu voce feminină */
+function readFemale() {
+    let text = window.getSelection().toString() || document.body.innerText;
+
+    const msg = new SpeechSynthesisUtterance(text);
+
+    const femaleVoice = voices.find(v =>
+        v.name.toLowerCase().includes("female") ||
+        v.name.toLowerCase().includes("soprano") ||
+        v.name.toLowerCase().includes("alto")
+    );
+
+    msg.voice = femaleVoice || voices[0];
+    msg.pitch = 1.2;
+    msg.rate = 1;
+
+    speechSynthesis.speak(msg);
+}
+
+/* Citește lent */
+function readSlow() {
+    let text = window.getSelection().toString() || document.body.innerText;
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.rate = 0.7;
+    speechSynthesis.speak(msg);
+}
+
+/* Citește normal */
+function readNormal() {
+    let text = window.getSelection().toString() || document.body.innerText;
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.rate = 1;
+    speechSynthesis.speak(msg);
+}
+
+/* Citește rapid */
+function readFast() {
+    let text = window.getSelection().toString() || document.body.innerText;
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.rate = 1.4;
+    speechSynthesis.speak(msg);
+}
+
+/* Citește doar titlurile */
+function readTitles() {
+    const titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")]
+        .map(el => el.innerText)
+        .join(". ");
+
+    if (!titles) {
+        alert("Nu există titluri în această pagină.");
+        return;
+    }
+
+    speakText(titles);
+}
+
+/* Oprește citirea */
+function stopReading() {
+    speechSynthesis.cancel();
+}
+
+/* Funcție generală de citire */
+function speakText(text) {
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.voice = voices[0];
+    msg.rate = 1;
+    speechSynthesis.speak(msg);
+}
+
+/* 🔹 PWA – SERVICE WORKER */
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+}
+
 </script>
 
 </body>
