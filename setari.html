@@ -1,164 +1,105 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<title>Setări – Hrana pentru suflet</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setări – Hrana pentru suflet</title>
 
-<!-- Stil premium -->
-<link rel="stylesheet" href="style.css2">
+    <!-- Manifest + Service Worker -->
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
 
+    <!-- Font Awesome pentru iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Stiluri premium -->
+    <link rel="stylesheet" href="style.css2">
 </head>
 
 <body>
 
-<header class="app-header">
+<header class="header">
     <h1>Setări</h1>
-    <p class="subtitle">Controlează aplicația după preferințele tale</p>
 </header>
 
-<main class="app-main">
+<main class="container">
 
-<!-- GRID PREMIUM -->
-<section class="grid-section">
-<div class="grid-buttons">
+    <!-- Mărime text -->
+    <section class="card">
+        <h2><i class="fas fa-text-height"></i> Mărime text</h2>
+        <input type="range" id="fontRange" min="14" max="30" value="18">
+        <p id="fontValue">Mărime actuală: 18px</p>
+    </section>
 
-<a class="btn-card">
-<div class="btn-icon">🔔</div>
-<div class="btn-text">
-<h2>Notificări zilnice</h2>
-<p>Opțiune viitoare pentru remindere și alerte.</p>
-</div>
-</a>
+    <!-- Tema aplicației -->
+    <section class="card">
+        <h2><i class="fas fa-palette"></i> Tema aplicației</h2>
+        <select id="themeSelect" class="select-premium">
+            <option value="light">Luminos</option>
+            <option value="dark">Întunecat</option>
+            <option value="sepia">Sepia</option>
+        </select>
+    </section>
 
-<a class="btn-card">
-<div class="btn-icon">🎨</div>
-<div class="btn-text">
-<h2>Temă aplicație</h2>
-<p>Mod luminos / întunecat (în curând).</p>
-</div>
-</a>
+    <!-- Citire automată -->
+    <section class="card">
+        <h2><i class="fas fa-volume-up"></i> Citire automată</h2>
+        <button id="toggleVoice" class="btn-premium">
+            <i class="fas fa-play"></i> Activează citirea
+        </button>
+    </section>
 
-<a class="btn-card">
-<div class="btn-icon">📥</div>
-<div class="btn-text">
-<h2>Actualizări</h2>
-<p>Aplicația se actualizează automat.</p>
-</div>
-</a>
+    <!-- Resetare setări -->
+    <section class="card">
+        <h2><i class="fas fa-undo"></i> Resetare setări</h2>
+        <button id="resetBtn" class="btn-premium">
+            <i class="fas fa-trash"></i> Resetează tot
+        </button>
+    </section>
 
-<a href="#downloads" class="btn-card">
-<div class="btn-icon">⬇️</div>
-<div class="btn-text">
-<h2>Descărcări</h2>
-<p>APK, Web, PWA – toate versiunile.</p>
-</div>
-</a>
-
-<a href="#reader" class="btn-card">
-<div class="btn-icon">🔊</div>
-<div class="btn-text">
-<h2>Citire text</h2>
-<p>Voce naturală în mai multe limbi.</p>
-</div>
-</a>
-
-<a class="btn-card">
-<div class="btn-icon">⚙️</div>
-<div class="btn-text">
-<h2>Preferințe avansate</h2>
-<p>Opțiuni suplimentare în dezvoltare.</p>
-</div>
-</a>
-
-</div>
-</section>
-
-<!-- SECȚIUNEA DESCĂRCĂRI -->
-<section id="downloads" class="settings-section">
-<h2>Descărcări</h2>
-
-<a href="app.apk" download class="btn-download-main" style="display:block; margin-bottom:10px;">
-Descarcă versiunea Android (APK)
-</a>
-
-<a href="https://lucitoro.github.io/App-hrana-pentru-suflet/" class="btn-premium" style="display:block; margin-bottom:10px;">
-Versiunea Web (Online)
-</a>
-
-<a class="btn-premium" style="display:block;">
-Instalează ca PWA (Add to Home Screen)
-</a>
-
-<p class="note" style="margin-top:10px;">
-Versiunea PWA se instalează direct din browser.
-</p>
-</section>
-
-<!-- SECȚIUNEA CITIRE TEXT -->
-<section id="reader" class="settings-section">
-<h2>Citire text selectat</h2>
-<p>Selectează orice text din aplicație și apasă butonul de mai jos.</p>
-
-<label for="voiceLang"><strong>Alege limba vocii:</strong></label>
-<select id="voiceLang" class="btn-premium" style="width:100%; margin:10px 0;">
-<option value="ro-RO">Română</option>
-<option value="en-US">Engleză</option>
-<option value="it-IT">Italiană</option>
-<option value="es-ES">Spaniolă</option>
-<option value="fr-FR">Franceză</option>
-<option value="de-DE">Germană</option>
-</select>
-
-<button onclick="readSelectedText()" class="btn-download-main" style="width:100%;">
-Citește textul selectat
-</button>
-
-<p class="note">Funcționează pe Chrome, Edge, Android, iOS.</p>
-</section>
-
-<!-- BUTON ÎNAPOI -->
-<div style="text-align:center; margin-top:1.5rem;">
-    <a href="index.html" class="btn-settings-link">⬅️ Înapoi la aplicație</a>
-</div>
-
-<!-- BUTON IEȘIRE -->
-<div style="text-align:center; margin-top:1rem;">
-    <button onclick="exitApp()" class="btn-settings-link" style="background:#d9534f; color:white;">
-        ⛔ Ieșire din aplicație
-    </button>
-</div>
+    <!-- Înapoi -->
+    <a href="index.html" class="btn-premium">
+        <i class="fas fa-arrow-left"></i> Înapoi la meniu
+    </a>
 
 </main>
 
-<footer class="app-footer">
-    <p>&copy; Hrana pentru suflet</p>
-</footer>
-
 <script>
-function readSelectedText() {
-  const selectedText = window.getSelection().toString().trim();
-  if (!selectedText) {
-    alert("Selectează un text din pagină înainte să apeși butonul.");
-    return;
-  }
-  const lang = document.getElementById("voiceLang").value;
-  const utterance = new SpeechSynthesisUtterance(selectedText);
-  utterance.lang = lang;
-  utterance.rate = 1;
-  utterance.pitch = 1;
-  speechSynthesis.speak(utterance);
-}
+    // Slider mărime text
+    const fontRange = document.getElementById("fontRange");
+    const fontValue = document.getElementById("fontValue");
 
-function exitApp() {
-    if (navigator.app && navigator.app.exitApp) {
-        navigator.app.exitApp();
-    } else if (window.close) {
-        window.close();
-    } else {
-        alert("Închiderea aplicației nu este permisă în browser.");
-    }
-}
+    fontRange.addEventListener("input", () => {
+        fontValue.textContent = "Mărime actuală: " + fontRange.value + "px";
+        document.body.style.fontSize = fontRange.value + "px";
+    });
+
+    // Tema aplicației
+    const themeSelect = document.getElementById("themeSelect");
+    themeSelect.addEventListener("change", () => {
+        document.body.setAttribute("data-theme", themeSelect.value);
+    });
+
+    // Citire automată
+    const toggleVoice = document.getElementById("toggleVoice");
+    toggleVoice.addEventListener("click", () => {
+        alert("Funcția de citire automată va fi activată în versiunea APK.");
+    });
+
+    // Resetare setări
+    const resetBtn = document.getElementById("resetBtn");
+    resetBtn.addEventListener("click", () => {
+        fontRange.value = 18;
+        fontValue.textContent = "Mărime actuală: 18px";
+        document.body.style.fontSize = "18px";
+        themeSelect.value = "light";
+        document.body.setAttribute("data-theme", "light");
+        alert("Setările au fost resetate.");
+    });
 </script>
 
 </body>
