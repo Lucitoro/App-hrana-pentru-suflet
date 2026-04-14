@@ -1,174 +1,117 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setări — Premium</title>
-<link rel="stylesheet" href="style.css2?v=3">
+  <meta charset="UTF-8">
+  <title>Setări – Hrana pentru suflet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-/* TITLU PREMIUM CENTRAT */
-h1 {
-    text-align: center;
-    color: gold;
-    text-shadow: 0 0 15px gold;
-    margin-bottom: 25px;
-    font-size: 32px;
-}
-
-/* BLOC UNIC PE O COLOANĂ */
-.section {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-/* BUTOANE PREMIUM CU CRUCE */
-.section button {
-    width: 100%;
-    padding: 18px;
-    font-size: 22px;
-    border-radius: 14px;
-    border: 2px solid gold;
-    background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-    color: gold;
-    font-weight: bold;
-    box-shadow: 0 0 14px gold;
-    transition: 0.25s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-}
-
-/* CRUCE PREMIUM MARE */
-.section button::before {
-    content: "✝️";
-    font-size: 32px;
-    filter: drop-shadow(0 0 8px gold);
-    transition: 0.25s ease;
-}
-
-/* EFECT LA ATINGERE */
-.section button:active {
-    transform: scale(1.12);
-    box-shadow: 0 0 28px gold;
-}
-
-.section button:active::before {
-    transform: scale(1.35);
-    filter: drop-shadow(0 0 16px gold);
-}
-
-/* SUBMENIU DESCĂRCARE */
-.submenu {
-    display: none;
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-.submenu button {
-    background: #000;
-    border: 1px solid gold;
-    color: gold;
-    margin-top: 10px;
-}
-
-.submenu button:hover {
-    background: gold;
-    color: black;
-}
-
-/* ANIMAȚIE */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-/* NAVIGAȚIE JOS PREMIUM */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #000;
-    border-top: 2px solid gold;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-}
-
-.nav-btn {
-    background: none;
-    border: none;
-    color: gold;
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 0 0 10px gold;
-}
-
-.nav-btn.active {
-    color: white;
-    text-shadow: 0 0 15px white;
-}
-</style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<h1>✝️ Setări Premium ✝️</h1>
+<header class="app-header">
+  <h1>Setări</h1>
+  <p class="subtitle">Personalizează experiența aplicației</p>
+</header>
 
-<div class="section">
+<main class="app-main">
 
-    <button onclick="changeTextSize(1)">Mărire text</button>
-    <button onclick="changeTextSize(-1)">Micșorare text</button>
-    <button onclick="toggleDarkMode()">Mod întunecat / lumină</button>
-    <button onclick="speakText()">Citește textul (TTS)</button>
+  <!-- NOTIFICĂRI -->
+  <section class="settings-section">
+    <h2>🔔 Notificări zilnice</h2>
+    <p>(Opțiune viitoare – notificări push sau remindere.)</p>
+  </section>
 
-    <!-- BUTON DESCĂRCARE PREMIUM -->
-    <button onclick="toggleSubmenu()">Descarcă aplicația</button>
+  <!-- TEMA -->
+  <section class="settings-section">
+    <h2>🎨 Temă aplicație</h2>
+    <p>(În viitor: mod luminos / întunecat.)</p>
+  </section>
 
-    <!-- SUBMENIU PREMIUM -->
-    <div id="downloadMenu" class="submenu">
-        <button onclick="location.href='app.apk'">📱 Descarcă APK</button>
-        <button onclick="installPWA()">📲 Instalează PWA</button>
-        <button onclick="location.href='document.pdf'">📄 Descarcă PDF</button>
-        <button onclick="location.href='fisier.zip'">📦 Alt fișier</button>
-    </div>
+  <!-- ACTUALIZĂRI -->
+  <section class="settings-section">
+    <h2>📥 Actualizări</h2>
+    <p>Aplicația se actualizează automat când este deschisă.</p>
+  </section>
 
-</div>
+  <!-- DESCĂRCARE ÎN MAI MULTE VERSIUNI -->
+  <section class="settings-section">
+    <h2>⬇️ Descărcări</h2>
 
-<p style="text-align:center; color:gold; margin-bottom:80px;">Versiunea 2.0 — Premium Edition ✝️</p>
+    <a href="app.apk" download class="btn-download-main" style="display:block; margin-bottom:10px;">
+      📱 Descarcă versiunea Android (APK)
+    </a>
 
-<div class="bottom-nav">
-    <button class="nav-btn" onclick="location.href='index.html'">Acasă</button>
-    <button class="nav-btn" onclick="location.href='calendar.html'">Calendar</button>
-    <button class="nav-btn" onclick="location.href='rugaciuni.html'">Rugăciuni</button>
-    <button class="nav-btn active" onclick="location.href='setari.html'">Setări</button>
-</div>
+    <a href="https://lucitoro.github.io/App-hrana-pentru-suflet/" class="btn-premium" style="display:block; margin-bottom:10px;">
+      🌐 Versiunea Web (Online)
+    </a>
 
+    <a class="btn-premium" style="display:block;">
+      📲 Instalează ca PWA (Add to Home Screen)
+    </a>
+
+    <p class="note" style="margin-top:10px;">
+      *Versiunea PWA se instalează direct din browser (Chrome / Edge / Safari).*
+    </p>
+  </section>
+
+  <!-- CITIRE TEXT SELECTAT -->
+  <section class="settings-section">
+    <h2>🔊 Citire text selectat</h2>
+    <p>Selectează orice text din aplicație și apasă butonul de mai jos.</p>
+
+    <label for="voiceLang"><strong>Alege limba vocii:</strong></label>
+    <select id="voiceLang" class="btn-premium" style="width:100%; margin:10px 0;">
+      <option value="ro-RO">Română</option>
+      <option value="en-US">Engleză</option>
+      <option value="it-IT">Italiană</option>
+      <option value="es-ES">Spaniolă</option>
+      <option value="fr-FR">Franceză</option>
+      <option value="de-DE">Germană</option>
+    </select>
+
+    <button onclick="readSelectedText()" class="btn-download-main" style="width:100%;">
+      🔊 Citește textul selectat
+    </button>
+
+    <p class="note">Funcționează pe Chrome, Edge, Android, iOS.</p>
+  </section>
+
+  <!-- PREFERINȚE AVANSATE -->
+  <section class="settings-section">
+    <h2>⚙️ Preferințe avansate</h2>
+    <p>Opțiuni viitoare: limba, fontul, dimensiunea textului, notificări personalizate.</p>
+  </section>
+
+  <!-- ÎNAPOI -->
+  <div style="text-align:center; margin-top:1.5rem;">
+    <a href="index.html" class="btn-settings-link">⬅️ Înapoi la aplicație</a>
+  </div>
+
+</main>
+
+<footer class="app-footer">
+  <p>&copy; Hrana pentru suflet</p>
+</footer>
+
+<!-- SCRIPT CITIRE TEXT -->
 <script>
-function changeTextSize(amount) {
-    document.body.style.fontSize =
-        (parseInt(window.getComputedStyle(document.body).fontSize) + amount) + "px";
-}
+function readSelectedText() {
+  const selectedText = window.getSelection().toString().trim();
+  if (!selectedText) {
+    alert("Selectează un text din pagină înainte să apeși butonul.");
+    return;
+  }
 
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-}
+  const lang = document.getElementById("voiceLang").value;
 
-function speakText() {
-    const msg = new SpeechSynthesisUtterance(document.body.innerText);
-    window.speechSynthesis.speak(msg);
-}
+  const utterance = new SpeechSynthesisUtterance(selectedText);
+  utterance.lang = lang;
+  utterance.rate = 1;
+  utterance.pitch = 1;
 
-function toggleSubmenu() {
-    const menu = document.getElementById("downloadMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-
-function installPWA() {
-    alert("Instalarea PWA va funcționa după ce adăugăm manifest.json și service worker.");
+  speechSynthesis.speak(utterance);
 }
 </script>
 
