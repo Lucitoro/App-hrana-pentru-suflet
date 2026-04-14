@@ -1,113 +1,59 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <title>Hrana pentru suflet</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hrana pentru suflet</title>
 
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ffffff">
+    <!-- Manifest + Service Worker -->
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
-    }
-  </script>
+    <!-- Font Awesome pentru iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="stylesheet" href="css/style.css">
+    <!-- Stiluri premium -->
+    <link rel="stylesheet" href="style.css2">
 </head>
 
 <body>
 
-<header class="app-header">
-  <h1>Hrana pentru suflet</h1>
-  <p class="subtitle">Aplicație duhovnicească pentru fiecare zi</p>
-</header>
+    <header class="header">
+        <h1>Hrana pentru suflet</h1>
+    </header>
 
-<main class="app-main">
+    <main class="container">
 
-  <!-- GRID 2 COLOANE – BUTOANE SUPER PREMIUM CU CRUCE -->
-  <section class="grid-section">
-    <div class="grid-buttons">
+        <a href="rugaciuni.html" class="btn-premium">
+            <i class="fas fa-book-open"></i>
+            Rugăciuni
+        </a>
 
-      <a href="calendar.html" class="btn-card">
-        <div class="btn-icon">✝</div>
-        <div class="btn-text">
-          <h2>Calendar 2026</h2>
-          <p>Sfinții zilei și rânduiala liturgică.</p>
-        </div>
-      </a>
+        <a href="calendar.html" class="btn-premium">
+            <i class="fas fa-calendar-alt"></i>
+            Calendar Ortodox
+        </a>
 
-      <a href="psaltire.html" class="btn-card">
-        <div class="btn-icon">✝</div>
-        <div class="btn-text">
-          <h2>Psaltirea lui David</h2>
-          <p>Psaltirea împărțită pe catisme.</p>
-        </div>
-      </a>
+        <a href="setari.html" class="btn-premium">
+            <i class="fas fa-cog"></i>
+            Setări
+        </a>
 
-      <a href="acatiste.html" class="btn-card">
-        <div class="btn-icon">✝</div>
-        <div class="btn-text">
-          <h2>Acatiste și Canoane</h2>
-          <p>Rugăciuni pentru diferite nevoi.</p>
-        </div>
-      </a>
+        <a href="https://lucitoro.github.io/App-hrana-pentru-suflet/" class="btn-premium">
+            <i class="fas fa-globe"></i>
+            Versiunea Web (Online)
+        </a>
 
-      <a href="carti.html" class="btn-card">
-        <div class="btn-icon">✝</div>
-        <div class="btn-text">
-          <h2>Cărți duhovnicești</h2>
-          <p>Lecturi pentru întărirea sufletului.</p>
-        </div>
-      </a>
+        <a href="app.apk" class="btn-premium">
+            <i class="fas fa-download"></i>
+            Descarcă versiunea Android (APK)
+        </a>
 
-      <a href="pravila.html" class="btn-card">
-        <div class="btn-icon">✝</div>
-        <div class="btn-text">
-          <h2>Pravila de rugăciune</h2>
-          <p>Rugăciuni de dimineață, seară și la nevoie.</p>
-        </div>
-      </a>
-
-      <a href="rugaciuni.html" class="btn-card">
-        <div class="btn-icon">✝</div>
-        <div class="btn-text">
-          <h2>Rugăciuni la nevoie</h2>
-          <p>Rugăciuni pentru diferite situații.</p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- BUTON DESCĂRCARE APK – MAI EVIDENT -->
-  <section class="download-section">
-    <h2>Descarcă aplicația Android</h2>
-    <a href="app.apk" download class="btn-download-main">
-      ⬇️ Descarcă aplicația (APK)
-    </a>
-    <p class="note">
-      După descărcare, deschide fișierul APK pe telefon și acceptă instalarea.
-    </p>
-  </section>
-
-  <!-- LINK CĂTRE SETĂRI -->
-  <section class="settings-section">
-    <h2>Setări</h2>
-    <a href="setari.html" class="btn-settings-link">
-      ⚙️ Deschide setările
-    </a>
-  </section>
-
-</main>
-
-<footer class="app-footer">
-  <p>&copy; Hrana pentru suflet</p>
-</footer>
+    </main>
 
 </body>
 </html>
