@@ -1,270 +1,112 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setări – Hrana pentru suflet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setări – Hrana pentru suflet</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: white;
+}
 
-    <!-- Stiluri premium -->
-    <link rel="stylesheet" href="style.css2">
+/* Container principal */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
 
-    <style>
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(10px);
-        }
+/* Card premium */
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
 
-        .setting-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+/* Titlu secțiune */
+.card h2 {
+  margin-top: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffd700;
+}
 
-        .slider {
-            width: 100%;
-        }
+/* Butoane premium */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border: none;
+  border-radius: 12px;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-        .select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: none;
-            background: var(--btn-bg);
-            color: var(--text);
-            font-size: 1rem;
-        }
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255,215,0,0.4);
+}
 
-        .btn-action {
-            width: 100%;
-            padding: 14px;
-            margin-top: 10px;
-            border-radius: 12px;
-            background: var(--btn-bg);
-            color: var(--text);
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-        }
-
-        /* Submeniu premium slide-down */
-        .submenu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease;
-        }
-
-        .submenu.open {
-            max-height: 900px;
-        }
-
-        /* Iconițe animate */
-        .btn-action i {
-            transition: transform 0.2s ease;
-        }
-
-        .btn-action:hover i {
-            transform: scale(1.25);
-        }
-    </style>
+/* Link înapoi */
+.back {
+  text-align: center;
+  margin-top: 30px;
+  color: #ffd700;
+  font-size: 16px;
+  text-decoration: none;
+}
+</style>
 </head>
 
 <body>
 
-<header class="header">
-    Setări
-</header>
+<div class="container">
 
-<main class="container">
+  <div class="card">
+    <h2>🔔 Notificări</h2>
+    <p>Opțiune viitoare pentru remindere și alerte.</p>
+  </div>
 
-    <!-- 🔹 Mărimea textului -->
-    <div class="card scroll-appear">
-        <div class="setting-title"><i class="fas fa-text-height"></i> Mărimea textului</div>
-        <input type="range" id="fontSize" min="14" max="28" value="18" class="slider">
-    </div>
+  <div class="card">
+    <h2>🎨 Temă aplicație</h2>
+    <p>Mod luminos / întunecat (în curând).</p>
+  </div>
 
-    <!-- 🔹 Selectare voce TTS -->
-    <div class="card scroll-appear">
-        <div class="setting-title"><i class="fas fa-microphone"></i> Selectează vocea</div>
-        <select id="voiceSelect" class="select"></select>
-        <button class="btn-action" onclick="testVoice()">
-            <i class="fas fa-volume-high"></i> Testează vocea
-        </button>
-    </div>
+  <div class="card">
+    <h2>📥 Actualizări</h2>
+    <p>Aplicația se actualizează automat.</p>
+  </div>
 
-    <!-- 🔹 Mod întunecat -->
-    <div class="card scroll-appear">
-        <div class="setting-title"><i class="fas fa-moon"></i> Mod întunecat</div>
-        <button class="btn-action" onclick="toggleDark()">
-            <i class="fas fa-adjust"></i> Comută mod întunecat
-        </button>
-    </div>
+  <div class="card">
+    <h2>⬇️ Descărcări</h2>
+    <button class="btn">Descarcă versiunea Android (APK)</button>
+    <button class="btn">Versiunea Web (Online)</button>
+    <button class="btn">Instalează ca PWA</button>
+  </div>
 
-    <!-- 🔹 Citire cu voce (cu sub-meniu premium) -->
-    <div class="card scroll-appear">
-        <div class="setting-title"><i class="fas fa-volume-up"></i> Citire cu voce</div>
+  <div class="card">
+    <h2>🔊 Citire text</h2>
+    <p>Voce naturală în mai multe limbi.</p>
+    <button class="btn">Citește textul selectat</button>
+  </div>
 
-        <button class="btn-action" onclick="toggleReadMenu()">
-            <i class="fas fa-chevron-down"></i> Afișează opțiunile
-        </button>
+  <a class="back" href="index.html">⬅️ Înapoi la aplicație</a>
 
-        <div id="readMenu" class="submenu" style="margin-top:15px;">
-
-            <button class="btn-action" onclick="readSelection()">
-                <i class="fas fa-highlighter"></i> Citește textul selectat
-            </button>
-
-            <button class="btn-action" onclick="readPage()">
-                <i class="fas fa-file-alt"></i> Citește toată pagina
-            </button>
-
-            <button class="btn-action" onclick="readSection()">
-                <i class="fas fa-align-left"></i> Citește secțiunea curentă
-            </button>
-
-            <button class="btn-action" onclick="readRealVoice()">
-                <i class="fas fa-user-voice"></i> Citește cu voce reală
-            </button>
-
-            <button class="btn-action" onclick="readMale()">
-                <i class="fas fa-mars"></i> Citește cu voce masculină
-            </button>
-
-            <button class="btn-action" onclick="readFemale()">
-                <i class="fas fa-venus"></i> Citește cu voce feminină
-            </button>
-
-            <button class="btn-action" onclick="readSlow()">
-                <i class="fas fa-turtle"></i> Citește lent
-            </button>
-
-            <button class="btn-action" onclick="readNormal()">
-                <i class="fas fa-walking"></i> Citește normal
-            </button>
-
-            <button class="btn-action" onclick="readFast()">
-                <i class="fas fa-bolt"></i> Citește rapid
-            </button>
-
-            <button class="btn-action" onclick="readTitles()">
-                <i class="fas fa-heading"></i> Citește doar titlurile paginii
-            </button>
-
-            <button class="btn-action" onclick="stopReading()">
-                <i class="fas fa-stop-circle"></i> Oprește citirea
-            </button>
-
-        </div>
-    </div>
-<!-- ===================== -->
-<!--     MĂRIME TEXT       -->
-<!-- ===================== -->
-
-<div class="card">
-    <h2>Mărime text</h2>
-    <div class="option-row">
-        <label for="textSize">Alege mărimea textului:</label>
-        <input type="range" id="textSize" min="14" max="28" step="1">
-    </div>
 </div>
-
-<!-- ===================== -->
-<!--        FONT           -->
-<!-- ===================== -->
-
-<div class="card">
-    <h2>Font</h2>
-    <div class="option-row">
-        <label for="fontSelect">Alege fontul:</label>
-        <select id="fontSelect">
-            <option value="serif">Serif (clasic)</option>
-            <option value="sans-serif">Sans-serif (modern)</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Times New Roman">Times New Roman</option>
-            <option value="Arial">Arial</option>
-        </select>
-    </div>
-</div>
-
-<!-- ===================== -->
-<!--         TEMA          -->
-<!-- ===================== -->
-
-<div class="card">
-    <h2>Temă aplicație</h2>
-    <div class="option-row">
-        <label for="themeSelect">Alege tema:</label>
-        <select id="themeSelect">
-            <option value="light">Luminos</option>
-            <option value="dark">Întunecat</option>
-            <option value="sepia">Sepia</option>
-        </select>
-    </div>
-</div>
-
-<!-- ===================== -->
-<!--   RESETARE SETĂRI     -->
-<!-- ===================== -->
-
-<div class="card">
-    <h2>Resetare setări</h2>
-    <button id="resetBtn" class="danger">Resetează la valorile implicite</button>
-</div>
-
-<!-- ===================== -->
-<!--     SCRIPT SETĂRI     -->
-<!-- ===================== -->
-
-<script>
-    // Încarcă setările salvate
-    function loadSettings() {
-        document.getElementById("textSize").value = localStorage.getItem("textSize") || 18;
-        document.getElementById("fontSelect").value = localStorage.getItem("fontSelect") || "serif";
-        document.getElementById("themeSelect").value = localStorage.getItem("themeSelect") || "light";
-
-        applySettings();
-    }
-
-    // Aplică setările în aplicație
-    function applySettings() {
-        const size = document.getElementById("textSize").value;
-        const font = document.getElementById("fontSelect").value;
-        const theme = document.getElementById("themeSelect").value;
-
-        document.documentElement.style.setProperty("--font-size", size + "px");
-        document.documentElement.style.setProperty("--font-family", font);
-
-        document.body.setAttribute("data-theme", theme);
-
-        localStorage.setItem("textSize", size);
-        localStorage.setItem("fontSelect", font);
-        localStorage.setItem("themeSelect", theme);
-    }
-
-    // Resetare completă
-    document.getElementById("resetBtn").addEventListener("click", () => {
-        localStorage.removeItem("textSize");
-        localStorage.removeItem("fontSelect");
-        localStorage.removeItem("themeSelect");
-        loadSettings();
-        alert("Setările au fost resetate!");
-    });
-
-    // Evenimente
-    document.getElementById("textSize").addEventListener("input", applySettings);
-    document.getElementById("fontSelect").addEventListener("change", applySettings);
-    document.getElementById("themeSelect").addEventListener("change", applySettings);
-
-    // Inițializare
-    loadSettings();
-</script>
 
 </body>
 </html>
