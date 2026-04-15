@@ -1,109 +1,70 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hrana pentru suflet</title>
+  <meta charset="UTF-8">
+  <title>Hrana pentru suflet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="manifest" href="manifest.json">
+  <!-- Manifest PWA -->
+  <link rel="manifest" href="manifest.webmanifest">
 
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, sans-serif;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-  color: white;
-}
+  <!-- Iconițe -->
+  <link rel="icon" href="icons/icon-64.png">
 
-.container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-}
+  <!-- Stil premium -->
+  <link rel="stylesheet" href="style.css">
 
-h1 {
-  text-align: center;
-  font-size: 28px;
-  color: #ffd700;
-  margin-bottom: 30px;
-}
-
-.card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-  background: linear-gradient(135deg, #ffd700, #b8860b);
-  border: none;
-  border-radius: 12px;
-  color: black;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(255,215,0,0.4);
-}
-
-.settings {
-  text-align: center;
-  margin-top: 30px;
-  color: #ffd700;
-  font-size: 16px;
-  text-decoration: none;
-}
-</style>
+  <!-- Înregistrare Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
 </head>
 
-<body>
+<body class="app-bg">
+  <div class="app-container">
+    <h1 class="app-title">HRANĂ PENTRU SUFLET</h1>
 
-<div class="container">
+    <div class="buttons-grid single-column">
 
-  <h1>Hrana pentru suflet</h1>
+      <!-- 1. Resurse duhovnicești -->
+      <a href="resurse.html" class="btn-main">Resurse duhovnicești</a>
 
-  <div class="card">
+      <!-- 2. Pravila zilnică -->
+      <a href="pravila-zilnica.html" class="btn-main">Pravila zilnică</a>
 
-    <button class="btn" onclick="window.location.href='https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1'">
-      📅 Calendar 2026
-    </button>
+      <!-- 3. Sfintele Taine -->
+      <a href="sfintele-taine.html" class="btn-main">Sfintele Taine</a>
 
-    <button class="btn" onclick="window.location.href='setari.html'">
-      ⚙️ Setări aplicație
-    </button>
+      <!-- 4. Calendar -->
+      <a href="CALENDAR_LINK" class="btn-main">Calendar</a>
 
-    <button class="btn" onclick="window.location.href='https://lucitoro.github.io/App-hrana-pentru-suflet/'">
-      📖 Deschide aplicația completă
-    </button>
+      <!-- 5. Psaltirea -->
+      <a href="PSALTIRE_LINK" class="btn-main">Psaltirea</a>
 
-    <button class="btn" onclick="window.location.href='apk/Hrana-pentru-suflet.apk'">
-      ⬇️ Descarcă versiunea Android (APK)
-    </button>
+      <!-- 6. Acatiste -->
+      <a href="ACATISTE_LINK" class="btn-main">Acatiste pe tot anul</a>
 
+      <!-- 7. Rugăciuni ortodoxe -->
+      <a href="RUG_ORTODOXE_LINK" class="btn-main">Rugăciuni ortodoxe</a>
+
+      <!-- 8. Rugăciuni la diferite trebuințe -->
+      <a href="RUG_TREBUINTE_LINK" class="btn-main">Rugăciuni la diferite trebuințe</a>
+
+      <!-- 9. Cărți duhovnicești (accentuat) -->
+      <a href="carti-duhovnicesti.html" class="btn-main btn-accent">Cărți duhovnicești</a>
+
+      <!-- 10. Setări -->
+      <a href="setari.html" class="btn-main">Setări</a>
+
+      <!-- 11. Descarcă aplicația -->
+      <a href="descarca.html" class="btn-main">Descarcă aplicația</a>
+
+      <!-- 12. Închide aplicația -->
+      <button class="btn-main btn-exit" onclick="window.close();">Închide aplicația</button>
+
+    </div>
   </div>
-
-  <a class="settings" href="setari.html">➡️ Mergi la Setări</a>
-
-</div>
-
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
-</script>
-
 </body>
 </html>
