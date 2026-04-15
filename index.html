@@ -1,70 +1,76 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <title>Hrana pentru suflet</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Manifest PWA -->
-  <link rel="manifest" href="manifest.webmanifest">
-
-  <!-- Iconițe -->
-  <link rel="icon" href="icons/icon-64.png">
-
-  <!-- Stil premium -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Înregistrare Service Worker -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hrana pentru suflet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.webmanifest">
 </head>
 
-<body class="app-bg">
-  <div class="app-container">
-    <h1 class="app-title">HRANĂ PENTRU SUFLET</h1>
+<body>
 
-    <div class="buttons-grid single-column">
+    <!-- HEADER PREMIUM MARE -->
+    <header class="premium-header">
+        <div class="header-glass">
+            <img src="icons/cross-gold.png" class="header-icon" alt="icon">
+            <h1 class="header-title">Hrana pentru suflet</h1>
+            <p class="header-subtitle">Rugăciuni • Acatiste • Psaltire • Resurse</p>
+        </div>
+    </header>
 
-      <!-- 1. Resurse duhovnicești -->
-      <a href="resurse.html" class="btn-main">Resurse duhovnicești</a>
+    <!-- MENIU PRINCIPAL -->
+    <main class="container">
 
-      <!-- 2. Pravila zilnică -->
-      <a href="pravila-zilnica.html" class="btn-main">Pravila zilnică</a>
+        <a href="rugaciuni.html" class="card">
+            <div class="card-glass">
+                <h2>Rugăciuni</h2>
+                <p>Rugăciuni zilnice, săptămânale și la trebuințe</p>
+            </div>
+        </a>
 
-      <!-- 3. Sfintele Taine -->
-      <a href="sfintele-taine.html" class="btn-main">Sfintele Taine</a>
+        <a href="psaltire.html" class="card">
+            <div class="card-glass">
+                <h2>Psaltirea</h2>
+                <p>Toate cele 151 de psalmi</p>
+            </div>
+        </a>
 
-      <!-- 4. Calendar -->
-      <a href="CALENDAR_LINK" class="btn-main">Calendar</a>
+        <a href="acatiste.html" class="card">
+            <div class="card-glass">
+                <h2>Acatiste</h2>
+                <p>Acatiste și canoane pe tot anul</p>
+            </div>
+        </a>
 
-      <!-- 5. Psaltirea -->
-      <a href="PSALTIRE_LINK" class="btn-main">Psaltirea</a>
+        <a href="sfintele-taine.html" class="card">
+            <div class="card-glass">
+                <h2>Sfintele Taine</h2>
+                <p>Înainte și după Spovedanie și Împărtășanie</p>
+            </div>
+        </a>
 
-      <!-- 6. Acatiste -->
-      <a href="ACATISTE_LINK" class="btn-main">Acatiste pe tot anul</a>
+        <a href="calendar.html" class="card">
+            <div class="card-glass">
+                <h2>Calendar Ortodox</h2>
+                <p>Calendarul complet pe 2026</p>
+            </div>
+        </a>
 
-      <!-- 7. Rugăciuni ortodoxe -->
-      <a href="RUG_ORTODOXE_LINK" class="btn-main">Rugăciuni ortodoxe</a>
+        <a href="resurse.html" class="card">
+            <div class="card-glass">
+                <h2>Resurse</h2>
+                <p>Cărți, pravile, descărcări, setări</p>
+            </div>
+        </a>
 
-      <!-- 8. Rugăciuni la diferite trebuințe -->
-      <a href="RUG_TREBUINTE_LINK" class="btn-main">Rugăciuni la diferite trebuințe</a>
+    </main>
 
-      <!-- 9. Cărți duhovnicești (accentuat) -->
-      <a href="carti-duhovnicesti.html" class="btn-main btn-accent">Cărți duhovnicești</a>
+    <!-- FOOTER PREMIUM -->
+    <footer class="premium-footer">
+        <p>© Hrana pentru suflet</p>
+    </footer>
 
-      <!-- 10. Setări -->
-      <a href="setari.html" class="btn-main">Setări</a>
-
-      <!-- 11. Descarcă aplicația -->
-      <a href="descarca.html" class="btn-main">Descarcă aplicația</a>
-
-      <!-- 12. Închide aplicația -->
-      <button class="btn-main btn-exit" onclick="window.close();">Închide aplicația</button>
-
-    </div>
-  </div>
+    <script src="app.js"></script>
 </body>
 </html>
