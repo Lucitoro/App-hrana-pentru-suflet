@@ -1,112 +1,53 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setări – Hrana pentru suflet</title>
-
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, sans-serif;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-  color: white;
-}
-
-/* Container principal */
-.container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* Card premium */
-.card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-/* Titlu secțiune */
-.card h2 {
-  margin-top: 0;
-  font-size: 22px;
-  font-weight: 600;
-  color: #ffd700;
-}
-
-/* Butoane premium */
-.btn {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-  background: linear-gradient(135deg, #ffd700, #b8860b);
-  border: none;
-  border-radius: 12px;
-  color: black;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(255,215,0,0.4);
-}
-
-/* Link înapoi */
-.back {
-  text-align: center;
-  margin-top: 30px;
-  color: #ffd700;
-  font-size: 16px;
-  text-decoration: none;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Resurse duhovnicești</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="app-bg">
+  <div class="app-container">
 
-<div class="container">
+    <h1 class="app-title">Resurse duhovnicești</h1>
 
-  <div class="card">
-    <h2>🔔 Notificări</h2>
-    <p>Opțiune viitoare pentru remindere și alerte.</p>
+    <!-- GRID CU DOUĂ COLOANE EXACT CA PE BLOGGER -->
+    <div class="buttons-grid two-columns">
+
+      <!-- COLOANA 1 -->
+      <a href="CALENDAR_CAUTA_LINK" class="btn-main">Caută în calendar</a>
+      <a href="RUG_INCEPATOARE_LINK" class="btn-main">Rugăciunile începătoare</a>
+      <a href="RUG_DIMINEATA_LINK" class="btn-main">Rugăciunile de dimineață</a>
+      <a href="RUG_INSERARE_LINK" class="btn-main">Rugăciunile înserării</a>
+      <a href="RUG_SEARA_LINK" class="btn-main">Rugăciunile de seară</a>
+      <a href="RUG_SAPTAMANA_LINK" class="btn-main">Rugăciuni săptămânale</a>
+      <a href="RUG_ORTODOXE_LINK" class="btn-main">Rugăciuni ortodoxe</a>
+      <a href="RUG_TREBUINTE_LINK" class="btn-main">Rugăciuni la diferite trebuințe</a>
+
+      <!-- COLOANA 2 -->
+      <a href="PSALTIRE_LINK" class="btn-main">Psaltirea lui David</a>
+      <a href="ACATISTE_LINK" class="btn-main">Acatiste și Canoane</a>
+      <a href="pravila-zilnica.html" class="btn-main">Pravila zilnică</a>
+
+      <!-- CĂRȚI DUHOVNICEȘTI ACCENTUAT -->
+      <a href="carti-duhovnicesti.html" class="btn-main btn-accent">
+        Cărți duhovnicești
+      </a>
+
+      <!-- SFINTELE TAINE -->
+      <a href="sfintele-taine.html" class="btn-main">Sfintele Taine</a>
+      <a href="INAINTE_SPOVEDANIE_LINK" class="btn-main">Înainte de Spovedanie</a>
+      <a href="DUPA_SPOVEDANIE_LINK" class="btn-main">După Spovedanie</a>
+      <a href="INAINTE_IMPARTASANIE_LINK" class="btn-main">Înainte de Împărtășanie</a>
+      <a href="DUPA_IMPARTASANIE_LINK" class="btn-main">După Împărtășanie</a>
+
+    </div>
+
+    <div class="bottom-nav">
+      <a href="index.html" class="btn-secondary">⟵ Înapoi</a>
+    </div>
+
   </div>
-
-  <div class="card">
-    <h2>🎨 Temă aplicație</h2>
-    <p>Mod luminos / întunecat (în curând).</p>
-  </div>
-
-  <div class="card">
-    <h2>📥 Actualizări</h2>
-    <p>Aplicația se actualizează automat.</p>
-  </div>
-
-  <div class="card">
-    <h2>⬇️ Descărcări</h2>
-    <button class="btn">Descarcă versiunea Android (APK)</button>
-    <button class="btn">Versiunea Web (Online)</button>
-    <button class="btn">Instalează ca PWA</button>
-  </div>
-
-  <div class="card">
-    <h2>🔊 Citire text</h2>
-    <p>Voce naturală în mai multe limbi.</p>
-    <button class="btn">Citește textul selectat</button>
-  </div>
-
-  <a class="back" href="index.html">⬅️ Înapoi la aplicație</a>
-
-</div>
-
 </body>
 </html>
