@@ -1,270 +1,110 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hrana pentru suflet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hrana pentru suflet</title>
 
-    <!-- Manifest PWA -->
-    <link rel="manifest" href="manifest.json">
+<link rel="manifest" href="manifest.json">
 
-    <!-- Iconițe PWA -->
-    <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <meta name="theme-color" content="#ffffff">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: white;
+}
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
 
-    <!-- Stiluri premium -->
-    <link rel="stylesheet" href="style.css2">
+/* Titlu */
+h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #ffd700;
+  margin-bottom: 30px;
+}
+
+/* Card premium */
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Butoane premium */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border: none;
+  border-radius: 12px;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255,215,0,0.4);
+}
+
+/* Link setări */
+.settings {
+  text-align: center;
+  margin-top: 30px;
+  color: #ffd700;
+  font-size: 16px;
+  text-decoration: none;
+}
+</style>
 </head>
 
 <body>
 
-<!-- 🔹 HEADER PREMIUM -->
-<header class="header">
-    <div class="menu-btn" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
-    <h1 class="app-title">Hrana pentru suflet</h1>
-</header>
+<div class="container">
 
-<!-- 🔹 MENIU LATERAL PREMIUM -->
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html"><i class="fas fa-home"></i> Acasă</a>
-    <a href="rugaciuni.html"><i class="fas fa-book"></i> Rugăciuni</a>
-    <a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a>
-    <a href="setari.html"><i class="fas fa-gear"></i> Setări</a>
-</nav>
+  <h1>Hrana pentru suflet</h1>
 
-<!-- 🔹 FUNDAL ANIMAT -->
-<div class="background-animation"></div>
+  <div class="card">
+    <button class="btn" onclick="window.location.href='https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1'">
+      📅 Calendar 2026
+    </button>
 
-<!-- 🔹 CONȚINUT PRINCIPAL -->
-<main class="container">
+    <button class="btn" onclick="window.location.href='setari.html'">
+      ⚙️ Setări aplicație
+    </button>
 
-    <!-- CARDURI 3D PREMIUM -->
-    <div class="card3d" onclick="goTo('rugaciuni.html')">
-        <i class="fas fa-book-open"></i>
-        <h2>Rugăciuni</h2>
-        <p>Rugăciuni zilnice, acatiste, psalmi</p>
-    </div>
+    <button class="btn" onclick="window.location.href='https://lucitoro.github.io/App-hrana-pentru-suflet/'">
+      📖 Deschide aplicația completă
+    </button>
 
-    <div class="card3d" onclick="goTo('calendar.html')">
-        <i class="fas fa-calendar"></i>
-        <h2>Calendar</h2>
-        <p>Sfinții zilei și sărbători</p>
-    </div>
+    <button class="btn" onclick="window.location.href='https://lucitoro.github.io/App-hrana-pentru-suflet/apk/Hrana-pentru-suflet.apk'">
+      ⬇️ Descarcă versiunea Android (APK)
+    </button>
+  </div>
 
-    <div class="card3d" onclick="goTo('carti.html')">
-        <i class="fas fa-book-bible"></i>
-        <h2>Cărți duhovnicești</h2>
-        <p>Lecturi pentru suflet</p>
-    </div>
+  <a class="settings" href="setari.html">➡️ Mergi la Setări</a>
 
-    <div class="card3d" onclick="goTo('setari.html')">
-        <i class="fas fa-gear"></i>
-        <h2>Setări</h2>
-        <p>Personalizează aplicația</p>
-    </div>
-
-</main>
-
-<!-- 🔹 MENIU JOS (stil aplicație mobilă) -->
-<footer class="bottom-nav">
-    <a href="index.html" class="active"><i class="fas fa-home"></i><span>Acasă</span></a>
-    <a href="rugaciuni.html"><i class="fas fa-book"></i><span>Rugăciuni</span></a>
-    <a href="calendar.html"><i class="fas fa-calendar"></i><span>Calendar</span></a>
-    <a href="setari.html"><i class="fas fa-gear"></i><span>Setări</span></a>
-</footer>
-
-<!-- 🔹 BUTON PLUTITOR CITIRE CU VOCE -->
-<button class="floating-tts" onclick="openTTS()">
-    <i class="fas fa-volume-up"></i>
-</button>
+</div>
 
 <script>
-
-/* 🔹 MENIU LATERAL */
-function toggleMenu() {
-    document.getElementById("sideMenu").classList.toggle("open");
-}
-
-/* 🔹 NAVIGARE */
-function goTo(page) {
-    window.location.href = page;
-}
-
-/* 🔹 DESCHIDE SETĂRILE DIRECT LA TTS */
-function openTTS() {
-    window.location.href = "setari.html#tts";
-}
-
-/* 🔹 ANIMAȚII LA SCROLL */
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".scroll-appear");
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-    }, { threshold: 0.2 });
-
-    elements.forEach(el => observer.observe(el));
-});
-
-/* 🔹 TTS – ÎNCĂRCARE VOCILE */
-let voices = [];
-
-function loadVoices() {
-    voices = speechSynthesis.getVoices();
-}
-
-speechSynthesis.onvoiceschanged = loadVoices;
-
-/* 🔹 TTS – FUNCȚII PREMIUM */
-
-/* Citește textul selectat */
-function readSelection() {
-    let text = window.getSelection().toString();
-    if (!text) {
-        alert("Selectează textul pe care vrei să îl citească.");
-        return;
-    }
-    speakText(text);
-}
-
-/* Citește toată pagina */
-function readPage() {
-    let text = document.body.innerText;
-    speakText(text);
-}
-
-/* Citește secțiunea curentă */
-function readSection() {
-    let el = document.activeElement;
-    if (!el || !el.innerText) {
-        alert("Apasă pe o secțiune înainte de citire.");
-        return;
-    }
-    speakText(el.innerText);
-}
-
-/* Citește cu voce reală */
-function readRealVoice() {
-    let text = window.getSelection().toString() || document.body.innerText;
-
-    const msg = new SpeechSynthesisUtterance(text);
-
-    const realVoice = voices.find(v =>
-        v.name.toLowerCase().includes("natural") ||
-        v.name.toLowerCase().includes("neural") ||
-        v.name.toLowerCase().includes("premium") ||
-        v.lang.startsWith("ro")
-    );
-
-    msg.voice = realVoice || voices[0];
-    msg.pitch = 1;
-    msg.rate = 0.95;
-    msg.volume = 1;
-
-    speechSynthesis.speak(msg);
-}
-
-/* Citește cu voce masculină */
-function readMale() {
-    let text = window.getSelection().toString() || document.body.innerText;
-
-    const msg = new SpeechSynthesisUtterance(text);
-
-    const maleVoice = voices.find(v =>
-        v.name.toLowerCase().includes("male") ||
-        v.name.toLowerCase().includes("bariton") ||
-        v.name.toLowerCase().includes("bass")
-    );
-
-    msg.voice = maleVoice || voices[0];
-    msg.pitch = 0.9;
-    msg.rate = 1;
-
-    speechSynthesis.speak(msg);
-}
-
-/* Citește cu voce feminină */
-function readFemale() {
-    let text = window.getSelection().toString() || document.body.innerText;
-
-    const msg = new SpeechSynthesisUtterance(text);
-
-    const femaleVoice = voices.find(v =>
-        v.name.toLowerCase().includes("female") ||
-        v.name.toLowerCase().includes("soprano") ||
-        v.name.toLowerCase().includes("alto")
-    );
-
-    msg.voice = femaleVoice || voices[0];
-    msg.pitch = 1.2;
-    msg.rate = 1;
-
-    speechSynthesis.speak(msg);
-}
-
-/* Citește lent */
-function readSlow() {
-    let text = window.getSelection().toString() || document.body.innerText;
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.rate = 0.7;
-    speechSynthesis.speak(msg);
-}
-
-/* Citește normal */
-function readNormal() {
-    let text = window.getSelection().toString() || document.body.innerText;
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.rate = 1;
-    speechSynthesis.speak(msg);
-}
-
-/* Citește rapid */
-function readFast() {
-    let text = window.getSelection().toString() || document.body.innerText;
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.rate = 1.4;
-    speechSynthesis.speak(msg);
-}
-
-/* Citește doar titlurile */
-function readTitles() {
-    const titles = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")]
-        .map(el => el.innerText)
-        .join(". ");
-
-    if (!titles) {
-        alert("Nu există titluri în această pagină.");
-        return;
-    }
-
-    speakText(titles);
-}
-
-/* Oprește citirea */
-function stopReading() {
-    speechSynthesis.cancel();
-}
-
-/* Funcție generală de citire */
-function speakText(text) {
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.voice = voices[0];
-    msg.rate = 1;
-    speechSynthesis.speak(msg);
-}
-
-/* 🔹 PWA – SERVICE WORKER */
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
+  navigator.serviceWorker.register("sw.js");
 }
-
 </script>
 
 </body>
