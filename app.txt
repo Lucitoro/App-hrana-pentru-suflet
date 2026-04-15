@@ -1,13 +1,15 @@
 App-hrana-pentru-suflet/
-│
-├── index.html        ← îl înlocuiești cu fișierul meu
-├── setari.html       ← deja finalizat
-├── rugaciuni.html    ← îl facem după index
-├── calendar.html     ← îl facem după rugăciuni
-│
-├── style.css2        ← îl înlocuiești cu fișierul meu
-│
-├── sw.js             ← îl creez eu
-├── manifest.json     ← îl creez eu
-│
-└── /assets           ← imagini, iconițe, fundaluri
+├─ index.html
+├─ resurse.html
+├─ pravila-zilnica.html
+├─ sfintele-taine.html
+├─ carti-duhovnicesti.html
+├─ descarca.html
+├─ setari.html
+├─ style.css
+├─ manifest.webmanifest
+├─ service-worker.js
+└─ icons/
+   ├─ icon-192.png
+   ├─ icon-512.png
+   └─ (alte dimensiuni dacă vrei)
