@@ -4,57 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sfintele Taine</title>
+
+    <!-- CSS PREMIUM -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- ICON -->
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
 
+    <!-- FUNDAL ANIMAT -->
     <div class="background-animation"></div>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="menu-btn" onclick="toggleMenu()">☰</div>
         <div class="app-title">Sfintele Taine</div>
     </header>
 
+    <!-- MENIU LATERAL -->
     <nav id="sideMenu" class="side-menu">
-        <a href="index.html"><i>🏠</i> Acasă</a>
-        <a href="pravila.html"><i>📜</i> Pravila</a>
-        <a href="psaltirea.html"><i>📖</i> Psaltirea</a>
-        <a href="acatiste.html"><i>🙏</i> Acatiste</a>
-        <a href="resurse.html"><i>📚</i> Resurse</a>
-        <a href="setari.html"><i>⚙️</i> Setări</a>
+        <a href="index.html">🏠 Acasă</a>
+        <a href="pravila.html">📜 Pravila</a>
+        <a href="psaltirea.html">📖 Psaltirea</a>
+        <a href="acatiste.html">🙏 Acatiste</a>
+        <a href="taine.html" class="active">⛪ Sfintele Taine</a>
+        <a href="calendar.html">📅 Calendar</a>
+        <a href="resurse.html">📚 Resurse</a>
+        <a href="setari.html">⚙️ Setări</a>
     </nav>
 
+    <!-- CONȚINUT -->
     <div class="container">
 
-        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inainte-de-spovedanie.html'">
-            <i>✝️</i>
-            <h2>Înainte de Spovedanie</h2>
+        <div class="card3d scroll-appear">
+            <i style="font-size:40px;">🕊️</i>
+            <h2>Botezul</h2>
+            <p>Taina nașterii din nou în Hristos.</p>
         </div>
 
-        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html?m=1'">
-            <i>🙏</i>
-            <h2>După Spovedanie</h2>
+        <div class="card3d scroll-appear">
+            <i style="font-size:40px;">💧</i>
+            <h2>Mirungerea</h2>
+            <p>Întărirea în credință prin harul Sfântului Duh.</p>
         </div>
 
-        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-pentru-sf-impartasanie.html'">
-            <i>🍞</i>
-            <h2>Înainte de Împărtășanie</h2>
+        <div class="card3d scroll-appear">
+            <i style="font-size:40px;">🍞</i>
+            <h2>Împărtășania</h2>
+            <p>Primirea Trupului și Sângelui Domnului.</p>
         </div>
 
-        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html'">
-            <i>⛪</i>
-            <h2>După Împărtășanie</h2>
+        <div class="card3d scroll-appear">
+            <i style="font-size:40px;">🙏</i>
+            <h2>Spovedania</h2>
+            <p>Mărturisirea păcatelor și iertarea lor.</p>
+        </div>
+
+        <div class="card3d scroll-appear">
+            <i style="font-size:40px;">🕯️</i>
+            <h2>Maslul</h2>
+            <p>Taina vindecării sufletești și trupești.</p>
+        </div>
+
+        <div class="card3d scroll-appear">
+            <i style="font-size:40px;">💍</i>
+            <h2>Cununia</h2>
+            <p>Unirea binecuvântată dintre bărbat și femeie.</p>
+        </div>
+
+        <div class="card3d scroll-appear">
+            <i style="font-size:40px;">⛪</i>
+            <h2>Preoția</h2>
+            <p>Harul slujirii în Biserică.</p>
         </div>
 
     </div>
 
+    <!-- MENIU JOS -->
     <nav class="bottom-nav">
         <a href="index.html"><i>🏠</i><br>Acasă</a>
         <a href="calendar.html"><i>📅</i><br>Calendar</a>
         <a href="setari.html"><i>⚙️</i><br>Setări</a>
     </nav>
 
+    <!-- SCRIPT MENIU -->
     <script src="nav.js"></script>
+
 </body>
 </html>
