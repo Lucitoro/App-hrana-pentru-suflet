@@ -4,48 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psaltirea</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <div class="app-title">Psaltirea</div>
-</header>
+    <div class="background-animation"></div>
 
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
-    <a href="calendar.html">📅 Calendar</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
+    <header class="header">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="app-title">Psaltirea</div>
+    </header>
 
-<div class="container">
+    <nav id="sideMenu" class="side-menu">
+        <a href="index.html">🏠 Acasă</a>
+        <a href="pravila.html">📜 Pravila</a>
+        <a href="psaltirea.html" class="active">📖 Psaltirea</a>
+        <a href="acatiste.html">🙏 Acatiste</a>
+        <a href="taine.html">⛪ Sfintele Taine</a>
+        <a href="calendar.html">📅 Calendar</a>
+        <a href="resurse.html">📚 Resurse</a>
+        <a href="setari.html">⚙️ Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='#'">
-        <i>📖</i>
-        <h2>Catisma 1</h2>
+    <div class="container">
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/PSALTIREA%20LUI%20DAVID%20%28completa%29'">
+            <i style="font-size:40px;">📖</i>
+            <h2>Psaltirea completă</h2>
+            <p>Toate cele 20 de catisme, integral.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/catisma-1.html'">
+            <h2>📘 Catisma 1</h2>
+            <p>Psalmii 1–8</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/catisma-2.html'">
+            <h2>📘 Catisma 2</h2>
+            <p>Psalmii 9–16</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/catisma-3.html'">
+            <h2>📘 Catisma 3</h2>
+            <p>Psalmii 17–23</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/PSALTIREA%20LUI%20DAVID%20%28completa%29'">
+            <h2>📘 Toate catismele</h2>
+            <p>Accesează lista completă</p>
+        </div>
+
     </div>
 
-    <div class="card3d" onclick="location.href='#'">
-        <i>📖</i>
-        <h2>Catisma 2</h2>
-    </div>
+    <nav class="bottom-nav">
+        <a href="index.html"><i>🏠</i><br>Acasă</a>
+        <a href="calendar.html"><i>📅</i><br>Calendar</a>
+        <a href="setari.html"><i>⚙️</i><br>Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='#'">
-        <i>📖</i>
-        <h2>Catisma 3</h2>
-    </div>
+    <script src="nav.js"></script>
 
-    <div class="card3d" onclick="location.href='#'">
-        <i>📖</i>
-        <h2>Catisma 4</h2>
-    </div>
-
-    <!-- continui cu toate catismele după ce îmi dai linkurile -->
-
-</div>
-
-<script src="nav.js"></script>
 </body>
 </html>
