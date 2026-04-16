@@ -4,32 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acatiste</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <div class="app-title">Acatiste</div>
-</header>
+    <div class="background-animation"></div>
 
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
-    <a href="calendar.html">📅 Calendar</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
+    <header class="header">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="app-title">Acatiste</div>
+    </header>
 
-<div class="container">
+    <nav id="sideMenu" class="side-menu">
+        <a href="index.html">🏠 Acasă</a>
+        <a href="pravila.html">📜 Pravila</a>
+        <a href="psaltirea.html">📖 Psaltirea</a>
+        <a href="acatiste.html" class="active">🙏 Acatiste</a>
+        <a href="taine.html">⛪ Sfintele Taine</a>
+        <a href="calendar.html">📅 Calendar</a>
+        <a href="resurse.html">📚 Resurse</a>
+        <a href="setari.html">⚙️ Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html?m=1'">
-        <i>🙏</i>
-        <h2>Acatiste și Canoane</h2>
-        <p>Toate acatistele într-un singur loc</p>
+    <div class="container">
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/acatistul-mantuitorului-iisus-hristos.html'">
+            <i style="font-size:40px;">✝️</i>
+            <h2>Acatistul Mântuitorului</h2>
+            <p>Rugăciune puternică către Domnul nostru Iisus Hristos.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/acatistul-maicii-domnului-bucuria.html'">
+            <i style="font-size:40px;">🌹</i>
+            <h2>Acatistul Maicii Domnului</h2>
+            <p>Bucuria tuturor celor necăjiți.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Acatist%20Sf%C3%A2ntul%20Nectarie'">
+            <i style="font-size:40px;">🕯️</i>
+            <h2>Acatistul Sfântului Nectarie</h2>
+            <p>Vindecătorul bolnavilor.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Acatist%20Sf%C3%A2ntul%20Mina'">
+            <i style="font-size:40px;">🛡️</i>
+            <h2>Acatistul Sfântului Mina</h2>
+            <p>Grabnic ajutător în pagube și nedreptăți.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Acatist%20Sf%C3%A2ntul%20Efrem%20cel%20Nou'">
+            <i style="font-size:40px;">🔥</i>
+            <h2>Acatistul Sfântului Efrem cel Nou</h2>
+            <p>Mare făcător de minuni.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Acatist%20Sf%C3%A2ntul%20Ioan%20Rusul'">
+            <i style="font-size:40px;">🕊️</i>
+            <h2>Acatistul Sfântului Ioan Rusul</h2>
+            <p>Ocrotitor al celor aflați în suferință.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Acatist'">
+            <i style="font-size:40px;">📜</i>
+            <h2>Toate acatistele</h2>
+            <p>Accesează lista completă.</p>
+        </div>
+
     </div>
 
-</div>
+    <nav class="bottom-nav">
+        <a href="index.html"><i>🏠</i><br>Acasă</a>
+        <a href="calendar.html"><i>📅</i><br>Calendar</a>
+        <a href="setari.html"><i>⚙️</i><br>Setări</a>
+    </nav>
 
-<script src="nav.js"></script>
+    <script src="nav.js"></script>
+
 </body>
 </html>
