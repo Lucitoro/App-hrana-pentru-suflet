@@ -5,45 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar Ortodox – Hrana pentru suflet</title>
 
-    <!-- Manifest + Service Worker -->
-    <link rel="manifest" href="manifest.json">
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("sw.js");
-        }
-    </script>
-
-    <!-- Font Awesome pentru iconițe -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <!-- Stiluri premium -->
-    <link rel="stylesheet" href="style.css2">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="header">
-    <h1>Calendar Ortodox</h1>
-</header>
+    <!-- FUNDAL ANIMAT PREMIUM -->
+    <div class="background-animation"></div>
 
-<main class="container">
+    <!-- HEADER PREMIUM -->
+    <header class="header">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="app-title">Calendar Ortodox</div>
+    </header>
 
-    <section class="card">
-        <h2><i class="fas fa-calendar-alt"></i> Calendarul zilei</h2>
+    <!-- MENIU LATERAL PREMIUM -->
+    <nav id="sideMenu" class="side-menu">
+        <a href="index.html"><i>🏠</i> Acasă</a>
+        <a href="pravila.html"><i>📜</i> Pravila</a>
+        <a href="psaltirea.html"><i>📖</i> Psaltirea</a>
+        <a href="acatiste.html"><i>🙏</i> Acatiste</a>
+        <a href="taine.html"><i>⛪</i> Sfintele Taine</a>
+        <a href="resurse.html"><i>📚</i> Resurse</a>
+        <a href="setari.html"><i>⚙️</i> Setări</a>
+    </nav>
 
-        <iframe 
-            src="https://www.crestinortodox.ro/calendar-ortodox/" 
-            width="100%" 
-            height="600" 
-            style="border-radius: 12px; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-        </iframe>
-    </section>
+    <!-- CONȚINUT PREMIUM -->
+    <div class="container">
 
-    <a href="index.html" class="btn-premium">
-        <i class="fas fa-arrow-left"></i> Înapoi la meniu
-    </a>
+        <div class="card3d scroll-appear">
+            <h2><i>📅</i> Calendarul zilei</h2>
 
-</main>
+            <iframe 
+                src="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1"
+                width="100%" 
+                height="600" 
+                style="border-radius: 16px; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+            </iframe>
+        </div>
 
+    </div>
+
+    <!-- MENIU JOS PREMIUM -->
+    <nav class="bottom-nav">
+        <a href="index.html"><i>🏠</i><br>Acasă</a>
+        <a href="calendar.html" class="active"><i>📅</i><br>Calendar</a>
+        <a href="setari.html"><i>⚙️</i><br>Setări</a>
+    </nav>
+
+    <script src="nav.js"></script>
 </body>
 </html>
