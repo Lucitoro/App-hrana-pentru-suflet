@@ -4,44 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resurse duhovnicești</title>
+
+    <!-- CSS PREMIUM -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- ICON -->
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <div class="app-title">Resurse</div>
-</header>
+    <!-- FUNDAL ANIMAT -->
+    <div class="background-animation"></div>
 
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
-    <a href="calendar.html">📅 Calendar</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="app-title">Resurse duhovnicești</div>
+    </header>
 
-<div class="container">
+    <!-- MENIU LATERAL -->
+    <nav id="sideMenu" class="side-menu">
+        <a href="index.html">🏠 Acasă</a>
+        <a href="pravila.html">📜 Pravila</a>
+        <a href="psaltirea.html">📖 Psaltirea</a>
+        <a href="acatiste.html">🙏 Acatiste</a>
+        <a href="taine.html">⛪ Sfintele Taine</a>
+        <a href="calendar.html">📅 Calendar</a>
+        <a href="resurse.html" class="active">📚 Resurse</a>
+        <a href="setari.html">⚙️ Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/PSALTIREA%20LUI%20DAVID%20%28completa%29'">
-        <i>📖</i>
-        <h2>Psaltirea completă</h2>
-        <p>Catisme și rugăciuni</p>
+    <!-- CONȚINUT -->
+    <div class="container">
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/'">
+            <i style="font-size:40px;">📚</i>
+            <h2>Cărți duhovnicești</h2>
+            <p>Accesează colecția completă de cărți duhovnicești.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Predici'">
+            <i style="font-size:40px;">🎙️</i>
+            <h2>Predici audio & text</h2>
+            <p>Predici pentru întărirea sufletului.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Rug%C4%83ciuni'">
+            <i style="font-size:40px;">🙏</i>
+            <h2>Rugăciuni</h2>
+            <p>Rugăciuni pentru toate trebuințele.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/PSALTIREA%20LUI%20DAVID%20%28completa%29'">
+            <i style="font-size:40px;">📖</i>
+            <h2>Psaltirea completă</h2>
+            <p>Toate catismele, integral.</p>
+        </div>
+
     </div>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html?m=1'">
-        <i>🙏</i>
-        <h2>Acatiste și Canoane</h2>
-        <p>Toate acatistele într-un singur loc</p>
-    </div>
+    <!-- MENIU JOS -->
+    <nav class="bottom-nav">
+        <a href="index.html"><i>🏠</i><br>Acasă</a>
+        <a href="calendar.html"><i>📅</i><br>Calendar</a>
+        <a href="setari.html"><i>⚙️</i><br>Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html'">
-        <i>⛪</i>
-        <h2>Rugăciuni după Sfânta Împărtășanie</h2>
-        <p>Mulțumire și întărire duhovnicească</p>
-    </div>
+    <!-- SCRIPT MENIU -->
+    <script src="nav.js"></script>
 
-</div>
-
-<script src="nav.js"></script>
 </body>
 </html>
