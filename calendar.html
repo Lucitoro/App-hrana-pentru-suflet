@@ -3,57 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar Ortodox – Hrana pentru suflet</title>
+    <title>Calendar Ortodox</title>
 
-    <!-- Stiluri premium -->
+    <!-- CSS PREMIUM -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- ICON -->
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
 
-    <!-- FUNDAL ANIMAT PREMIUM -->
+    <!-- FUNDAL ANIMAT -->
     <div class="background-animation"></div>
 
-    <!-- HEADER PREMIUM -->
+    <!-- HEADER -->
     <header class="header">
         <div class="menu-btn" onclick="toggleMenu()">☰</div>
         <div class="app-title">Calendar Ortodox</div>
     </header>
 
-    <!-- MENIU LATERAL PREMIUM -->
+    <!-- MENIU LATERAL -->
     <nav id="sideMenu" class="side-menu">
-        <a href="index.html"><i>🏠</i> Acasă</a>
-        <a href="pravila.html"><i>📜</i> Pravila</a>
-        <a href="psaltirea.html"><i>📖</i> Psaltirea</a>
-        <a href="acatiste.html"><i>🙏</i> Acatiste</a>
-        <a href="taine.html"><i>⛪</i> Sfintele Taine</a>
-        <a href="resurse.html"><i>📚</i> Resurse</a>
-        <a href="setari.html"><i>⚙️</i> Setări</a>
+        <a href="index.html">🏠 Acasă</a>
+        <a href="pravila.html">📜 Pravila</a>
+        <a href="psaltirea.html">📖 Psaltirea</a>
+        <a href="acatiste.html">🙏 Acatiste</a>
+        <a href="taine.html">⛪ Sfintele Taine</a>
+        <a href="calendar.html" class="active">📅 Calendar</a>
+        <a href="resurse.html">📚 Resurse</a>
+        <a href="setari.html">⚙️ Setări</a>
     </nav>
 
-    <!-- CONȚINUT PREMIUM -->
+    <!-- CONȚINUT -->
     <div class="container">
 
         <div class="card3d scroll-appear">
-            <h2><i>📅</i> Calendarul zilei</h2>
+            <h2>📅 Sfinții zilei</h2>
+            <p>Aici vor apărea sfinții zilei și sărbătorile importante.</p>
+        </div>
 
-            <iframe 
-                src="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1"
-                width="100%" 
-                height="600" 
-                style="border-radius: 16px; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
-            </iframe>
+        <div class="card3d scroll-appear">
+            <h2>📜 Viețile Sfinților</h2>
+            <p>Accesează viețile sfinților pentru fiecare zi.</p>
+        </div>
+
+        <div class="card3d scroll-appear">
+            <h2>🕯️ Posturi și sărbători</h2>
+            <p>Calendarul complet al posturilor și sărbătorilor.</p>
         </div>
 
     </div>
 
-    <!-- MENIU JOS PREMIUM -->
+    <!-- MENIU JOS -->
     <nav class="bottom-nav">
         <a href="index.html"><i>🏠</i><br>Acasă</a>
         <a href="calendar.html" class="active"><i>📅</i><br>Calendar</a>
         <a href="setari.html"><i>⚙️</i><br>Setări</a>
     </nav>
 
+    <!-- SCRIPT MENIU -->
     <script src="nav.js"></script>
+
 </body>
 </html>
