@@ -4,116 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hrana pentru suflet</title>
-
-    <!-- CSS PREMIUM -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- ICON -->
-    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
 
-    <!-- PRAVILA -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciunile-de-dimineata.html?m=1">🌅 Rugăciunile de dimineață</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciunile-inserarii.html?m=1">🌇 Rugăciunile înserării</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciunile-de-seara.html?m=1">🌙 Rugăciunile de seară</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-saptamanale.html?m=1">📅 Rugăciuni săptămânale</a>
+<header class="header">
+    <h1>🍞 Hrana pentru suflet</h1>
+</header>
 
-    <!-- RUGĂCIUNI LA DIFERITE TREBUINȚE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-la-nevoie.html?m=1">🙏 Rugăciuni la diferite trebuințe</a>
+<div class="container">
 
-    <!-- ÎNAINTE / DUPĂ SPOVEDANIE / ÎMPĂRTĂȘANIE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html">✝️ Rugăciuni înainte de spovedanie</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html">✨ Rugăciuni după Sf. Împărtășanie</a>
+    <div class="grid-2">
 
-    <!-- PSALTIRE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2025/03/psaltirea-lui-david-acum.html?m=1">📖 Psaltirea</a>
+        <!-- RESURSE -->
+        <a href="resurse.html" class="btn-premium card3d scroll-appear">
+            <h2>📚 Resurse duhovnicești</h2>
+            <p>Cărți, predici, rugăciuni, acatiste.</p>
+        </a>
 
-    <!-- ACATISTE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html?m=1">🙏 Acatiste și Canoane</a>
+        <!-- PRAVILA -->
+        <a href="pravila.html" class="btn-premium card3d scroll-appear">
+            <h2>📜 Pravila zilnică</h2>
+            <p>Rugăciunile de dimineață și seară.</p>
+        </a>
 
-    <!-- CALENDAR -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1">📅 Calendar 2026</a>
+        <!-- PSALTIREA -->
+        <a href="psaltirea.html" class="btn-premium card3d scroll-appear">
+            <h2>📖 Psaltirea</h2>
+            <p>Toate catismele complet.</p>
+        </a>
 
-    <!-- PAGINILE DIN APLICAȚIE -->
-    <a href="resurse.html">📚 Resurse</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
+        <!-- ACATISTE -->
+        <a href="acatiste.html" class="btn-premium card3d scroll-appear">
+            <h2>🙏 Acatiste</h2>
+            <p>Acatiste și paraclise.</p>
+        </a>
 
-    <!-- FUNDAL ANIMAT -->
-    <div class="background-animation"></div>
+        <!-- SFINTELE TAINE -->
+        <a href="taine.html" class="btn-premium card3d scroll-appear">
+            <h2>✝️ Sfintele Taine</h2>
+            <p>Descrieri și explicații.</p>
+        </a>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
-        <div class="app-title">Hrana pentru suflet</div>
-    </header>
+        <!-- CALENDAR -->
+        <a href="calendar.html" class="btn-premium card3d scroll-appear">
+            <h2>📅 Calendar ortodox</h2>
+            <p>Sărbători și sfinți.</p>
+        </a>
 
-    <!-- MENIU LATERAL -->
-    <nav id="sideMenu" class="side-menu">
-        <a href="index.html"><i>🏠</i> Acasă</a>
-        <a href="pravila.html"><i>📜</i> Pravila de rugăciuni</a>
-        <a href="psaltirea.html"><i>📖</i> Psaltirea</a>
-        <a href="acatiste.html"><i>🙏</i> Acatiste</a>
-        <a href="taine.html"><i>⛪</i> Sfintele Taine</a>
-        <a href="calendar.html"><i>📅</i> Calendar</a>
-        <a href="resurse.html"><i>📚</i> Resurse</a>
-        <a href="setari.html"><i>⚙️</i> Setări</a>
-    </nav>
+        <!-- SETĂRI -->
+        <a href="setari.html" class="btn-premium card3d scroll-appear">
+            <h2>⚙️ Setări</h2>
+            <p>Mod întunecat, TTS, preferințe.</p>
+        </a>
 
-    <!-- CONȚINUT -->
-    <div class="container">
-
-        <div class="card3d scroll-appear" onclick="location.href='pravila.html'">
-            <i style="font-size:40px;">📜</i>
-            <h2>Pravila de rugăciuni</h2>
-            <p>Rugăciunile de dimineață, seară și săptămânale</p>
-        </div>
-
-        <div class="card3d scroll-appear" onclick="location.href='psaltirea.html'">
-            <i style="font-size:40px;">📖</i>
-            <h2>Psaltirea</h2>
-            <p>Catisme și rugăciuni</p>
-        </div>
-
-        <div class="card3d scroll-appear" onclick="location.href='acatiste.html'">
-            <i style="font-size:40px;">🙏</i>
-            <h2>Acatiste</h2>
-            <p>Acatiste pentru toate trebuințele</p>
-        </div>
-
-        <div class="card3d scroll-appear" onclick="location.href='taine.html'">
-            <i style="font-size:40px;">⛪</i>
-            <h2>Sfintele Taine</h2>
-            <p>Spovedanie, împărtășanie, maslu</p>
-        </div>
-
-        <div class="card3d scroll-appear" onclick="location.href='calendar.html'">
-            <i style="font-size:40px;">📅</i>
-            <h2>Calendar Ortodox</h2>
-            <p>Sfinții zilei și sărbători</p>
-        </div>
-
-        <div class="card3d scroll-appear" onclick="location.href='resurse.html'">
-            <i style="font-size:40px;">📚</i>
-            <h2>Resurse</h2>
-            <p>Cărți, predici, materiale duhovnicești</p>
-        </div>
+        <!-- DESCARCĂ -->
+        <a href="app-release.apk" download class="btn-premium card3d scroll-appear">
+            <h2>⬇️ Descarcă aplicația</h2>
+            <p>Instalează versiunea Android.</p>
+        </a>
 
     </div>
 
-    <!-- MENIU JOS -->
-    <nav class="bottom-nav">
-        <a href="index.html" class="active"><i>🏠</i><br>Acasă</a>
-        <a href="calendar.html"><i>📅</i><br>Calendar</a>
-        <a href="setari.html"><i>⚙️</i><br>Setări</a>
-    </nav>
+</div>
 
-    <!-- SCRIPT MENIU -->
-    <script src="nav.js"></script>
+<!-- MENIU JOS PREMIUM -->
+<div class="bottom-nav">
+    <a href="index.html">🏠<br>Acasă</a>
+    <a href="pravila.html">🙏<br>Rugăciuni</a>
+    <a href="calendar.html">📅<br>Calendar</a>
+    <a href="resurse.html">📚<br>Resurse</a>
+    <a href="setari.html">⚙️<br>Setări</a>
+    <a href="app-release.apk" download>⬇️<br>Descarcă</a>
+</div>
 
 </body>
 </html>
