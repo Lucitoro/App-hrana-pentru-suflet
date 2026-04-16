@@ -5,6 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sfintele Taine</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ICONIȚE ANIMATE */
+        .icon-anim {
+            display: inline-block;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        /* SUBMENIU ASCUNS */
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 12px;
+            background: rgba(255,255,255,0.06);
+            border-left: 3px solid gold;
+            border-radius: 12px;
+            line-height: 1.5;
+            animation: slideDown 0.4s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BUTON DESCHIDERE */
+        .btn-toggle {
+            margin-top: 10px;
+            background: linear-gradient(135deg, gold, #b8860b);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            color: black;
+            transition: 0.2s;
+        }
+
+        .btn-toggle:hover {
+            background: linear-gradient(135deg, #ffea00, gold);
+        }
+    </style>
+
+    <script>
+        function toggleDetails(id) {
+            const box = document.getElementById(id);
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </head>
 
 <body>
@@ -29,51 +86,114 @@
 
     <!-- 1. BOTEZUL -->
     <div class="card3d scroll-appear">
-        <h2>💧 Botezul</h2>
+        <div class="icon-anim">💧</div>
+        <h2>Botezul</h2>
         <p><strong>Taina nașterii din nou în Hristos.</strong></p>
-        <p>Prin Botez, omul intră în viața cea nouă în Hristos, se curățește de păcatul strămoșesc și devine mădular al Bisericii. Este începutul vieții duhovnicești și poarta tuturor celorlalte Taine.</p>
+
+        <div class="btn-toggle" onclick="toggleDetails('det1')">Deschide detalii</div>
+
+        <div class="details" id="det1">
+            Prin Sfântul Botez, omul se naște din nou duhovnicește și intră în viața cea nouă în Hristos.
+            Este curățit de păcatul strămoșesc și devine mădular al Bisericii, primind începutul mântuirii.
+            Botezul este poarta tuturor celorlalte Taine, începutul vieții creștine, lumina care deschide sufletul
+            către Dumnezeu și către lucrarea harului. Prin scufundarea în apă, omul moare împreună cu Hristos
+            pentru păcat, iar prin ridicare, învie împreună cu El pentru viața cea veșnică.
+        </div>
     </div>
 
     <!-- 2. MIRUNGEREA -->
     <div class="card3d scroll-appear">
-        <h2>🕊️ Mirungerea</h2>
+        <div class="icon-anim">🕊️</div>
+        <h2>Mirungerea</h2>
         <p><strong>Întărirea în credință prin harul Sfântului Duh.</strong></p>
-        <p>Mirungerea este pecetluirea cu darurile Sfântului Duh, care întăresc sufletul în credință, îl luminează și îl ajută să crească duhovnicește. Este continuarea Botezului și întărirea în viața creștină.</p>
+
+        <div class="btn-toggle" onclick="toggleDetails('det2')">Deschide detalii</div>
+
+        <div class="details" id="det2">
+            Mirungerea este Taina prin care credinciosul primește pecetea darurilor Sfântului Duh:
+            înțelepciune, pricepere, sfat, tărie, cunoștință, evlavie și frica de Dumnezeu.
+            Este continuarea Botezului și întărirea în viața creștină. Prin ungerea cu Sfântul Mir,
+            sufletul este luminat, întărit și înarmat împotriva ispitelor, devenind capabil să crească
+            duhovnicește și să mărturisească credința cu putere și curaj.
+        </div>
     </div>
 
     <!-- 3. ÎMPĂRTĂȘANIA -->
     <div class="card3d scroll-appear">
-        <h2>🍞 Împărtășania</h2>
+        <div class="icon-anim">🍞</div>
+        <h2>Împărtășania</h2>
         <p><strong>Primirea Trupului și Sângelui Domnului.</strong></p>
-        <p>Prin Sfânta Împărtășanie, credinciosul se unește cu Hristos în mod real și tainic. Este Taina vieții veșnice, izvor de lumină, iertare și întărire sufletească.</p>
+
+        <div class="btn-toggle" onclick="toggleDetails('det3')">Deschide detalii</div>
+
+        <div class="details" id="det3">
+            Sfânta Împărtășanie este Taina unirii reale și tainice cu Hristos.
+            Prin primirea Trupului și Sângelui Domnului, credinciosul se împărtășește de viața cea veșnică,
+            primește iertarea păcatelor, luminare, întărire și pace sufletească.
+            Este cea mai mare și mai sfântă Taină, izvorul harului și al sfințeniei.
+            Împărtășania este hrană duhovnicească, medicament al nemuririi și legătura vie cu Dumnezeu.
+        </div>
     </div>
 
     <!-- 4. SPOVEDANIA -->
     <div class="card3d scroll-appear">
-        <h2>🙏 Spovedania</h2>
+        <div class="icon-anim">🙏</div>
+        <h2>Spovedania</h2>
         <p><strong>Mărturisirea păcatelor și iertarea lor.</strong></p>
-        <p>Spovedania este Taina în care credinciosul își mărturisește păcatele cu sinceritate și primește iertarea lor prin harul lui Hristos. Este renașterea sufletului și începutul unei vieți noi.</p>
+
+        <div class="btn-toggle" onclick="toggleDetails('det4')">Deschide detalii</div>
+
+        <div class="details" id="det4">
+            Spovedania este Taina în care credinciosul își deschide sufletul înaintea lui Dumnezeu,
+            mărturisindu-și păcatele cu sinceritate și pocăință. Prin cuvântul preotului,
+            Hristos Însuși dăruiește iertarea și ridică povara păcatelor.
+            Este Taina vindecării sufletești, a eliberării de greutatea conștiinței și a renașterii lăuntrice.
+        </div>
     </div>
 
     <!-- 5. MASLUL -->
     <div class="card3d scroll-appear">
-        <h2>🕯️ Maslul</h2>
+        <div class="icon-anim">🕯️</div>
+        <h2>Maslul</h2>
         <p><strong>Taina vindecării sufletești și trupești.</strong></p>
-        <p>Maslul este Taina prin care Dumnezeu dăruiește vindecare trupească și sufletească, întărire în suferință și iertarea păcatelor. Este Taina milei și a mângâierii dumnezeiești.</p>
+
+        <div class="btn-toggle" onclick="toggleDetails('det5')">Deschide detalii</div>
+
+        <div class="details" id="det5">
+            Sfântul Maslu este Taina prin care Dumnezeu dăruiește vindecare trupească și sufletească,
+            întărire în suferință și iertarea păcatelor. Prin ungerea cu untdelemn sfințit și rugăciunile preoților,
+            credinciosul primește harul mângâierii dumnezeiești, alinarea durerilor și întărirea credinței.
+        </div>
     </div>
 
     <!-- 6. CUNUNIA -->
     <div class="card3d scroll-appear">
-        <h2>💍 Cununia</h2>
+        <div class="icon-anim">💍</div>
+        <h2>Cununia</h2>
         <p><strong>Unirea binecuvântată dintre bărbat și femeie.</strong></p>
-        <p>Cununia este Taina în care Dumnezeu unește un bărbat și o femeie într-o singură inimă și un singur trup, binecuvântând familia și dăruindu-le har pentru a trăi în dragoste, pace și credință.</p>
+
+        <div class="btn-toggle" onclick="toggleDetails('det6')">Deschide detalii</div>
+
+        <div class="details" id="det6">
+            Cununia este Taina în care Dumnezeu unește un bărbat și o femeie într-o singură inimă și un singur trup,
+            binecuvântând familia și dăruindu-le har pentru a trăi în dragoste, pace și credință.
+            Este icoana unirii dintre Hristos și Biserică, o chemare la iubire jertfelnică și răbdare.
+        </div>
     </div>
 
     <!-- 7. PREOȚIA -->
     <div class="card3d scroll-appear">
-        <h2>⛪ Preoția</h2>
+        <div class="icon-anim">⛪</div>
+        <h2>Preoția</h2>
         <p><strong>Harul slujirii în Biserică.</strong></p>
-        <p>Preoția este Taina prin care Dumnezeu cheamă și hirotonește slujitori ai Bisericii, dăruindu-le harul de a săvârși Sfintele Taine și de a păstori poporul credincios.</p>
+
+        <div class="btn-toggle" onclick="toggleDetails('det7')">Deschide detalii</div>
+
+        <div class="details" id="det7">
+            Preoția este Taina prin care Dumnezeu cheamă și hirotonește slujitori ai Bisericii,
+            dăruindu-le harul de a săvârși Sfintele Taine, de a predica Evanghelia și de a păstori poporul credincios.
+            Este o chemare sfântă, o slujire jertfelnică și o responsabilitate duhovnicească.
+        </div>
     </div>
 
 </div>
