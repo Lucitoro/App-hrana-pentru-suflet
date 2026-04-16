@@ -1,96 +1,56 @@
-/* ------------------------------
-   VARIABILE TEMA
------------------------------- */
-:root {
-    --bg: #f5f5f5;
-    --text: #222;
-    --card-bg: rgba(255, 255, 255, 0.35);
-    --shadow: 0 8px 25px rgba(0,0,0,0.15);
-    --accent: #4a6cf7;
-}
-
-body.dark {
-    --bg: #0f0f0f;
-    --text: #fff;
-    --card-bg: rgba(20, 20, 20, 0.45);
-    --shadow: 0 8px 25px rgba(0,0,0,0.6);
-    --accent: #6a8cff;
-}
-
-/* ------------------------------
-   GLOBAL
------------------------------- */
+/* FUNDAL PREMIUM */
 body {
     margin: 0;
     padding: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Segoe UI", sans-serif;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    color: white;
     overflow-x: hidden;
 }
 
-/* ------------------------------
-   FUNDAL ANIMAT
------------------------------- */
+/* FUNDAL ANIMAT */
 .background-animation {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 20%, #6a8cff33, transparent),
-                radial-gradient(circle at 80% 80%, #4a6cf733, transparent);
-    filter: blur(40px);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(255,215,0,0.15), transparent),
+                radial-gradient(circle at 80% 80%, rgba(255,215,0,0.1), transparent);
     z-index: -1;
-    animation: moveBg 12s infinite alternate ease-in-out;
 }
 
-@keyframes moveBg {
-    0% { transform: translate(0,0); }
-    100% { transform: translate(-40px, 40px); }
-}
-
-/* ------------------------------
-   HEADER
------------------------------- */
+/* HEADER PREMIUM */
 .header {
     display: flex;
     align-items: center;
     padding: 15px;
-    background: var(--card-bg);
+    background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    border-bottom: 1px solid rgba(255,215,0,0.3);
 }
 
 .menu-btn {
-    font-size: 1.6rem;
-    margin-right: 15px;
+    font-size: 26px;
     cursor: pointer;
+    margin-right: 15px;
 }
 
 .app-title {
-    font-size: 1.4rem;
+    font-size: 22px;
     font-weight: bold;
+    color: gold;
 }
 
-/* ------------------------------
-   MENIU LATERAL
------------------------------- */
+/* MENIU LATERAL PREMIUM */
 .side-menu {
     position: fixed;
-    top: 0;
-    left: -260px;
+    top: 0; left: -260px;
     width: 260px;
     height: 100%;
-    background: var(--card-bg);
-    backdrop-filter: blur(15px);
-    box-shadow: var(--shadow);
+    background: rgba(20,20,20,0.95);
+    backdrop-filter: blur(10px);
     padding-top: 70px;
-    transition: 0.35s ease;
-    z-index: 20;
+    transition: 0.4s;
+    border-right: 1px solid rgba(255,215,0,0.3);
 }
 
 .side-menu.open {
@@ -99,114 +59,43 @@ body {
 
 .side-menu a {
     display: block;
-    padding: 18px;
-    font-size: 1.1rem;
-    color: var(--text);
-    text-decoration: none;
+    padding: 15px 20px;
+    color: white;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,215,0,0.1);
 }
 
-.side-menu a i {
-    margin-right: 10px;
+.side-menu a:hover {
+    background: rgba(255,215,0,0.15);
 }
 
-/* ------------------------------
-   CARDURI 3D
------------------------------- */
-.container {
-    padding: 20px;
-}
-
+/* CARDURI PREMIUM 3D */
 .card3d {
-    background: var(--card-bg);
+    background: rgba(255,255,255,0.08);
     backdrop-filter: blur(12px);
-    padding: 25px;
     border-radius: 18px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,215,0,0.3);
+    transition: transform 0.2s ease;
     cursor: pointer;
-    text-align: center;
 }
 
 .card3d:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-}
-
-.card3d i {
-    font-size: 2.4rem;
-    margin-bottom: 10px;
-    color: var(--accent);
+    transform: scale(1.03);
 }
 
 .card3d h2 {
-    margin: 5px 0;
+    margin: 0;
+    color: gold;
 }
 
-.card3d p {
-    opacity: 0.8;
-}
-
-/* ------------------------------
-   MENIU JOS
------------------------------- */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    box-shadow: var(--shadow);
-}
-
-.bottom-nav a {
-    color: var(--text);
-    text-decoration: none;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.bottom-nav a i {
-    font-size: 1.4rem;
-}
-
-.bottom-nav .active {
-    color: var(--accent);
-}
-
-/* ------------------------------
-   BUTON TTS PLUTITOR
------------------------------- */
-.floating-tts {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 18px;
-    border-radius: 50%;
-    font-size: 1.4rem;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.floating-tts:hover {
-    transform: scale(1.1);
-}
-
-/* ------------------------------
-   ANIMAȚII SCROLL
------------------------------- */
+/* ANIMAȚIE SCROLL */
 .scroll-appear {
     opacity: 0;
     transform: translateY(20px);
-    transition: 0.5s ease;
+    transition: 0.6s ease-out;
 }
 
 .scroll-appear.visible {
@@ -214,12 +103,38 @@ body {
     transform: translateY(0);
 }
 
-/* ------------------------------
-   RESPONSIVE
------------------------------- */
-@media (min-width: 700px) {
-    .card3d {
-        max-width: 500px;
-        margin: 20px auto;
-    }
+/* BUTOANE PREMIUM */
+.btn-premium {
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, gold, #b8860b);
+    color: black;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto;
+    box-shadow: 0 6px 15px rgba(255,215,0,0.4);
+}
+
+/* MENIU JOS PREMIUM */
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,215,0,0.3);
+}
+
+.bottom-nav a {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.bottom-nav .active {
+    color: gold;
 }
