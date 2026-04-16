@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar Ortodox</title>
-
-    <!-- CSS PREMIUM -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- ICON -->
-    <link rel="icon" type="image/png" href="icon.png">
+    <title>Calendar 2026</title>
+    <link rel="stylesheet" href="style.css?v=2024041603">
+    <script src="nav.js?v=2024041603" defer></script>
 </head>
 
 <body>
+
+<!-- =========================
+     MENIU LATERAL COMPLET
+========================= -->
 <nav id="sideMenu" class="side-menu">
     <a href="index.html">🏠 Acasă</a>
 
@@ -36,63 +36,47 @@
     <a href="https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html?m=1">🙏 Acatiste și Canoane</a>
 
     <!-- CALENDAR -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1">📅 Calendar 2026</a>
+    <a href="calendar.html" class="active">📅 Calendar 2026</a>
 
     <!-- PAGINILE DIN APLICAȚIE -->
     <a href="resurse.html">📚 Resurse</a>
     <a href="setari.html">⚙️ Setări</a>
 </nav>
 
-    <!-- FUNDAL ANIMAT -->
-    <div class="background-animation"></div>
+<!-- =========================
+     HEADER PREMIUM
+========================= -->
+<div class="header">
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <h1 class="app-title">Calendar 2026</h1>
+</div>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
-        <div class="app-title">Calendar Ortodox</div>
-    </header>
+<!-- =========================
+     CONȚINUT PAGINĂ
+========================= -->
+<div class="container">
 
-    <!-- MENIU LATERAL -->
-    <nav id="sideMenu" class="side-menu">
-        <a href="index.html">🏠 Acasă</a>
-        <a href="pravila.html">📜 Pravila</a>
-        <a href="psaltirea.html">📖 Psaltirea</a>
-        <a href="acatiste.html">🙏 Acatiste</a>
-        <a href="taine.html">⛪ Sfintele Taine</a>
-        <a href="calendar.html" class="active">📅 Calendar</a>
-        <a href="resurse.html">📚 Resurse</a>
-        <a href="setari.html">⚙️ Setări</a>
-    </nav>
+    <div class="card3d scroll-appear">
+        <h2>Calendar Ortodox 2026</h2>
+        <p>Apasă pe butonul de mai jos pentru a deschide calendarul complet.</p>
 
-    <!-- CONȚINUT -->
-    <div class="container">
-
-        <div class="card3d scroll-appear">
-            <h2>📅 Sfinții zilei</h2>
-            <p>Aici vor apărea sfinții zilei și sărbătorile importante.</p>
-        </div>
-
-        <div class="card3d scroll-appear">
-            <h2>📜 Viețile Sfinților</h2>
-            <p>Accesează viețile sfinților pentru fiecare zi.</p>
-        </div>
-
-        <div class="card3d scroll-appear">
-            <h2>🕯️ Posturi și sărbători</h2>
-            <p>Calendarul complet al posturilor și sărbătorilor.</p>
-        </div>
-
+        <a class="btn-premium"
+           href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1"
+           target="_blank">
+            📅 Deschide Calendarul 2026
+        </a>
     </div>
 
-    <!-- MENIU JOS -->
-    <nav class="bottom-nav">
-        <a href="index.html"><i>🏠</i><br>Acasă</a>
-        <a href="calendar.html" class="active"><i>📅</i><br>Calendar</a>
-        <a href="setari.html"><i>⚙️</i><br>Setări</a>
-    </nav>
+</div>
 
-    <!-- SCRIPT MENIU -->
-    <script src="nav.js"></script>
+<!-- =========================
+     MENIU JOS
+========================= -->
+<div class="bottom-nav">
+    <a href="index.html"><i>🏠</i>Acasă</a>
+    <a href="resurse.html"><i>📚</i>Resurse</a>
+    <a href="setari.html"><i>⚙️</i>Setări</a>
+</div>
 
 </body>
 </html>
