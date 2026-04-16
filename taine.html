@@ -9,29 +9,52 @@
 
 <body>
 
-<header class="header">
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <div class="app-title">Sfintele Taine</div>
-</header>
+    <div class="background-animation"></div>
 
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
-    <a href="calendar.html">📅 Calendar</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
+    <header class="header">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="app-title">Sfintele Taine</div>
+    </header>
 
-<div class="container">
+    <nav id="sideMenu" class="side-menu">
+        <a href="index.html"><i>🏠</i> Acasă</a>
+        <a href="pravila.html"><i>📜</i> Pravila</a>
+        <a href="psaltirea.html"><i>📖</i> Psaltirea</a>
+        <a href="acatiste.html"><i>🙏</i> Acatiste</a>
+        <a href="resurse.html"><i>📚</i> Resurse</a>
+        <a href="setari.html"><i>⚙️</i> Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html'">
-        <i>⛪</i>
-        <h2>Rugăciuni după Sfânta Împărtășanie</h2>
-        <p>Mulțumire și întărire duhovnicească</p>
+    <div class="container">
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inainte-de-spovedanie.html'">
+            <i>✝️</i>
+            <h2>Înainte de Spovedanie</h2>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html?m=1'">
+            <i>🙏</i>
+            <h2>După Spovedanie</h2>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-pentru-sf-impartasanie.html'">
+            <i>🍞</i>
+            <h2>Înainte de Împărtășanie</h2>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html'">
+            <i>⛪</i>
+            <h2>După Împărtășanie</h2>
+        </div>
+
     </div>
 
-    <!-- Dacă ai linkuri pentru Spovedanie, Maslu, Împărtășanie, le adaug imediat -->
+    <nav class="bottom-nav">
+        <a href="index.html"><i>🏠</i><br>Acasă</a>
+        <a href="calendar.html"><i>📅</i><br>Calendar</a>
+        <a href="setari.html"><i>⚙️</i><br>Setări</a>
+    </nav>
 
-</div>
-
-<script src="nav.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>
