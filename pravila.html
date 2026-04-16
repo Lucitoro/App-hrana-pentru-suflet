@@ -4,46 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pravila de rugăciuni</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <div class="app-title">Pravila de rugăciuni</div>
-</header>
+    <div class="background-animation"></div>
 
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
-    <a href="calendar.html">📅 Calendar</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
+    <header class="header">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="app-title">Pravila de rugăciuni</div>
+    </header>
 
-<div class="container">
+    <nav id="sideMenu" class="side-menu">
+        <a href="index.html">🏠 Acasă</a>
+        <a href="pravila.html" class="active">📜 Pravila</a>
+        <a href="psaltirea.html">📖 Psaltirea</a>
+        <a href="acatiste.html">🙏 Acatiste</a>
+        <a href="taine.html">⛪ Sfintele Taine</a>
+        <a href="calendar.html">📅 Calendar</a>
+        <a href="resurse.html">📚 Resurse</a>
+        <a href="setari.html">⚙️ Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-dimineata.html'">
-        <i>🌅</i>
-        <h2>Rugăciunile de dimineață</h2>
+    <div class="container">
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-incepatoare-pentru-orice.html?m=1'">
+            <i style="font-size:40px;">🌅</i>
+            <h2>Rugăciunile de dimineață</h2>
+            <p>Începutul zilei cu pace și binecuvântare.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html?m=1'">
+            <i style="font-size:40px;">🌙</i>
+            <h2>Rugăciunile de seară</h2>
+            <p>Încheierea zilei cu liniște și recunoștință.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Rug%C4%83ciuni'">
+            <i style="font-size:40px;">📜</i>
+            <h2>Rugăciuni pentru toată săptămâna</h2>
+            <p>Rânduieli zilnice pentru întărirea sufletului.</p>
+        </div>
+
+        <div class="card3d scroll-appear" onclick="location.href='https://cartiduhovnicesti.blogspot.com/search/label/Rug%C4%83ciuni'">
+            <i style="font-size:40px;">🙏</i>
+            <h2>Rugăciuni pentru toate trebuințele</h2>
+            <p>Ajutor în necazuri, boală, călătorie, familie.</p>
+        </div>
+
     </div>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inserarii.html'">
-        <i>🌇</i>
-        <h2>Rugăciunile înserării</h2>
-    </div>
+    <nav class="bottom-nav">
+        <a href="index.html"><i>🏠</i><br>Acasă</a>
+        <a href="calendar.html"><i>📅</i><br>Calendar</a>
+        <a href="setari.html"><i>⚙️</i><br>Setări</a>
+    </nav>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html'">
-        <i>🌙</i>
-        <h2>Rugăciunile de seară</h2>
-    </div>
+    <script src="nav.js"></script>
 
-    <div class="card3d" onclick="location.href='https://cartiduhovnicesti.blogspot.com/2020/06/rugaciuni-pentru-fiecare-zi-saptamanii.html'">
-        <i>📅</i>
-        <h2>Rugăciunile săptămânii</h2>
-    </div>
-
-</div>
-
-<script src="nav.js"></script>
 </body>
 </html>
