@@ -1,63 +1,68 @@
+/* =========================
+   NAVIGAȚIE PREMIUM ECHILIBRATĂ
+   ========================= */
+
 // Deschidere / închidere meniu lateral
 function toggleMenu() {
     const menu = document.getElementById("sideMenu");
-    const body = document.body;
-
     menu.classList.toggle("open");
 
-    // Blochează scroll-ul când meniul este deschis
+    // Blochează scroll-ul când meniul este deschis (mobil)
     if (menu.classList.contains("open")) {
-        body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
     } else {
-        body.style.overflow = "auto";
+        document.body.style.overflow = "";
     }
 }
 
 // Închide meniul dacă utilizatorul apasă în afara lui
-document.addEventListener("click", function (event) {
+document.addEventListener("click", function (e) {
     const menu = document.getElementById("sideMenu");
-    const button = document.querySelector(".menu-btn");
+    const btn = document.querySelector(".menu-btn");
 
-    if (!menu.contains(event.target) && !button.contains(event.target)) {
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
         menu.classList.remove("open");
-        document.body.style.overflow = "auto";
+        document.body.style.overflow = "";
     }
 });
 
-// Animație la scroll pentru carduri
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".scroll-appear");
+// Închide meniul automat când se schimbă orientarea sau lățimea ecranului
+window.addEventListener("resize", () => {
+    const menu = document.getElementById("sideMenu");
+    if (window.innerWidth > 900) {
+        menu.classList.remove("open");
+        document.body.style.overflow = "";
+    }
+});
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
+/* =========================
+   ANIMAȚIE CARDURI LA SCROLL
+   ========================= */
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
             }
         });
-    }, { threshold: 0.2 });
+    },
+    { threshold: 0.15 }
+);
 
-    elements.forEach(el => observer.observe(el));
-});
+document.querySelectorAll(".scroll-appear").forEach((el) => observer.observe(el));
 
-// Efect premium pe carduri (mic bounce)
-document.querySelectorAll(".card3d").forEach(card => {
-    card.addEventListener("mousedown", () => {
-        card.style.transform = "scale(0.97)";
-    });
-    card.addEventListener("mouseup", () => {
-        card.style.transform = "scale(1.03)";
-        setTimeout(() => {
-            card.style.transform = "scale(1)";
-        }, 150);
-    });
-});
+/* =========================
+   HIGHLIGHT PENTRU PAGINA ACTIVĂ
+   ========================= */
 
-// Efect premium pe butoane
-document.querySelectorAll(".btn-premium").forEach(btn => {
-    btn.addEventListener("mousedown", () => {
-        btn.style.transform = "scale(0.95)";
+(function highlightActivePage() {
+    const current = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll(".side-menu a, .bottom-nav a");
+
+    links.forEach((link) => {
+        if (link.getAttribute("href") === current) {
+            link.classList.add("active");
+        }
     });
-    btn.addEventListener("mouseup", () => {
-        btn.style.transform = "scale(1)";
-    });
-});
+})();
