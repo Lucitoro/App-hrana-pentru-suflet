@@ -55,6 +55,7 @@ function speakText(text) {
     speechSynthesis.speak(utter);
 }
 
+// Pentru browsere care încarcă vocile mai târziu
 speechSynthesis.onvoiceschanged = () => {};
 
 
@@ -97,7 +98,6 @@ function readSelectedOrTitle() {
 
 
 // ===============================
-//  BUTON DE CITIRE
+//  BUTON DE CITIRE (HTML)
 // ===============================
-// În HTML folosești:
 // <button onclick="readSelectedOrTitle()">🔊 Citește</button>
