@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hrana pentru suflet</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Stil pentru butonul de citire -->
+    <style>
+        #toggleReadingMode {
+            background: #4a90e2;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 15px 0;
+            width: 100%;
+            display: block;
+        }
+        #toggleReadingMode.active {
+            background: #2ecc71;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,13 +34,16 @@
 
 <div class="container">
 
+    <!-- BUTON MOD CITIRE -->
+    <button id="toggleReadingMode">Activează modul de citire</button>
+
     <!-- PRAVILA ZILNICĂ -->
     <a href="pravila.html" class="btn-premium card3d scroll-appear">
         <h2>🙏 Pravila zilnică</h2>
         <p>Rânduiala completă a rugăciunilor zilnice.</p>
     </a>
 
-    <!-- RUGĂCIUNI ORTODOXE (cu linkul tău real) -->
+    <!-- RUGĂCIUNI ORTODOXE -->
     <a href="https://www.lucianfotovideo.com/2020/06/rugaciuni-ortodoxe.html?m=1"
        class="btn-premium card3d scroll-appear" target="_blank">
         <h2>📜 Rugăciuni Ortodoxe</h2>
@@ -46,7 +68,7 @@
         <p>Explicații și rânduieli ortodoxe.</p>
     </a>
 
-    <!-- RESURSE DUHOVNICEȘTI -->
+    <!-- RESURSE -->
     <a href="resurse.html" class="btn-premium card3d scroll-appear">
         <h2>📚 Resurse duhovnicești</h2>
         <p>Cărți, articole și materiale ortodoxe.</p>
@@ -64,7 +86,7 @@
         <p>Personalizează aplicația.</p>
     </a>
 
-    <!-- DESCARCĂ APLICAȚIA -->
+    <!-- DESCARCĂ -->
     <a href="app-release.apk" class="btn-premium card3d scroll-appear" download>
         <h2>⬇️ Descarcă aplicația</h2>
         <p>Instalează versiunea Android.</p>
@@ -72,7 +94,7 @@
 
 </div>
 
-<!-- MENIU JOS PREMIUM -->
+<!-- MENIU JOS -->
 <div class="bottom-nav">
     <a href="index.html">🏠<br>Acasă</a>
     <a href="pravila.html">🙏<br>Rugăciuni</a>
@@ -81,6 +103,9 @@
     <a href="setari.html">⚙️<br>Setări</a>
     <a href="app-release.apk" download>⬇️<br>Descarcă</a>
 </div>
+
+<!-- SCRIPT MOD CITIRE -->
+<script src="tts-full.js"></script>
 
 </body>
 </html>
