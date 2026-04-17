@@ -6,130 +6,86 @@
     <title>Setări</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 <body>
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
 
-    <!-- PRAVILA -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciunile-de-dimineata.html?m=1">🌅 Rugăciunile de dimineață</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciunile-inserarii.html?m=1">🌇 Rugăciunile înserării</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciunile-de-seara.html?m=1">🌙 Rugăciunile de seară</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-saptamanale.html?m=1">📅 Rugăciuni săptămânale</a>
+<header class="header">
+    <h1>⚙️ Setări</h1>
+</header>
 
-    <!-- RUGĂCIUNI LA DIFERITE TREBUINȚE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-la-nevoie.html?m=1">🙏 Rugăciuni la diferite trebuințe</a>
+<div class="container">
 
-    <!-- ÎNAINTE / DUPĂ SPOVEDANIE / ÎMPĂRTĂȘANIE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html">✝️ Rugăciuni înainte de spovedanie</a>
-    <a href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html">✨ Rugăciuni după Sf. Împărtășanie</a>
-
-    <!-- PSALTIRE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2025/03/psaltirea-lui-david-acum.html?m=1">📖 Psaltirea</a>
-
-    <!-- ACATISTE -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html?m=1">🙏 Acatiste și Canoane</a>
-
-    <!-- CALENDAR -->
-    <a href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html?m=1">📅 Calendar 2026</a>
-
-    <!-- PAGINILE DIN APLICAȚIE -->
-    <a href="resurse.html">📚 Resurse</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
-
-    <div class="background-animation"></div>
-
-    <header class="header">
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
-        <div class="app-title">Setări</div>
-    </header>
-
-    <nav id="sideMenu" class="side-menu">
-        <a href="index.html">🏠 Acasă</a>
-        <a href="pravila.html">📜 Pravila</a>
-        <a href="psaltirea.html">📖 Psaltirea</a>
-        <a href="acatiste.html">🙏 Acatiste</a>
-        <a href="taine.html">⛪ Sfintele Taine</a>
-        <a href="calendar.html">📅 Calendar</a>
-        <a href="resurse.html">📚 Resurse</a>
-        <a href="setari.html" class="active">⚙️ Setări</a>
-    </nav>
-
-    <div class="container">
-
-        <!-- TEMA -->
-        <div class="card3d scroll-appear">
-            <h2>🎨 Tema aplicației</h2>
-            <p>Alege modul luminos sau întunecat.</p>
-            <div class="btn-premium">Mod luminos</div>
-            <div class="btn-premium">Mod întunecat</div>
-        </div>
-
-        <!-- TTS -->
-        <div class="card3d scroll-appear">
-            <h2>🔊 Citire text (TTS)</h2>
-            <p>Selectează vocea și viteza de citire.</p>
-
-            <div class="btn-premium">Voce masculină</div>
-            <div class="btn-premium">Voce feminină</div>
-
-            <div class="btn-premium">Citire lentă</div>
-            <div class="btn-premium">Citire normală</div>
-            <div class="btn-premium">Citire rapidă</div>
-
-            <div class="btn-premium">Citește doar titlurile</div>
-        </div>        <!-- MARIME TEXT -->
-        <div class="card3d scroll-appear">
-            <h2>🔠 Mărime text</h2>
-            <p>Alege dimensiunea textului:</p>
-
-            <div class="btn-premium">Mic</div>
-            <div class="btn-premium">Normal</div>
-            <div class="btn-premium">Mare</div>
-            <div class="btn-premium">Foarte mare</div>
-        </div>
-
-        <!-- LIMBA -->
-        <div class="card3d scroll-appear">
-            <h2>🌍 Limba aplicației</h2>
-            <p>Selectează limba interfeței:</p>
-
-            <div class="btn-premium">Română</div>
-            <div class="btn-premium">Italiană</div>
-            <div class="btn-premium">Engleză</div>
-        </div>
-
-        <!-- DESPRE -->
-        <div class="card3d scroll-appear">
-            <h2>ℹ️ Despre aplicație</h2>
-            <p>
-                Versiune: 1.0.0<br>
-                Realizată cu grijă pentru suflet.<br>
-                Toate drepturile rezervate.<br>
-                Autor: Lucian Ghiuță
-            </p>
-        </div>
-
-        <!-- RESETARE -->
-        <div class="card3d scroll-appear">
-            <h2>♻️ Resetare setări</h2>
-            <p>Revino la setările inițiale ale aplicației.</p>
-            <div class="btn-premium">Resetează tot</div>
-        </div>
-
+    <!-- TEMA -->
+    <div class="card3d scroll-appear">
+        <h2>🎨 Tema aplicației</h2>
+        <p>Alege modul luminos sau întunecat.</p>
+        <button class="btn-premium" onclick="setTheme('light')">Mod luminos</button>
+        <button class="btn-premium" onclick="setTheme('dark')">Mod întunecat</button>
     </div>
 
-    <nav class="bottom-nav">
-        <a href="index.html"><i>🏠</i><br>Acasă</a>
-        <a href="calendar.html"><i>📅</i><br>Calendar</a>
-        <a href="setari.html" class="active"><i>⚙️</i><br>Setări</a>
-    </nav>
+    <!-- TTS -->
+    <div class="card3d scroll-appear">
+        <h2>🔊 Citire text (TTS)</h2>
+        <p>Selectează vocea și viteza de citire.</p>
 
-    <script src="nav.js"></script>
+        <button class="btn-premium" onclick="setVoice('male')">Voce masculină</button>
+        <button class="btn-premium" onclick="setVoice('female')">Voce feminină</button>
+
+        <button class="btn-premium" onclick="setRate(0.7)">Citire lentă</button>
+        <button class="btn-premium" onclick="setRate(1)">Citire normală</button>
+        <button class="btn-premium" onclick="setRate(1.3)">Citire rapidă</button>
+
+        <button class="btn-premium" onclick="setReadMode('titles')">Citește doar titlurile</button>
+    </div>
+
+    <!-- MARIME TEXT -->
+    <div class="card3d scroll-appear">
+        <h2>🔠 Mărime text</h2>
+        <p>Alege dimensiunea textului:</p>
+
+        <button class="btn-premium" onclick="setTextSize('small')">Mic</button>
+        <button class="btn-premium" onclick="setTextSize('normal')">Normal</button>
+        <button class="btn-premium" onclick="setTextSize('large')">Mare</button>
+        <button class="btn-premium" onclick="setTextSize('xlarge')">Foarte mare</button>
+    </div>
+
+    <!-- LIMBA -->
+    <div class="card3d scroll-appear">
+        <h2>🌍 Limba aplicației</h2>
+        <p>Selectează limba interfeței:</p>
+
+        <button class="btn-premium" onclick="setLanguage('ro')">Română</button>
+        <button class="btn-premium" onclick="setLanguage('it')">Italiană</button>
+        <button class="btn-premium" onclick="setLanguage('en')">Engleză</button>
+    </div>
+
+    <!-- DESPRE -->
+    <div class="card3d scroll-appear">
+        <h2>ℹ️ Despre aplicație</h2>
+        <p>
+            Versiune: 1.0.0<br>
+            Realizată cu grijă pentru suflet.<br>
+            Autor: Lucian Ghiuță
+        </p>
+    </div>
+
+    <!-- RESETARE -->
+    <div class="card3d scroll-appear">
+        <h2>♻️ Resetare setări</h2>
+        <p>Revino la setările inițiale ale aplicației.</p>
+        <button class="btn-premium" onclick="resetSettings()">Resetează tot</button>
+    </div>
+
+</div>
+
+<nav class="bottom-nav">
+    <a href="index.html">🏠<br>Acasă</a>
+    <a href="calendar.html">📅<br>Calendar</a>
+    <a href="setari.html" class="active">⚙️<br>Setări</a>
+</nav>
+
+<script src="settings.js"></script>
 
 </body>
 </html>
-
