@@ -1,84 +1,88 @@
 // ===============================
-//  ACTIVARE AUTOMATĂ SETĂRI
+//  MOD CITIRE: CONTROL ON/OFF
 // ===============================
-(function() {
-    console.log("🔧 Activare automată a TUTUROR setărilor...");
 
-    const theme = "dark";
-    document.body.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-
-    const textSize = "large";
-    document.body.setAttribute("data-text-size", textSize);
-    localStorage.setItem("textSize", textSize);
-
-    const language = "ro";
-    localStorage.setItem("language", language);
-
-    const ttsVoice = "female";
-    localStorage.setItem("ttsVoice", ttsVoice);
-
-    const ttsRate = "1";
-    localStorage.setItem("ttsRate", ttsRate);
-
-    const ttsMode = "normal";
-    localStorage.setItem("ttsMode", ttsMode);
-
-    console.log("🎉 Toate setările au fost activate!");
-})();
+// Dacă nu există setare, implicit este OFF
+if (!localStorage.getItem("readingMode")) {
+    localStorage.setItem("readingMode", "off");
+}
 
 
 // ===============================
-//  FUNCȚIE TTS PRINCIPALĂ
+//  ACTIVARE SETĂRI CÂND MODUL ESTE ACTIV
+// ===============================
+function applyReadingSettings() {
+    console.log("🔧 Activare setări pentru modul de citire...");
+
+    document.body.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+
+    document.body.setAttribute("data-text-size", "large");
+    localStorage.setItem("textSize", "large");
+
+    localStorage.setItem("language", "ro");
+    localStorage.setItem("ttsVoice", "female");
+    localStorage.setItem("ttsRate", "1");
+    localStorage.setItem("ttsMode", "normal");
+
+    console.log("🎉 Setările pentru modul de citire au fost aplicate!");
+}
+
+
+// ===============================
+//  TTS — FUNCȚIE PRINCIPALĂ
 // ===============================
 function speakText(text) {
     const utter = new SpeechSynthesisUtterance(text);
 
-    // Setări salvate
-    utter.lang = localStorage.getItem("language") || "ro";
+    utter.lang = localStorage.getItem("language") || "ro-RO";
     utter.rate = parseFloat(localStorage.getItem("ttsRate")) || 1;
 
-    const voicePref = localStorage.getItem("ttsVoice") || "female";
     const voices = speechSynthesis.getVoices();
-
-    // Selectează vocea potrivită
     const selectedVoice = voices.find(v =>
-        voicePref === "female" ? v.name.toLowerCase().includes("female") :
-        voicePref === "male"   ? v.name.toLowerCase().includes("male")   :
-        false
+        v.name.toLowerCase().includes("female") ||
+        v.name.toLowerCase().includes("femeie")
     );
 
-    if (selectedVoice) {
-        utter.voice = selectedVoice;
-    }
+    if (selectedVoice) utter.voice = selectedVoice;
 
     speechSynthesis.speak(utter);
 }
 
-// Pentru browsere care încarcă vocile mai târziu
 speechSynthesis.onvoiceschanged = () => {};
 
 
 // ===============================
-//  CITIRE TEXT SELECTAT / TITLU
+//  CITIRE AUTOMATĂ A TEXTULUI SELECTAT
+// ===============================
+document.addEventListener("selectionchange", () => {
+    if (localStorage.getItem("readingMode") !== "on") return;
+
+    const selected = window.getSelection().toString().trim();
+    if (selected.length > 2) {
+        speakText(selected);
+    }
+});
+
+
+// ===============================
+//  CITIRE TITLU / H1 / H2
 // ===============================
 function readSelectedOrTitle() {
-    const selectedText = window.getSelection().toString().trim();
+    if (localStorage.getItem("readingMode") !== "on") return;
 
-    // 1. Dacă există text selectat → citește-l
+    const selectedText = window.getSelection().toString().trim();
     if (selectedText.length > 0) {
         speakText(selectedText);
         return;
     }
 
-    // 2. Dacă nu există selecție → citește titlul paginii
     const pageTitle = document.title.trim();
     if (pageTitle.length > 0) {
         speakText(pageTitle);
         return;
     }
 
-    // 3. Dacă nu există titlu → citește primul H1 sau H2
     const h1 = document.querySelector("h1");
     const h2 = document.querySelector("h2");
 
@@ -92,12 +96,45 @@ function readSelectedOrTitle() {
         return;
     }
 
-    // 4. Dacă nu există nimic → fallback
     speakText("Nu există text de citit.");
 }
 
 
 // ===============================
-//  BUTON DE CITIRE (HTML)
+//  BUTON MOD CITIRE — ON/OFF
 // ===============================
-// <button onclick="readSelectedOrTitle()">🔊 Citește</button>
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("toggleReadingMode");
+    if (!btn) return;
+
+    const mode = localStorage.getItem("readingMode");
+
+    if (mode === "on") {
+        btn.classList.add("active");
+        btn.textContent = "Modul de citire este activ";
+        applyReadingSettings();
+    } else {
+        btn.classList.remove("active");
+        btn.textContent = "Activează modul de citire";
+    }
+
+    btn.addEventListener("click", () => {
+        const current = localStorage.getItem("readingMode");
+
+        if (current === "off") {
+            localStorage.setItem("readingMode", "on");
+            btn.classList.add("active");
+            btn.textContent = "Modul de citire este activ";
+
+            applyReadingSettings();
+            speakText("Modul de citire este activat. Selectează textul pentru a fi citit.");
+
+        } else {
+            localStorage.setItem("readingMode", "off");
+            btn.classList.remove("active");
+            btn.textContent = "Activează modul de citire";
+
+            speakText("Modul de citire a fost dezactivat.");
+        }
+    });
+});
