@@ -9,7 +9,7 @@
 body {
     background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
     color: white;
-    padding-bottom: 40px;
+    padding-bottom: 60px; /* spațiu pentru meniul jos */
 }
 
 /* ====== HEADER ====== */
@@ -28,47 +28,12 @@ body {
     color: gold;
 }
 
-.menu-btn {
-    font-size: 1.6rem;
-    background: none;
-    border: none;
-    color: gold;
-    cursor: pointer;
-}
-
-/* ====== SIDE MENU ====== */
-.side-menu {
-    position: fixed;
-    left: -250px;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(10px);
-    padding-top: 60px;
-    transition: 0.3s;
-    border-right: 1px solid rgba(255, 215, 0, 0.3);
-}
-
-.side-menu a {
-    display: block;
-    padding: 15px;
-    color: gold;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-.side-menu a:hover {
-    background: rgba(255, 215, 0, 0.1);
-}
-
-.side-menu.open {
-    left: 0;
-}
-
 /* ====== CONTAINER ====== */
 .container {
     padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 coloane reale */
+    gap: 15px;
 }
 
 /* ====== CARD 3D ====== */
@@ -77,7 +42,6 @@ body {
     border: 1px solid rgba(255, 215, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
-    margin-bottom: 20px;
     backdrop-filter: blur(10px);
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -98,7 +62,6 @@ body {
     width: 100%;
     text-align: center;
     padding: 12px;
-    margin-top: 10px;
     background: linear-gradient(135deg, gold, #b8860b);
     color: black;
     font-weight: bold;
@@ -125,17 +88,6 @@ body {
     }
 }
 
-/* ====== GRID 2 COLOANE ====== */
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.grid-2 .card3d {
-    width: 100%;
-}
-
 /* ====== SUBTITLU ====== */
 .subtitle {
     font-size: 1.4rem;
@@ -145,7 +97,8 @@ body {
     text-align: center;
     color: gold;
 }
-/* MENIU JOS PREMIUM */
+
+/* ====== MENIU JOS PREMIUM ====== */
 .bottom-nav {
     position: fixed;
     bottom: 0;
