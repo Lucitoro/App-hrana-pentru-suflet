@@ -1,4 +1,4 @@
-/* ====== FONT & RESET ====== */
+/* ====== RESET & FONT ====== */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@
 body {
     background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
     color: white;
-    padding-bottom: 60px; /* spațiu pentru meniul jos */
+    padding-bottom: 70px; /* spațiu pentru meniul jos */
 }
 
 /* ====== HEADER ====== */
@@ -26,14 +26,23 @@ body {
     margin: 0 auto;
     font-size: 1.4rem;
     color: gold;
+    text-align: center;
 }
 
 /* ====== CONTAINER ====== */
+/* Desktop – 2 coloane */
 .container {
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 coloane reale */
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
+}
+
+/* Telefon – 1 coloană */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ====== CARD 3D ====== */
@@ -51,9 +60,11 @@ body {
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
+/* ====== TITLURI PE BUTOANE – VERDE DESCHIS ====== */
 .card3d h2 {
-    color: gold;
+    color: #9aff9a; /* verde deschis */
     margin-bottom: 10px;
+    text-shadow: 0 0 6px black;
 }
 
 /* ====== BUTON PREMIUM ====== */
@@ -74,28 +85,11 @@ body {
     background: linear-gradient(135deg, #ffea00, gold);
 }
 
-/* ====== ANIMAȚIE APARIȚIE ====== */
-.scroll-appear {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: appear 0.6s forwards;
-}
-
-@keyframes appear {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ====== SUBTITLU ====== */
-.subtitle {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: gold;
+/* ====== IFRAME FULL ====== */
+iframe {
+    width: 100% !important;
+    height: 85vh;
+    border: none;
 }
 
 /* ====== MENIU JOS PREMIUM ====== */
