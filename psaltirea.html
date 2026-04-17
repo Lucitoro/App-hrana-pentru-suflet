@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psaltirea lui David</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- CSS pentru butonul plutitor premium -->
+    <style>
+        .floating-tts {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .tts-main-btn {
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            border: none;
+            padding: 18px 22px;
+            border-radius: 50%;
+            font-size: 24px;
+            color: #000;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .tts-main-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .tts-menu {
+            display: none;
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            animation: fadeSlide 0.3s ease;
+        }
+
+        .tts-menu button {
+            display: block;
+            width: 100%;
+            background: #f0f0f0;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .tts-menu button:hover {
+            background: #ddd;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 
 <body>
@@ -31,6 +91,28 @@
     <a href="setari.html">⚙️<br>Setări</a>
     <a href="app-release.apk" download>⬇️<br>Descarcă</a>
 </div>
+
+<!-- BUTON PLUTITOR PREMIUM -->
+<div class="floating-tts">
+    <button class="tts-main-btn" onclick="toggleTTSMenu()">🔊</button>
+
+    <div class="tts-menu" id="ttsMenu">
+        <button onclick="readPage()">📄 Citește pagina</button>
+        <button onclick="readSelection()">✂️ Citește selecția</button>
+        <button onclick="readTitles()">🏷️ Citește titlurile</button>
+    </div>
+</div>
+
+<!-- SCRIPT TTS -->
+<script src="tts-full.js"></script>
+
+<!-- SCRIPT MENIU PLUTITOR -->
+<script>
+function toggleTTSMenu() {
+    let menu = document.getElementById("ttsMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
