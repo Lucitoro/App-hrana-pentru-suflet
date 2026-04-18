@@ -96,8 +96,7 @@
     <a href="setari.html">⚙️<br>Setări</a>
     <a href="app-release.apk" download>⬇️<br>Descarcă</a>
 </div>
-
-<!-- BUTON PLUTITOR PREMIUM -->
+    </div><!-- BUTON PLUTITOR PREMIUM -->
 <div class="floating-tts">
     <button class="tts-main-btn" onclick="toggleTTSMenu()">🔊</button>
 
@@ -105,7 +104,17 @@
         <button onclick="readPage()">📄 Citește pagina</button>
         <button onclick="readSelection()">✂️ Citește selecția</button>
         <button onclick="readTitles()">🏷️ Citește titlurile</button>
+        <button onclick="readFromHere()">➡️ Citește de aici</button>
     </div>
+</div>
+
+<script>
+function toggleTTSMenu() {
+    let menu = document.getElementById("ttsMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
+
 </div>
 
 <!-- SCRIPT TTS -->
