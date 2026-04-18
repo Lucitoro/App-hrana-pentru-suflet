@@ -11,8 +11,6 @@ if (!localStorage.getItem("readingMode")) {
 // ACTIVARE SETĂRI CÂND MODUL ESTE ACTIV
 // ===============================
 function applyReadingSettings() {
-    console.log("🔧 Activare setări pentru modul de citire...");
-
     document.body.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
 
@@ -23,8 +21,6 @@ function applyReadingSettings() {
     localStorage.setItem("ttsVoice", "female");
     localStorage.setItem("ttsRate", "1");
     localStorage.setItem("ttsMode", "normal");
-
-    console.log("🎉 Setările pentru modul de citire au fost aplicate!");
 }
 
 // ===============================
@@ -98,7 +94,7 @@ function readSelectedOrTitle() {
 
 
 // ===============================
-// FUNCȚIILE LIPSĂ — BUTON PLUTITOR
+// FUNCȚII PENTRU BUTONUL PLUTITOR
 // ===============================
 
 // Citește TOT TEXTUL DIN PAGINĂ
@@ -111,10 +107,29 @@ function readPage() {
     }
 }
 
-// Citește DOAR TEXTUL SELECTAT
+// Citește DOAR TEXTUL SELECTAT (versiune complet funcțională)
 function readSelection() {
-    const selection = window.getSelection().toString().trim();
-    if (selection.length > 0) {
+    let selection = "";
+
+    if (window.getSelection) {
+        selection = window.getSelection().toString().trim();
+    }
+
+    if (!selection && document.getSelection) {
+        selection = document.getSelection().toString().trim();
+    }
+
+    if (!selection && document.activeElement &&
+        (document.activeElement.tagName === "TEXTAREA" ||
+         document.activeElement.tagName === "INPUT")) {
+
+        selection = document.activeElement.value.substring(
+            document.activeElement.selectionStart,
+            document.activeElement.selectionEnd
+        ).trim();
+    }
+
+    if (selection && selection.length > 0) {
         speakText(selection);
     } else {
         speakText("Nu ai selectat niciun text.");
@@ -133,6 +148,27 @@ function readTitles() {
     } else {
         speakText("Nu există titluri de citit pe această pagină.");
     }
+}
+
+// Citește DE LA SELECȚIE ÎN JOS
+function readFromHere() {
+    const selection = window.getSelection().toString().trim();
+
+    if (!selection) {
+        speakText("Selectează un cuvânt de unde să încep citirea.");
+        return;
+    }
+
+    const fullText = document.body.innerText;
+    const index = fullText.indexOf(selection);
+
+    if (index === -1) {
+        speakText("Nu pot găsi textul selectat în pagină.");
+        return;
+    }
+
+    const textToRead = fullText.substring(index);
+    speakText(textToRead);
 }
 
 
