@@ -99,26 +99,41 @@ function readSelectedOrTitle() {
 
 // Citește TOT TEXTUL DIN PAGINĂ
 function readPage() {
-    const text = document.body.innerText.trim();
-    if (text.length > 0) {
+    const iframe = document.querySelector("iframe");
+
+    if (iframe && iframe.contentDocument) {
+        const text = iframe.contentDocument.body.innerText.trim();
         speakText(text);
-    } else {
-        speakText("Nu există text de citit pe această pagină.");
+        return;
     }
+
+    const text = document.body.innerText.trim();
+    speakText(text);
 }
 
-// Citește DOAR TEXTUL SELECTAT (versiune complet funcțională)
+
+// Citește DOAR TEXTUL SELECTAT (FUNCȚIONAL ÎN IFRAME)
 function readSelection() {
     let selection = "";
 
+    // 1. selecție normală
     if (window.getSelection) {
         selection = window.getSelection().toString().trim();
     }
 
+    // 2. fallback
     if (!selection && document.getSelection) {
         selection = document.getSelection().toString().trim();
     }
 
+    // 3. selecție din iframe
+    const iframe = document.querySelector("iframe");
+    if (!selection && iframe && iframe.contentWindow) {
+        const iframeSel = iframe.contentWindow.getSelection().toString().trim();
+        if (iframeSel.length > 0) selection = iframeSel;
+    }
+
+    // 4. selecție din input/textarea (mobile)
     if (!selection && document.activeElement &&
         (document.activeElement.tagName === "TEXTAREA" ||
          document.activeElement.tagName === "INPUT")) {
@@ -136,32 +151,51 @@ function readSelection() {
     }
 }
 
+
 // Citește TOATE TITLURILE H1, H2, H3
 function readTitles() {
-    const titles = [...document.querySelectorAll("h1, h2, h3")]
-        .map(t => t.innerText.trim())
-        .filter(t => t.length > 0)
-        .join(". ");
+    const iframe = document.querySelector("iframe");
+    let titles = [];
 
-    if (titles.length > 0) {
-        speakText(titles);
+    if (iframe && iframe.contentDocument) {
+        titles = [...iframe.contentDocument.querySelectorAll("h1, h2, h3")];
+    } else {
+        titles = [...document.querySelectorAll("h1, h2, h3")];
+    }
+
+    const text = titles.map(t => t.innerText.trim()).join(". ");
+
+    if (text.length > 0) {
+        speakText(text);
     } else {
         speakText("Nu există titluri de citit pe această pagină.");
     }
 }
 
-// Citește DE LA SELECȚIE ÎN JOS
+
+// Citește DE LA SELECȚIE ÎN JOS (FUNCȚIONAL ÎN IFRAME)
 function readFromHere() {
-    const selection = window.getSelection().toString().trim();
+    let selection = window.getSelection().toString().trim();
+
+    const iframe = document.querySelector("iframe");
+    if (!selection && iframe && iframe.contentWindow) {
+        selection = iframe.contentWindow.getSelection().toString().trim();
+    }
 
     if (!selection) {
         speakText("Selectează un cuvânt de unde să încep citirea.");
         return;
     }
 
-    const fullText = document.body.innerText;
-    const index = fullText.indexOf(selection);
+    let fullText = "";
 
+    if (iframe && iframe.contentDocument) {
+        fullText = iframe.contentDocument.body.innerText;
+    } else {
+        fullText = document.body.innerText;
+    }
+
+    const index = fullText.indexOf(selection);
     if (index === -1) {
         speakText("Nu pot găsi textul selectat în pagină.");
         return;
