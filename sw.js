@@ -1,47 +1,65 @@
-// This is the "Offline page" service worker
+// ===============================
+// SERVICE WORKER FINAL PREMIUM
+// ===============================
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+const CACHE_NAME = "hrana-cache-v20240419";
 
-const CACHE = "pwabuilder-page";
+// Toate fișierele importante ale aplicației
+const FILES_TO_CACHE = [
+  "/App-hrana-pentru-suflet/",
+  "/App-hrana-pentru-suflet/index.html",
+  "/App-hrana-pentru-suflet/setari.html",
+  "/App-hrana-pentru-suflet/pravila.html",
+  "/App-hrana-pentru-suflet/psaltirea.html",
+  "/App-hrana-pentru-suflet/acatiste.html",
+  "/App-hrana-pentru-suflet/resurse.html",
 
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "ToDo-replace-this-name.html";
+  "/App-hrana-pentru-suflet/style.css",
+  "/App-hrana-pentru-suflet/settings.js",
+  "/App-hrana-pentru-suflet/tts-full.js",
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
+  "/App-hrana-pentru-suflet/manifest.json",
 
-self.addEventListener('install', async (event) => {
+  "/App-hrana-pentru-suflet/icons/icon-192.png",
+  "/App-hrana-pentru-suflet/icons/icon-512.png"
+];
+
+// ===============================
+// INSTALL — pune fișierele în cache
+// ===============================
+self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
   );
+  self.skipWaiting();
 });
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
+// ===============================
+// ACTIVATE — șterge cache-urile vechi
+// ===============================
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+      )
+    )
+  );
+  self.clients.claim();
+});
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
-
-        if (preloadResp) {
-          return preloadResp;
-        }
-
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
-
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
-  }
+// ===============================
+// FETCH — servește din cache, apoi din rețea
+// ===============================
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return (
+        response ||
+        fetch(event.request).catch(() =>
+          caches.match("/App-hrana-pentru-suflet/index.html")
+        )
+      );
+    })
+  );
 });
