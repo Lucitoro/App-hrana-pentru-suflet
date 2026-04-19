@@ -11,7 +11,7 @@
     <!-- Manifest PWA -->
     <link rel="manifest" href="manifest.json?v=20240419">
 
-    <!-- ====== BUTON PLUTITOR PREMIUM ====== -->
+    <!-- ====== BUTON PLUTITOR TTS PREMIUM ====== -->
     <style>
     .floating-tts {
         position: fixed;
@@ -105,73 +105,108 @@
 
 <body>
 
-    <h1>Hrana pentru suflet</h1>
-    <p>Bine ai venit în aplicația ta duhovnicească.</p>
+<header class="header">
+    <h1>🙏 Hrana pentru suflet</h1>
+</header>
 
-    <!-- BUTON PLUTITOR PREMIUM -->
-    <div class="floating-tts">
-        <button class="tts-main-btn" onclick="toggleTTSMenu()">🔊</button>
+<div class="container">
 
-        <div class="tts-menu" id="ttsMenu">
-
-            <!-- GRUP 1: CITIRE -->
-            <div class="tts-group">
-                <div class="tts-group-title" onclick="toggleGroup('g1')">📖 Citire</div>
-                <div class="tts-group-content" id="g1">
-                    <button class="tts-btn" onclick="readPage()">Citește pagina</button>
-                    <button class="tts-btn" onclick="readSelection()">Citește selecția</button>
-                    <button class="tts-btn" onclick="readFromHere()">Citește de aici</button>
-                    <button class="tts-btn" onclick="readTitles()">Citește titlurile</button>
-                </div>
-            </div>
-
-            <!-- GRUP 2: CONTROL -->
-            <div class="tts-group">
-                <div class="tts-group-title" onclick="toggleGroup('g2')">🎛 Control</div>
-                <div class="tts-group-content" id="g2">
-                    <button class="tts-btn" onclick="pauseReading()">Pauză</button>
-                    <button class="tts-btn" onclick="resumeReading()">Reia</button>
-                    <button class="tts-btn" onclick="stopReading()">Stop</button>
-                </div>
-            </div>
-
-            <!-- GRUP 3: SETĂRI -->
-            <div class="tts-group">
-                <div class="tts-group-title" onclick="toggleGroup('g3')">⚙️ Setări</div>
-                <div class="tts-group-content" id="g3">
-                    <button class="tts-btn" onclick="setVoice('female')">Voce feminină</button>
-                    <button class="tts-btn" onclick="setVoice('male')">Voce masculină</button>
-                    <button class="tts-btn" onclick="setRate(0.8)">Lent</button>
-                    <button class="tts-btn" onclick="setRate(1)">Normal</button>
-                    <button class="tts-btn" onclick="setRate(1.3)">Rapid</button>
-                </div>
-            </div>
-
-        </div>
+    <div class="card3d scroll-appear">
+        <h2>📖 Rugăciuni</h2>
+        <p>Rugăciuni de dimineață, seară și pentru diferite trebuințe.</p>
+        <a class="btn-premium" href="pravila.html">Deschide pravila</a>
     </div>
 
-    <!-- Script TTS complet -->
-    <script src="tts-full.js"></script>
+    <div class="card3d scroll-appear">
+        <h2>📜 Psaltirea</h2>
+        <p>Psaltirea împărțită pe catisme, pentru citire zilnică.</p>
+        <a class="btn-premium" href="psaltirea.html">Deschide Psaltirea</a>
+    </div>
 
-    <!-- Script meniu premium -->
-    <script>
-    function toggleTTSMenu() {
-        let menu = document.getElementById("ttsMenu");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
+    <div class="card3d scroll-appear">
+        <h2>🌹 Acatiste</h2>
+        <p>Acatiste către Maica Domnului și sfinți.</p>
+        <a class="btn-premium" href="acatiste.html">Vezi acatistele</a>
+    </div>
 
-    function toggleGroup(id) {
-        const groups = document.querySelectorAll(".tts-group-content");
+    <div class="card3d scroll-appear">
+        <h2>📚 Resurse duhovnicești</h2>
+        <p>Articole, predici, cărți duhovnicești și alte resurse.</p>
+        <a class="btn-premium" href="resurse.html">Deschide resursele</a>
+    </div>
 
-        groups.forEach(g => {
-            if (g.id === id) {
-                g.style.display = (g.style.display === "flex") ? "none" : "flex";
-            } else {
-                g.style.display = "none";
-            }
-        });
-    }
-    </script>
+</div>
+
+<nav class="bottom-nav">
+    <a href="index.html" class="active">🏠<br>Acasă</a>
+    <a href="calendar.html">📅<br>Calendar</a>
+    <a href="setari.html">⚙️<br>Setări</a>
+</nav>
+
+<!-- BUTON PLUTITOR TTS PREMIUM -->
+<div class="floating-tts">
+    <button class="tts-main-btn" onclick="toggleTTSMenu()">🔊</button>
+
+    <div class="tts-menu" id="ttsMenu">
+
+        <!-- GRUP 1: CITIRE -->
+        <div class="tts-group">
+            <div class="tts-group-title" onclick="toggleGroup('g1')">📖 Citire</div>
+            <div class="tts-group-content" id="g1">
+                <button class="tts-btn" onclick="readPage()">Citește pagina</button>
+                <button class="tts-btn" onclick="readSelection()">Citește selecția</button>
+                <button class="tts-btn" onclick="readFromHere()">Citește de aici</button>
+                <button class="tts-btn" onclick="readTitles()">Citește titlurile</button>
+            </div>
+        </div>
+
+        <!-- GRUP 2: CONTROL -->
+        <div class="tts-group">
+            <div class="tts-group-title" onclick="toggleGroup('g2')">🎛 Control</div>
+            <div class="tts-group-content" id="g2">
+                <button class="tts-btn" onclick="pauseReading()">Pauză</button>
+                <button class="tts-btn" onclick="resumeReading()">Reia</button>
+                <button class="tts-btn" onclick="stopReading()">Stop</button>
+            </div>
+        </div>
+
+        <!-- GRUP 3: SETĂRI RAPIDE -->
+        <div class="tts-group">
+            <div class="tts-group-title" onclick="toggleGroup('g3')">⚙️ Setări rapide</div>
+            <div class="tts-group-content" id="g3">
+                <button class="tts-btn" onclick="setVoice('female')">Voce feminină</button>
+                <button class="tts-btn" onclick="setVoice('male')">Voce masculină</button>
+                <button class="tts-btn" onclick="setRate(0.8)">Lent</button>
+                <button class="tts-btn" onclick="setRate(1)">Normal</button>
+                <button class="tts-btn" onclick="setRate(1.3)">Rapid</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Script TTS complet -->
+<script src="tts-full.js"></script>
+
+<!-- Script meniu TTS premium -->
+<script>
+function toggleTTSMenu() {
+    let menu = document.getElementById("ttsMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+function toggleGroup(id) {
+    const groups = document.querySelectorAll(".tts-group-content");
+
+    groups.forEach(g => {
+        if (g.id === id) {
+            g.style.display = (g.style.display === "flex") ? "none" : "flex";
+        } else {
+            g.style.display = "none";
+        }
+    });
+}
+</script>
 
 </body>
 </html>
