@@ -1,80 +1,87 @@
-// =====================
-//  SALVARE LOCALSTORAGE
-// =====================
+// ===============================
+// SETTINGS.JS FINAL PREMIUM
+// ===============================
 
-function saveSetting(key, value) {
-    localStorage.setItem(key, value);
-}
-
-// =====================
-//  TEMA (LIGHT / DARK)
-// =====================
-
+// -------------------------------
+// TEMA APLICAȚIEI
+// -------------------------------
 function setTheme(mode) {
-    document.body.setAttribute("data-theme", mode);
-    saveSetting("theme", mode);
+    document.documentElement.setAttribute("data-theme", mode);
+    localStorage.setItem("theme", mode);
 }
 
-// =====================
-//  TEXT SIZE
-// =====================
+// -------------------------------
+// VOCE TTS
+// -------------------------------
+function setVoice(v) {
+    localStorage.setItem("voice", v);
+}
 
+// -------------------------------
+// VITEZĂ TTS
+// -------------------------------
+function setRate(r) {
+    localStorage.setItem("rate", r);
+}
+
+// -------------------------------
+// MOD CITIRE (titluri / normal)
+// -------------------------------
+function setReadMode(m) {
+    localStorage.setItem("readMode", m);
+}
+
+// -------------------------------
+// MĂRIME TEXT
+// -------------------------------
 function setTextSize(size) {
-    document.body.setAttribute("data-text-size", size);
-    saveSetting("textSize", size);
+    let value = "16px";
+
+    if (size === "small") value = "14px";
+    if (size === "normal") value = "16px";
+    if (size === "large") value = "20px";
+    if (size === "xlarge") value = "24px";
+
+    document.documentElement.style.fontSize = value;
+    localStorage.setItem("textSize", size);
 }
 
-// =====================
-//  LIMBA
-// =====================
-
+// -------------------------------
+// LIMBA APLICAȚIEI
+// -------------------------------
 function setLanguage(lang) {
-    saveSetting("language", lang);
-    alert("Limba a fost schimbată în: " + lang);
+    localStorage.setItem("language", lang);
+    location.reload();
 }
 
-// =====================
-//  TTS – VOCE
-// =====================
-
-let ttsSettings = {
-    voice: "female",
-    rate: 1,
-    mode: "normal"
-};
-
-function setVoice(type) {
-    ttsSettings.voice = type;
-    saveSetting("ttsVoice", type);
-}
-
-function setRate(speed) {
-    ttsSettings.rate = speed;
-    saveSetting("ttsRate", speed);
-}
-
-function setReadMode(mode) {
-    ttsSettings.mode = mode;
-    saveSetting("ttsMode", mode);
-}
-
-// =====================
-//  RESETARE
-// =====================
-
+// -------------------------------
+// RESETARE SETĂRI
+// -------------------------------
 function resetSettings() {
     localStorage.clear();
     location.reload();
 }
 
-// =====================
-//  APLICARE LA ÎNCEPUT
-// =====================
-
+// -------------------------------
+// ÎNCĂRCARE SETĂRI LA PORNIRE
+// -------------------------------
 window.onload = () => {
-    let theme = localStorage.getItem("theme");
-    if (theme) document.body.setAttribute("data-theme", theme);
 
-    let textSize = localStorage.getItem("textSize");
-    if (textSize) document.body.setAttribute("data-text-size", textSize);
+    // Tema
+    let theme = localStorage.getItem("theme");
+    if (theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+    }
+
+    // Mărime text
+    let size = localStorage.getItem("textSize");
+    if (size) {
+        setTextSize(size);
+    }
+
+    // Limbă
+    let lang = localStorage.getItem("language");
+    if (lang) {
+        document.documentElement.setAttribute("lang", lang);
+    }
 };
