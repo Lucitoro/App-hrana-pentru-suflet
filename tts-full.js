@@ -7,6 +7,10 @@ if (!localStorage.getItem("readingMode")) {
     localStorage.setItem("readingMode", "off");
 }
 
+// Variabilă globală pentru REIA
+let lastReadText = "";
+
+
 // ===============================
 // ACTIVARE SETĂRI CÂND MODUL ESTE ACTIV
 // ===============================
@@ -23,10 +27,17 @@ function applyReadingSettings() {
     localStorage.setItem("ttsMode", "normal");
 }
 
+
 // ===============================
 // TTS — FUNCȚIE PRINCIPALĂ
 // ===============================
 function speakText(text) {
+    if (!text || text.trim().length === 0) return;
+
+    lastReadText = text; // Salvăm textul pentru REIA
+
+    speechSynthesis.cancel(); // Oprim orice citire anterioară
+
     const utter = new SpeechSynthesisUtterance(text);
 
     utter.lang = localStorage.getItem("language") || "ro-RO";
@@ -44,6 +55,20 @@ function speakText(text) {
 }
 
 speechSynthesis.onvoiceschanged = () => {};
+
+
+// ===============================
+// FUNCȚIA REIA — REIA ULTIMA CITIRE
+// ===============================
+function reiaCitirea() {
+    if (!lastReadText || lastReadText.trim().length === 0) {
+        speakText("Nu există o citire anterioară de reluat.");
+        return;
+    }
+
+    speechSynthesis.cancel();
+    speakText(lastReadText);
+}
 
 
 // ===============================
@@ -112,28 +137,24 @@ function readPage() {
 }
 
 
-// Citește DOAR TEXTUL SELECTAT (FUNCȚIONAL ÎN IFRAME)
+// Citește DOAR TEXTUL SELECTAT
 function readSelection() {
     let selection = "";
 
-    // 1. selecție normală
     if (window.getSelection) {
         selection = window.getSelection().toString().trim();
     }
 
-    // 2. fallback
     if (!selection && document.getSelection) {
         selection = document.getSelection().toString().trim();
     }
 
-    // 3. selecție din iframe
     const iframe = document.querySelector("iframe");
     if (!selection && iframe && iframe.contentWindow) {
         const iframeSel = iframe.contentWindow.getSelection().toString().trim();
         if (iframeSel.length > 0) selection = iframeSel;
     }
 
-    // 4. selecție din input/textarea (mobile)
     if (!selection && document.activeElement &&
         (document.activeElement.tagName === "TEXTAREA" ||
          document.activeElement.tagName === "INPUT")) {
@@ -173,7 +194,7 @@ function readTitles() {
 }
 
 
-// Citește DE LA SELECȚIE ÎN JOS (FUNCȚIONAL ÎN IFRAME)
+// Citește DE LA SELECȚIE ÎN JOS
 function readFromHere() {
     let selection = window.getSelection().toString().trim();
 
