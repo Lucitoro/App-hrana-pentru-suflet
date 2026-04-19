@@ -7,8 +7,29 @@ if (!localStorage.getItem("readingMode")) {
     localStorage.setItem("readingMode", "off");
 }
 
-// Variabilă globală pentru REIA
+// Variabile globale
 let lastReadText = "";
+let selectedVoice = null;
+
+
+// ===============================
+// ÎNCĂRCARE SIGURĂ A VOCILOR
+// ===============================
+function loadVoices() {
+    const voices = speechSynthesis.getVoices();
+    if (!voices || voices.length === 0) return;
+
+    // FEMININĂ implicit
+    selectedVoice =
+        voices.find(v => v.name.toLowerCase().includes("female")) ||
+        voices.find(v => v.name.toLowerCase().includes("femeie")) ||
+        voices.find(v => v.lang.startsWith("ro") && v.gender === "female") ||
+        voices.find(v => v.lang.startsWith("ro")) ||
+        voices[0];
+}
+
+speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
 
 
 // ===============================
@@ -21,10 +42,8 @@ function applyReadingSettings() {
     document.body.setAttribute("data-text-size", "large");
     localStorage.setItem("textSize", "large");
 
-    localStorage.setItem("language", "ro");
-    localStorage.setItem("ttsVoice", "female");
+    localStorage.setItem("language", "ro-RO");
     localStorage.setItem("ttsRate", "1");
-    localStorage.setItem("ttsMode", "normal");
 }
 
 
@@ -32,55 +51,49 @@ function applyReadingSettings() {
 // TTS — FUNCȚIE PRINCIPALĂ
 // ===============================
 function speakText(text) {
-    if (!text || text.trim().length === 0) return;
+    if (!text || !text.trim()) return;
 
-    lastReadText = text; // Salvăm textul pentru REIA
+    lastReadText = text;
 
-    speechSynthesis.cancel(); // Oprim orice citire anterioară
+    speechSynthesis.cancel();
 
     const utter = new SpeechSynthesisUtterance(text);
-
     utter.lang = localStorage.getItem("language") || "ro-RO";
     utter.rate = parseFloat(localStorage.getItem("ttsRate")) || 1;
-
-    const voices = speechSynthesis.getVoices();
-    const selectedVoice = voices.find(v =>
-        v.name.toLowerCase().includes("female") ||
-        v.name.toLowerCase().includes("femeie")
-    );
 
     if (selectedVoice) utter.voice = selectedVoice;
 
     speechSynthesis.speak(utter);
 }
 
-speechSynthesis.onvoiceschanged = () => {};
-
 
 // ===============================
 // FUNCȚIA REIA — REIA ULTIMA CITIRE
 // ===============================
 function reiaCitirea() {
-    if (!lastReadText || lastReadText.trim().length === 0) {
+    if (!lastReadText.trim()) {
         speakText("Nu există o citire anterioară de reluat.");
         return;
     }
-
     speechSynthesis.cancel();
     speakText(lastReadText);
 }
 
 
 // ===============================
-// CITIRE AUTOMATĂ A TEXTULUI SELECTAT
+// CITIRE AUTOMATĂ A TEXTULUI SELECTAT (OPTIMIZATĂ)
 // ===============================
+let selectionTimeout = null;
+
 document.addEventListener("selectionchange", () => {
     if (localStorage.getItem("readingMode") !== "on") return;
 
-    const selected = window.getSelection().toString().trim();
-    if (selected.length > 2) {
-        speakText(selected);
-    }
+    clearTimeout(selectionTimeout);
+
+    selectionTimeout = setTimeout(() => {
+        const selected = window.getSelection().toString().trim();
+        if (selected.length > 2) speakText(selected);
+    }, 200);
 });
 
 
@@ -90,140 +103,95 @@ document.addEventListener("selectionchange", () => {
 function readSelectedOrTitle() {
     if (localStorage.getItem("readingMode") !== "on") return;
 
-    const selectedText = window.getSelection().toString().trim();
-    if (selectedText.length > 0) {
-        speakText(selectedText);
-        return;
-    }
+    const sel = window.getSelection().toString().trim();
+    if (sel) return speakText(sel);
 
-    const pageTitle = document.title.trim();
-    if (pageTitle.length > 0) {
-        speakText(pageTitle);
-        return;
-    }
+    const title = document.title.trim();
+    if (title) return speakText(title);
 
     const h1 = document.querySelector("h1");
-    const h2 = document.querySelector("h2");
+    if (h1) return speakText(h1.innerText.trim());
 
-    if (h1) {
-        speakText(h1.innerText.trim());
-        return;
-    }
-    if (h2) {
-        speakText(h2.innerText.trim());
-        return;
-    }
+    const h2 = document.querySelector("h2");
+    if (h2) return speakText(h2.innerText.trim());
 
     speakText("Nu există text de citit.");
 }
 
 
 // ===============================
-// FUNCȚII PENTRU BUTONUL PLUTITOR
+// CITEȘTE TOT TEXTUL DIN PAGINĂ
 // ===============================
-
-// Citește TOT TEXTUL DIN PAGINĂ
 function readPage() {
     const iframe = document.querySelector("iframe");
 
-    if (iframe && iframe.contentDocument) {
-        const text = iframe.contentDocument.body.innerText.trim();
-        speakText(text);
-        return;
-    }
+    const text = iframe?.contentDocument
+        ? iframe.contentDocument.body.innerText.trim()
+        : document.body.innerText.trim();
 
-    const text = document.body.innerText.trim();
     speakText(text);
 }
 
 
-// Citește DOAR TEXTUL SELECTAT
+// ===============================
+// CITEȘTE DOAR TEXTUL SELECTAT
+// ===============================
 function readSelection() {
-    let selection = "";
-
-    if (window.getSelection) {
-        selection = window.getSelection().toString().trim();
-    }
-
-    if (!selection && document.getSelection) {
-        selection = document.getSelection().toString().trim();
-    }
+    let selection = window.getSelection().toString().trim();
 
     const iframe = document.querySelector("iframe");
-    if (!selection && iframe && iframe.contentWindow) {
-        const iframeSel = iframe.contentWindow.getSelection().toString().trim();
-        if (iframeSel.length > 0) selection = iframeSel;
+    if (!selection && iframe?.contentWindow) {
+        selection = iframe.contentWindow.getSelection().toString().trim();
     }
 
     if (!selection && document.activeElement &&
-        (document.activeElement.tagName === "TEXTAREA" ||
-         document.activeElement.tagName === "INPUT")) {
+        ["TEXTAREA", "INPUT"].includes(document.activeElement.tagName)) {
 
-        selection = document.activeElement.value.substring(
-            document.activeElement.selectionStart,
-            document.activeElement.selectionEnd
-        ).trim();
+        const el = document.activeElement;
+        selection = el.value.substring(el.selectionStart, el.selectionEnd).trim();
     }
 
-    if (selection && selection.length > 0) {
-        speakText(selection);
-    } else {
-        speakText("Nu ai selectat niciun text.");
-    }
+    speakText(selection || "Nu ai selectat niciun text.");
 }
 
 
-// Citește TOATE TITLURILE H1, H2, H3
+// ===============================
+// CITEȘTE TITLURILE H1, H2, H3
+// ===============================
 function readTitles() {
     const iframe = document.querySelector("iframe");
-    let titles = [];
 
-    if (iframe && iframe.contentDocument) {
-        titles = [...iframe.contentDocument.querySelectorAll("h1, h2, h3")];
-    } else {
-        titles = [...document.querySelectorAll("h1, h2, h3")];
-    }
+    const titles = iframe?.contentDocument
+        ? [...iframe.contentDocument.querySelectorAll("h1, h2, h3")]
+        : [...document.querySelectorAll("h1, h2, h3")];
 
     const text = titles.map(t => t.innerText.trim()).join(". ");
 
-    if (text.length > 0) {
-        speakText(text);
-    } else {
-        speakText("Nu există titluri de citit pe această pagină.");
-    }
+    speakText(text || "Nu există titluri de citit pe această pagină.");
 }
 
 
-// Citește DE LA SELECȚIE ÎN JOS
+// ===============================
+// CITEȘTE DE LA SELECȚIE ÎN JOS
+// ===============================
 function readFromHere() {
     let selection = window.getSelection().toString().trim();
 
     const iframe = document.querySelector("iframe");
-    if (!selection && iframe && iframe.contentWindow) {
+    if (!selection && iframe?.contentWindow) {
         selection = iframe.contentWindow.getSelection().toString().trim();
     }
 
-    if (!selection) {
-        speakText("Selectează un cuvânt de unde să încep citirea.");
-        return;
-    }
+    if (!selection) return speakText("Selectează un cuvânt de unde să încep citirea.");
 
-    let fullText = "";
-
-    if (iframe && iframe.contentDocument) {
-        fullText = iframe.contentDocument.body.innerText;
-    } else {
-        fullText = document.body.innerText;
-    }
+    const fullText = iframe?.contentDocument
+        ? iframe.contentDocument.body.innerText
+        : document.body.innerText;
 
     const index = fullText.indexOf(selection);
-    if (index === -1) {
-        speakText("Nu pot găsi textul selectat în pagină.");
-        return;
-    }
+    if (index === -1) return speakText("Nu pot găsi textul selectat în pagină.");
 
-    const textToRead = fullText.substring(index);
-    speakText(textToRead);
+    speakText(fullText.substring(index));
 }
 
 
