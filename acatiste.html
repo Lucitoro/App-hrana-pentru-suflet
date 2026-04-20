@@ -3,130 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acatiste și Canoane</title>
+    <title>Acatiste</title>
+
     <link rel="stylesheet" href="style.css">
-
-    <!-- CSS pentru butonul plutitor premium -->
-    <style>
-        .floating-tts {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .tts-main-btn {
-            background: linear-gradient(135deg, #ffcc00, #ff9900);
-            border: none;
-            padding: 18px 22px;
-            border-radius: 50%;
-            font-size: 24px;
-            color: #000;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
-        }
-
-        .tts-main-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .tts-menu {
-            display: none;
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            animation: fadeSlide 0.3s ease;
-        }
-
-        .tts-menu button {
-            display: block;
-            width: 100%;
-            background: #f0f0f0;
-            border: none;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .tts-menu button:hover {
-            background: #ddd;
-        }
-
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <link rel="manifest" href="manifest.json?v=20240419">
 </head>
 
 <body>
 
-<!-- HEADER PREMIUM -->
 <header class="header">
-    <h1>🙏 Acatiste și Canoane</h1>
+    <h1>🌹 Acatiste</h1>
 </header>
 
-<!-- CONȚINUT -->
 <div class="container">
 
-    <!-- CARD PREMIUM CU IFRAME -->
-    <div class="card3d scroll-appear" style="padding:0; overflow:hidden; border-radius:15px;">
-        <iframe 
-            src="https://cartiduhovnicesti.blogspot.com/2025/03/acatiste-si-canoane-pe-tot-anul.html?m=1"
-            style="width:100%; height:90vh; border:none; border-radius:15px;">
-        </iframe>
+    <!-- ACATISTE COMPLET -->
+    <div class="card3d scroll-appear">
+        <h2>📜 Toate acatistele</h2>
+        <p>Lista completă de acatiste disponibile pe site.</p>
+        <a class="btn-premium" 
+           href="https://cartiduhovnicesti.blogspot.com/search/label/ACATISTE?m=0" 
+           target="_blank">
+            Deschide lista completă
+        </a>
+    </div>
+
+    <!-- MAICA DOMNULUI -->
+    <div class="card3d scroll-appear">
+        <h2>🌹 Acatiste către Maica Domnului</h2>
+        <p>Acatiste ale Preasfintei Născătoare de Dumnezeu.</p>
+        <a class="btn-premium" 
+           href="https://cartiduhovnicesti.blogspot.com/search/label/MAICA%20DOMNULUI?m=0" 
+           target="_blank">
+            Vezi acatistele
+        </a>
+    </div>
+
+    <!-- SFÂNTUL MINA -->
+    <div class="card3d scroll-appear">
+        <h2>🛡️ Acatistul Sfântului Mina</h2>
+        <p>Ocrotitorul celor păgubiți și nedreptățiți.</p>
+        <a class="btn-premium" 
+           href="https://cartiduhovnicesti.blogspot.com/2020/05/acatistul-sfantului-mina.html" 
+           target="_blank">
+            Deschide acatistul
+        </a>
+    </div>
+
+    <!-- SFÂNTUL NICOLAE -->
+    <div class="card3d scroll-appear">
+        <h2>🎅 Acatistul Sfântului Nicolae</h2>
+        <p>Făcătorul de minuni și grabnic ajutător.</p>
+        <a class="btn-premium" 
+           href="https://cartiduhovnicesti.blogspot.com/2020/05/acatistul-sfantului-ierarh-nicolae.html" 
+           target="_blank">
+            Deschide acatistul
+        </a>
+    </div>
+
+    <!-- SFÂNTUL ARHANGHEL MIHAIL -->
+    <div class="card3d scroll-appear">
+        <h2>⚔️ Acatistul Sf. Arhanghel Mihail</h2>
+        <p>Ocrotitorul și conducătorul oștilor cerești.</p>
+        <a class="btn-premium" 
+           href="https://cartiduhovnicesti.blogspot.com/2020/05/acatistul-sfantului-arhanghel-mihail.html" 
+           target="_blank">
+            Deschide acatistul
+        </a>
+    </div>
+
+    <!-- SFÂNTUL ARHANGHEL GAVRIIL -->
+    <div class="card3d scroll-appear">
+        <h2>🕊️ Acatistul Sf. Arhanghel Gavriil</h2>
+        <p>Vestitorul bucuriei și al mântuirii.</p>
+        <a class="btn-premium" 
+           href="https://cartiduhovnicesti.blogspot.com/2020/05/acatistul-sfantului-arhanghel-gavriil.html" 
+           target="_blank">
+            Deschide acatistul
+        </a>
     </div>
 
 </div>
 
-<!-- MENIU JOS PREMIUM -->
-<div class="bottom-nav">
+<nav class="bottom-nav">
     <a href="index.html">🏠<br>Acasă</a>
-    <a href="pravila.html">🙏<br>Rugăciuni</a>
     <a href="calendar.html">📅<br>Calendar</a>
-    <a href="resurse.html">📚<br>Resurse</a>
     <a href="setari.html">⚙️<br>Setări</a>
-    <a href="app-release.apk" download>⬇️<br>Descarcă</a>
-</div>
-    </div><!-- BUTON PLUTITOR PREMIUM -->
-<div class="floating-tts">
-    <button class="tts-main-btn" onclick="toggleTTSMenu()">🔊</button>
-
-    <div class="tts-menu" id="ttsMenu">
-        <button onclick="readPage()">📄 Citește pagina</button>
-        <button onclick="readSelection()">✂️ Citește selecția</button>
-        <button onclick="readTitles()">🏷️ Citește titlurile</button>
-        <button onclick="readFromHere()">➡️ Citește de aici</button>
-    </div>
-</div>
-
-<script>
-function toggleTTSMenu() {
-    let menu = document.getElementById("ttsMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-</script>
-
-</div>
-
-<!-- SCRIPT TTS -->
-<script src="tts-full.js"></script>
-
-<!-- SCRIPT MENIU PLUTITOR -->
-<script>
-function toggleTTSMenu() {
-    let menu = document.getElementById("ttsMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-</script>
+</nav>
 
 </body>
 </html>
