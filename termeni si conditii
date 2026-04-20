@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termeni și condiții</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json?v=20240419">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>📄 Termeni și condiții</h1>
+</header>
+
+<div class="container">
+
+    <div class="card3d scroll-appear">
+        <h2>1. Scopul aplicației</h2>
+        <p>
+            Aplicația „Hrana pentru suflet” oferă acces la rugăciuni, psaltire, acatiste,
+            resurse duhovnicești și calendar ortodox, în scop exclusiv spiritual și informativ.
+            Aplicația nu înlocuiește sfatul duhovnicesc personal.
+        </p>
+    </div>
+
+    <div class="card3d scroll-appear">
+        <h2>2. Utilizarea conținutului</h2>
+        <p>
+            Conținutul este destinat uzului personal. Este interzisă copierea, redistribuirea
+            sau folosirea în scop comercial fără acordul autorului și/sau al deținătorilor
+            de drepturi asupra textelor originale.
+        </p>
+    </div>
+
+    <div class="card3d scroll-appear">
+        <h2>3. Răspundere</h2>
+        <p>
+            Autorul aplicației depune eforturi pentru ca informațiile să fie corecte și
+            actualizate, dar nu poate garanta absența erorilor. Utilizarea aplicației se
+            face pe propria răspundere a utilizatorului.
+        </p>
+    </div>
+
+    <div class="card3d scroll-appear">
+        <h2>4. Linkuri externe</h2>
+        <p>
+            Aplicația conține linkuri către site-uri externe (de exemplu, bloguri, platforme
+            video). Autorul nu este responsabil pentru conținutul, politica sau
+            funcționarea acestor site-uri.
+        </p>
+    </div>
+
+    <div class="card3d scroll-appear">
+        <h2>5. Date și confidențialitate</h2>
+        <p>
+            Aplicația nu colectează date personale sensibile. Setările (temă, limbă, mărime
+            text, preferințe TTS) sunt stocate local pe dispozitivul utilizatorului, prin
+            intermediul localStorage, și nu sunt transmise autorului.
+        </p>
+    </div>
+
+    <div class="card3d scroll-appear">
+        <h2>6. Modificarea termenilor</h2>
+        <p>
+            Termenii și condițiile pot fi actualizați periodic. Versiunea actuală este
+            considerată valabilă din momentul publicării în aplicație.
+        </p>
+    </div>
+
+    <div class="card3d scroll-appear">
+        <h2>7. Contact</h2>
+        <p>
+            Pentru întrebări legate de acești termeni, ne poți contacta prin pagina
+            <strong>Contact</strong> din aplicație.
+        </p>
+    </div>
+
+</div>
+
+<nav class="bottom-nav">
+    <a href="index.html">🏠<br>Acasă</a>
+    <a href="calendar.html">📅<br>Calendar</a>
+    <a href="setari.html">⚙️<br>Setări</a>
+</nav>
+
+</body>
+</html>
