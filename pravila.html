@@ -9,16 +9,42 @@
     <link rel="manifest" href="manifest.json?v=20240419">
 
     <style>
+
+        /* FUNDAL NEGRU TOTAL */
+        body {
+            background: #000000 !important;
+        }
+
+        .container {
+            background: #000000 !important;
+        }
+
+        /* CARDURI NEGRE PREMIUM */
+        .card3d {
+            background: #000000 !important;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow:
+                0 0 12px rgba(255, 215, 0, 0.35),
+                inset 0 0 6px rgba(255, 255, 255, 0.15);
+        }
+
+        /* TITLURI VERZI PREMIUM */
+        .card3d h2 {
+            color: #7CFC7C !important;
+            font-weight: 700;
+        }
+
         .section-title {
             text-align: center;
             font-size: 1.6em;
             margin-top: 40px;
             margin-bottom: 20px;
-            color: #7CFC7C; /* verde deschis */
+            color: #7CFC7C !important;
             font-weight: bold;
         }
 
-        /* 🔥 BUTOANE SUPER-SUPER-PREMIUM AURII */
+        /* 🔥 BUTOANE SUPER-SUPER-PREMIUM AURII CU CONTRAST */
         .btn-premium {
             display: inline-block;
             width: 100%;
@@ -35,10 +61,12 @@
             border: 3px solid #ffd700; /* bordură aurie groasă */
             border-radius: 18px;
 
+            /* CONTRAST ÎN JURUL BUTONULUI */
             box-shadow:
-                0 0 12px rgba(255, 215, 0, 0.55),
-                0 0 22px rgba(255, 215, 0, 0.35),
-                inset 0 0 8px rgba(255, 255, 255, 0.25);
+                0 0 4px #000000,                 /* contur negru fin */
+                0 0 14px rgba(255, 215, 0, .55), /* glow auriu exterior */
+                0 0 28px rgba(255, 215, 0, .35), /* glow mai larg */
+                inset 0 0 8px rgba(255, 255, 255, .25); /* luciu interior */
 
             transition: all 0.25s ease;
         }
@@ -46,17 +74,20 @@
         .btn-premium:hover {
             transform: translateY(-3px);
             box-shadow:
-                0 0 18px rgba(255, 215, 0, 0.75),
-                0 0 28px rgba(255, 215, 0, 0.55),
-                inset 0 0 10px rgba(255, 255, 255, 0.35);
+                0 0 6px #000000,
+                0 0 20px rgba(255, 215, 0, .75),
+                0 0 32px rgba(255, 215, 0, .55),
+                inset 0 0 10px rgba(255, 255, 255, .35);
         }
 
         .btn-premium:active {
             transform: translateY(1px);
             box-shadow:
-                0 0 10px rgba(255, 215, 0, 0.45),
-                inset 0 0 6px rgba(255, 255, 255, 0.25);
+                0 0 4px #000000,
+                0 0 12px rgba(255, 215, 0, .45),
+                inset 0 0 6px rgba(255, 255, 255, .25);
         }
+
     </style>
 </head>
 
