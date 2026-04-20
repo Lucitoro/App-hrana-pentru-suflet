@@ -1,161 +1,189 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<title>Pravila Zilnică – Hrana pentru suflet</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravila zilnică</title>
 
-<style>
-/* FUNDAL GRAFIT */
-body {
-  margin: 0;
-  padding: 0;
-  background: #0a0a0a;
-  font-family: system-ui, sans-serif;
-  color: #f5f5f5;
-}
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json?v=20240419">
 
-/* CONTAINER */
-.pravila-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px 16px 40px;
-}
+    <style>
 
-/* TITLU */
-.pravila-title {
-  text-align: center;
-  font-size: 2rem;
-  color: #ffeaa7;
-  text-shadow: 0 0 4px #000, 0 0 10px rgba(255,215,0,0.7);
-  margin-bottom: 6px;
-}
+        /* FUNDAL NEGRU DESCHIS (GRAFIT PREMIUM) */
+        body, .container, .card3d {
+            background: #0a0a0a !important;
+        }
 
-/* SUBTITLU */
-.pravila-subtitle {
-  text-align: center;
-  font-size: 1rem;
-  color: #c8ffc8;
-  opacity: 0.9;
-  margin-bottom: 24px;
-}
+        /* CARDURI PREMIUM */
+        .card3d {
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow:
+                0 0 12px rgba(255, 215, 0, 0.35),
+                inset 0 0 6px rgba(255, 255, 255, 0.15);
+        }
 
-/* CARD */
-.card3d {
-  background: linear-gradient(145deg, #111, #050505);
-  border-radius: 18px;
-  padding: 20px;
-  box-shadow: 0 0 10px #000, 0 0 26px rgba(0,0,0,0.9);
-  border: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 28px;
-}
+        /* TITLURI VERZI PREMIUM */
+        .card3d h2,
+        .section-title {
+            color: #7CFC7C !important;
+            font-weight: 700;
+        }
 
-/* SUBTITLU GALBEN + CONTUR VERDE */
-.card3d p.subtitle {
-  color: #FFD700 !important;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-shadow:
-    0 0 2px #00FF66,
-    0 0 4px #00FF66,
-    0 0 6px #003300,
-    0 0 10px #000;
-}
+        .section-title {
+            text-align: center;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
 
-/* TEXT */
-.card3d .pravila-text p {
-  margin: 0 0 12px;
-  line-height: 1.6;
-}
+        /* SUBTITLURI GALBEN + CONTUR VERDE */
+        .card3d p {
+            color: #ffd700 !important;
+            font-weight: 600;
+            text-shadow:
+                0 0 2px #7CFC7C,
+                0 0 4px #7CFC7C,
+                0 0 6px #000000;
+        }
 
-/* SEPARATOR */
-.pravila-separator {
-  width: 80px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ffd700, transparent);
-  margin: 20px auto;
-}
+        /* 🔥 BUTOANE SUPER-SUPER-PREMIUM AURII CU CONTUR PUTERNIC */
+        .btn-premium {
+            display: inline-block;
+            width: 100%;
+            padding: 16px 24px;
+            margin-top: 12px;
 
-/* BUTON PREMIUM */
-.btn-premium {
-  display: block;
-  width: 100%;
-  padding: 16px;
-  margin-top: 16px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #C8FFC8;
-  text-align: center;
-  background: linear-gradient(135deg, #8a6b00, #ffd700, #8a6b00);
-  border: 4px solid #FFEA00;
-  border-radius: 18px;
-  box-shadow:
-    0 0 6px #000,
-    0 0 18px rgba(255,215,0,.75),
-    0 0 32px rgba(255,215,0,.55),
-    inset 0 0 10px rgba(255,255,255,.35);
-  text-decoration: none;
-}
-</style>
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #9aff9a;
+            text-align: center;
+            text-decoration: none;
+
+            background: linear-gradient(135deg, #8a6b00, #ffd700, #8a6b00);
+            border: 4px solid #ffdf00; /* contur mai puternic */
+            border-radius: 18px;
+
+            box-shadow:
+                0 0 6px #000000,
+                0 0 18px rgba(255, 215, 0, .75),
+                0 0 32px rgba(255, 215, 0, .55),
+                inset 0 0 10px rgba(255, 255, 255, .35);
+
+            transition: all 0.25s ease;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 0 8px #000000,
+                0 0 24px rgba(255, 215, 0, .85),
+                0 0 36px rgba(255, 215, 0, .65),
+                inset 0 0 12px rgba(255, 255, 255, .45);
+        }
+
+        .btn-premium:active {
+            transform: translateY(1px);
+            box-shadow:
+                0 0 6px #000000,
+                0 0 16px rgba(255, 215, 0, .55),
+                inset 0 0 8px rgba(255, 255, 255, .25);
+        }
+
+    </style>
 </head>
 
 <body>
-<div class="pravila-container">
 
-<h1 class="pravila-title">PRAVILA ZILNICĂ</h1>
-<div class="pravila-subtitle">Rânduială de rugăciune – Hrana pentru suflet</div>
+<header class="header">
+    <h1>📜 Pravila zilnică</h1>
+</header>
 
-<!-- DIMINEAȚA -->
-<div class="card3d">
-  <h2>Rânduială de dimineață</h2>
-  <p class="subtitle">Început blând al zilei</p>
+<div class="container">
 
-  <div class="pravila-text">
-    <p>1. Fă semnul Sfintei Cruci și spune rar: „În numele Tatălui și al Fiului și al Sfântului Duh. Amin.”</p>
-    <p>2. Mulțumește lui Dumnezeu pentru noua zi.</p>
-    <p>3. Citește o rugăciune scurtă:</p>
+    <!-- DIMINEAȚA -->
+    <div class="card3d scroll-appear">
+        <h2>🌅 Rugăciuni de dimineață</h2>
+        <p>Rugăciunile cu care începi ziua.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-dimineata.html" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
 
-    <p><a href="rugaciuni/dimineata.html" style="color:#FFD700;">➡ Rugăciunile de dimineață</a></p>
+    <!-- INSERAREA -->
+    <div class="card3d scroll-appear">
+        <h2>🌇 Rugăciunile înserării</h2>
+        <p>Rugăciunile pentru momentul înserării.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inserarii.html" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
 
-    <p>4. Spune rar: „Doamne Iisuse Hristoase, Fiul lui Dumnezeu, miluiește-mă pe mine, păcătosul.”</p>
-  </div>
+    <!-- SEARA -->
+    <div class="card3d scroll-appear">
+        <h2>🌙 Rugăciunile de seară</h2>
+        <p>Rugăciunile cu care închei ziua.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
+
+    <!-- ZILELE SĂPTĂMÂNII -->
+    <div class="card3d scroll-appear">
+        <h2>📅 Rugăciuni pentru fiecare zi a săptămânii</h2>
+        <p>Rugăciuni rânduite pentru fiecare zi.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/06/rugaciuni-pentru-fiecare-zi-saptamanii.html" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
+
+    <!-- TITLU CENTRAL TAINE -->
+    <div class="section-title">✝️ Rugăciuni la Sfintele Taine</div>
+
+    <!-- ÎNAINTE DE SPOVEDANIE -->
+    <div class="card3d scroll-appear">
+        <h2>✝️ Rugăciuni înainte de spovedanie</h2>
+        <p>Pregătirea sufletului pentru Taina Spovedaniei.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
+
+    <!-- DUPĂ SPOVEDANIE -->
+    <div class="card3d scroll-appear">
+        <h2>✝️ Rugăciuni după spovedanie</h2>
+        <p>Rugăciuni de mulțumire după mărturisire.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html?m=1" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
+
+    <!-- ÎNAINTE DE ÎMPĂRTĂȘANIE -->
+    <div class="card3d scroll-appear">
+        <h2>🍷 Rugăciuni înainte de împărtășanie</h2>
+        <p>Pregătirea pentru primirea Sfintelor Taine.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-pentru-sf-impartasanie.html" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
+
+    <!-- DUPĂ ÎMPĂRTĂȘANIE -->
+    <div class="card3d scroll-appear">
+        <h2>🍷 Rugăciuni după împărtășanie</h2>
+        <p>Rugăciuni de mulțumire după primirea Sfintelor Taine.</p>
+        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html" target="_blank">
+            Deschide rugăciunile
+        </a>
+    </div>
+
 </div>
 
-<div class="pravila-separator"></div>
+<nav class="bottom-nav">
+    <a href="index.html">🏠<br>Acasă</a>
+    <a href="calendar.html">📅<br>Calendar</a>
+    <a href="setari.html">⚙️<br>Setări</a>
+</nav>
 
-<!-- ZIUA -->
-<div class="card3d">
-  <h2>Rânduială în timpul zilei</h2>
-  <p class="subtitle">Respirație duhovnicească</p>
-
-  <div class="pravila-text">
-    <p>1. Spune în gând: „Slavă Ție, Doamne.”</p>
-    <p>2. La nevoie: „Doamne, ajută-mă.”</p>
-    <p>3. Citește o rugăciune scurtă:</p>
-
-    <p><a href="rugaciuni/ziua.html" style="color:#FFD700;">➡ Rugăciuni pentru timpul zilei</a></p>
-  </div>
-</div>
-
-<div class="pravila-separator"></div>
-
-<!-- SEARA -->
-<div class="card3d">
-  <h2>Rânduială de seară</h2>
-  <p class="subtitle">Încredințarea zilei lui Dumnezeu</p>
-
-  <div class="pravila-text">
-    <p>1. Mulțumește pentru ziua care a trecut.</p>
-    <p>2. Cere iertare pentru greșeli.</p>
-    <p>3. Roagă-te pentru cei dragi.</p>
-    <p>4. Citește rugăciunile de seară:</p>
-
-    <p><a href="rugaciuni/seara.html" style="color:#FFD700;">➡ Rugăciunile de seară</a></p>
-  </div>
-
-  <a class="btn-premium" href="carti.html">Deschide cărți duhovnicești</a>
-</div>
-
-</div>
 </body>
 </html>
