@@ -101,6 +101,22 @@
         transform: scale(1.03);
     }
     </style>
+
+    <!-- Animație scroll -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".card3d");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("scroll-appear");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            cards.forEach(card => observer.observe(card));
+        });
+    </script>
 </head>
 
 <body>
@@ -111,24 +127,28 @@
 
 <div class="container">
 
+    <!-- CARD 1 -->
     <div class="card3d scroll-appear">
         <h2>📖 Rugăciuni</h2>
         <p>Rugăciuni de dimineață, seară și pentru diferite trebuințe.</p>
         <a class="btn-premium" href="pravila.html">Deschide pravila</a>
     </div>
 
+    <!-- CARD 2 -->
     <div class="card3d scroll-appear">
         <h2>📜 Psaltirea</h2>
         <p>Psaltirea împărțită pe catisme, pentru citire zilnică.</p>
         <a class="btn-premium" href="psaltirea.html">Deschide Psaltirea</a>
     </div>
 
+    <!-- CARD 3 -->
     <div class="card3d scroll-appear">
         <h2>🌹 Acatiste</h2>
         <p>Acatiste către Maica Domnului și sfinți.</p>
         <a class="btn-premium" href="acatiste.html">Vezi acatistele</a>
     </div>
 
+    <!-- CARD 4 -->
     <div class="card3d scroll-appear">
         <h2>📚 Resurse duhovnicești</h2>
         <p>Articole, predici, cărți duhovnicești și alte resurse.</p>
