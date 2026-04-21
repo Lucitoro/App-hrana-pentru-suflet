@@ -11,23 +11,23 @@
 
 <body>
 
-<header class="header">
-    <h1>⚙️ Setări</h1>
+<header class="header-premium">
+    <h1 class="title-green">⚙️ Setări</h1>
 </header>
 
-<div class="container">
+<main class="container">
 
     <!-- TEMA -->
-    <div class="card3d scroll-appear">
-        <h2>🎨 Tema aplicației</h2>
+    <div class="card3d scroll-appear settings-card">
+        <h2 class="title-green">🎨 Tema aplicației</h2>
         <p>Alege modul luminos sau întunecat.</p>
         <button class="btn-premium" onclick="setTheme('light')">Mod luminos</button>
         <button class="btn-premium" onclick="setTheme('dark')">Mod întunecat</button>
     </div>
 
     <!-- TTS -->
-    <div class="card3d scroll-appear">
-        <h2>🔊 Citire text (TTS)</h2>
+    <div class="card3d scroll-appear settings-card">
+        <h2 class="title-green">🔊 Citire text (TTS)</h2>
         <p>Selectează vocea și viteza de citire.</p>
 
         <button class="btn-premium" onclick="setVoice('male')">Voce masculină</button>
@@ -40,9 +40,9 @@
         <button class="btn-premium" onclick="setReadMode('titles')">Citește doar titlurile</button>
     </div>
 
-    <!-- MARIME TEXT -->
-    <div class="card3d scroll-appear">
-        <h2>🔠 Mărime text</h2>
+    <!-- MĂRIME TEXT -->
+    <div class="card3d scroll-appear settings-card">
+        <h2 class="title-green">🔠 Mărime text</h2>
         <p>Alege dimensiunea textului:</p>
 
         <button class="btn-premium" onclick="setTextSize('small')">Mic</button>
@@ -52,8 +52,8 @@
     </div>
 
     <!-- LIMBA -->
-    <div class="card3d scroll-appear">
-        <h2>🌍 Limba aplicației</h2>
+    <div class="card3d scroll-appear settings-card">
+        <h2 class="title-green">🌍 Limba aplicației</h2>
         <p>Selectează limba interfeței:</p>
 
         <button class="btn-premium" onclick="setLanguage('ro')">Română</button>
@@ -62,8 +62,8 @@
     </div>
 
     <!-- DESPRE -->
-    <div class="card3d scroll-appear">
-        <h2>ℹ️ Despre aplicație</h2>
+    <div class="card3d scroll-appear settings-card">
+        <h2 class="title-green">ℹ️ Despre aplicație</h2>
         <p>
             Versiune: 1.0.0<br>
             Realizată cu grijă pentru suflet.<br>
@@ -72,13 +72,13 @@
     </div>
 
     <!-- RESETARE -->
-    <div class="card3d scroll-appear">
-        <h2>♻️ Resetare setări</h2>
+    <div class="card3d scroll-appear settings-card">
+        <h2 class="title-green">♻️ Resetare setări</h2>
         <p>Revino la setările inițiale ale aplicației.</p>
         <button class="btn-premium" onclick="resetSettings()">Resetează tot</button>
     </div>
 
-</div>
+</main>
 
 <nav class="bottom-nav">
     <a href="index.html">🏠<br>Acasă</a>
