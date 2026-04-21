@@ -1,15 +1,17 @@
 {
+  "id": "/App-hrana-pentru-suflet",
   "name": "Hrana pentru suflet",
   "short_name": "Hrana",
-  "description": "Aplicație duhovnicească cu rugăciuni, psaltire, acatiste, resurse și citire audio naturală.",
-
-  "start_url": "/App-hrana-pentru-suflet/index.html?v=20240419",
-  "scope": "/App-hrana-pentru-suflet/",
+  "description": "Carti duhovnicesti, rugaciuni si invataturi pentru suflet.",
+  "lang": "ro",
+  "dir": "ltr",
+  "start_url": "index.html",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-
   "background_color": "#000000",
   "theme_color": "#000000",
+  "categories": ["spiritual", "religious", "education"],
 
   "icons": [
     {
@@ -40,8 +42,7 @@
     {
       "src": "icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "icons/icon-384.png",
@@ -51,8 +52,7 @@
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
