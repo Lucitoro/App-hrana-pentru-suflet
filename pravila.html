@@ -7,7 +7,7 @@
 
     <!-- stylesheet global al aplicației -->
     <link rel="stylesheet" href="style.css">
-    <!-- 🔥 MANIFEST PWA (cum ai avut înainte) -->
+    <!-- MANIFEST PWA -->
     <link rel="manifest" href="manifest.json?v=20240419">
 
     <style>
@@ -20,6 +20,7 @@
 
         .container {
             padding: 20px;
+            padding-bottom: 90px; /* spațiu pentru meniul de jos */
         }
 
         /* CARDURI PREMIUM */
@@ -84,6 +85,29 @@
                 0 0 36px rgba(255, 215, 0, .65),
                 inset 0 0 12px rgba(255, 255, 255, .45);
         }
+
+        /* MENIU JOS FIX */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #000000;
+            border-top: 2px solid #ffd700;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.8);
+            z-index: 999;
+        }
+
+        .bottom-nav a {
+            color: #7CFC7C;
+            text-decoration: none;
+            font-size: 0.85em;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -140,6 +164,12 @@
     </div>
 
 </div>
+
+<nav class="bottom-nav">
+    <a href="index.html">🏠<br>Acasă</a>
+    <a href="calendar.html">📅<br>Calendar</a>
+    <a href="setari.html">⚙️<br>Setări</a>
+</nav>
 
 </body>
 </html>
