@@ -1,53 +1,75 @@
-// Hrana pentru suflet – Service Worker final
+/* ============================
+   HRANA PENTRU SUFLET – APP.JS
+   Versiune Premium Finală
+============================ */
 
-const CACHE_NAME = "hrana-cache-v2";
+/* ====== SCROLL SOFT ====== */
+document.documentElement.style.scrollBehavior = "smooth";
 
-const FILES_TO_CACHE = [
-  "./",
-  "index.html",
-  "style.css",
-  "app.js",
-  "manifest.json",
-  "icons/icon-72.png",
-  "icons/icon-96.png",
-  "icons/icon-128.png",
-  "icons/icon-144.png",
-  "icons/icon-152.png",
-  "icons/icon-192.png",
-  "icons/icon-384.png",
-  "icons/icon-512.png"
-];
+/* ====== DARK MODE ====== */
+const darkToggle = document.getElementById("darkToggle");
 
-// Install
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
-  );
-  self.skipWaiting();
-});
+if (darkToggle) {
+    darkToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
 
-// Activate
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) return caches.delete(key);
-        })
-      )
-    )
-  );
-  self.clients.claim();
-});
+        // Salvăm preferința
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+    });
+}
 
-// Fetch
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return (
-        response ||
-        fetch(event.request).catch(() => caches.match("index.html"))
-      );
-    })
-  );
-});
+// Aplicăm tema salvată
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+}
+
+/* ====== TEXT-TO-SPEECH PREMIUM ====== */
+function speak(text) {
+    if (!window.speechSynthesis) {
+        alert("Citirea cu voce nu este suportată pe acest dispozitiv.");
+        return;
+    }
+
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "ro-RO";
+    utter.rate = 1;
+    utter.pitch = 1;
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utter);
+}
+
+/* Citește selecția */
+function readSelection() {
+    const selection = window.getSelection().toString();
+    if (selection.length > 0) {
+        speak(selection);
+    } else {
+        alert("Selectează textul pe care vrei să îl citești.");
+    }
+}
+
+/* Citește toată pagina */
+function readPage() {
+    speak(document.body.innerText);
+}
+
+/* Citește secțiunea curentă */
+function readSection(id) {
+    const el = document.getElementById(id);
+    if (el) speak(el.innerText);
+}
+
+/* ====== MENIU SLIDE-DOWN PREMIUM ====== */
+const menuBtn = document.getElementById("menuBtn");
+const menuPanel = document.getElementById("menuPanel");
+
+if (menuBtn && menuPanel) {
+    menuBtn.addEventListener("click", () => {
+        menuPanel.classList.toggle("open");
+    });
+}
