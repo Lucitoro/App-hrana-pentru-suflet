@@ -4,200 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pravila zilnică</title>
-
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json?v=20240419">
-
-    <style>
-
-        body {
-            background: #0a0a0a !important;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            padding: 20px;
-            padding-bottom: 90px;
-        }
-
-        .card3d {
-            background: #0a0a0a !important;
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow:
-                0 0 12px rgba(255, 215, 0, 0.35),
-                inset 0 0 6px rgba(255, 255, 255, 0.15);
-        }
-
-        /* TITLU MARE + CENTRAT */
-        .card3d h2 {
-            color: #7CFC7C !important;
-            font-weight: 800;
-            text-align: center;
-            font-size: 1.8em;
-            margin-top: 0;
-        }
-
-        /* SUBTITLU GALBEN + CONTUR VERDE */
-        .card3d p {
-            color: #ffd700 !important;
-            font-weight: 600;
-            text-align: center;
-            text-shadow:
-                0 0 2px #7CFC7C,
-                0 0 4px #7CFC7C,
-                0 0 6px #000000;
-        }
-
-        /* BUTON PREMIUM – MAI SCURT, TEXT MARE */
-        .btn-premium {
-            display: block;
-            width: 70%;          /* MAI SCURT */
-            margin: 12px auto;   /* CENTRAT */
-            padding: 10px 18px;
-
-            font-size: 1.1em;    /* TEXT MARE */
-            font-weight: 700;
-            color: #9aff9a;
-            text-align: center;
-            text-decoration: none;
-
-            background: linear-gradient(135deg, #8a6b00, #ffd700, #8a6b00);
-            border: 4px solid #ffdf00;
-            border-radius: 16px;
-
-            box-shadow:
-                0 0 6px #000000,
-                0 0 18px rgba(255, 215, 0, .75),
-                0 0 32px rgba(255, 215, 0, .55),
-                inset 0 0 10px rgba(255, 255, 255, .35);
-
-            transition: 0.25s ease;
-        }
-
-        .btn-premium:hover {
-            transform: translateY(-3px);
-            box-shadow:
-                0 0 8px #000000,
-                0 0 24px rgba(255, 215, 0, .85),
-                0 0 36px rgba(255, 215, 0, .65),
-                inset 0 0 12px rgba(255, 255, 255, .45);
-        }
-
-        /* SUBMENIU ASCUNS */
-        .submenu {
-            display: none;
-            margin-top: 15px;
-        }
-
-        /* MENIU JOS */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: #000000;
-            border-top: 2px solid #ffd700;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.8);
-            z-index: 999;
-        }
-
-        .bottom-nav a {
-            color: #7CFC7C;
-            text-decoration: none;
-            font-size: 0.85em;
-            text-align: center;
-        }
-
-    </style>
-
-    <script>
-        function toggleSubmenu() {
-            const box = document.getElementById("submenu-taine");
-            box.style.display = box.style.display === "block" ? "none" : "block";
-        }
-    </script>
-
 </head>
 
 <body>
 
-<div class="container">
+<header class="header-premium">
+    <h1 class="title-green">📘 Pravila zilnică</h1>
+</header>
 
-    <!-- 4 RUGĂCIUNI ZILNICE -->
-    <div class="card3d">
-        <h2>🌅 Rugăciuni de dimineață</h2>
-        <p>Rugăciunile cu care începi ziua.</p>
-        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-dimineata.html" target="_blank">Deschide</a>
-    </div>
+<main class="container">
 
-    <div class="card3d">
-        <h2>🌇 Rugăciunile înserării</h2>
-        <p>Rugăciunile pentru momentul înserării.</p>
-        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inserarii.html" target="_blank">Deschide</a>
-    </div>
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-dimineata.html?m=1" target="_blank">
+        <span class="title-green">🌅 Rugăciunile de dimineață</span>
+    </a>
 
-    <div class="card3d">
-        <h2>🌙 Rugăciunile de seară</h2>
-        <p>Rugăciunile cu care închei ziua.</p>
-        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html" target="_blank">Deschide</a>
-    </div>
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-inserarii.html?m=1" target="_blank">
+        <span class="title-green">🌇 Rugăciunile înserării</span>
+    </a>
 
-    <div class="card3d">
-        <h2>📅 Rugăciuni pentru fiecare zi a săptămânii</h2>
-        <p>Rugăciuni rânduite pentru fiecare zi.</p>
-        <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/06/rugaciuni-pentru-fiecare-zi-saptamanii.html" target="_blank">Deschide</a>
-    </div>
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-de-seara.html?m=1" target="_blank">
+        <span class="title-green">🌙 Rugăciunile de seară</span>
+    </a>
 
-    <!-- BUTON SUBMENIU SFINTELE TAINE -->
-    <div class="card3d">
-        <h2>✝️ Rugăciuni la Sfintele Taine</h2>
-        <p>Atinge pentru a deschide submeniul.</p>
-        <a class="btn-premium" onclick="toggleSubmenu()">Deschide submeniul</a>
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-pentru-fiecare-zi-saptamanii.html?m=1" target="_blank">
+        <span class="title-green">📅 Rugăciuni pentru fiecare zi a săptămânii</span>
+    </a>
 
-        <!-- SUBMENIU -->
-        <div id="submenu-taine" class="submenu">
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html?m=1" target="_blank">
+        <span class="title-green">✝️ Rugăciuni înainte de spovedanie</span>
+    </a>
 
-            <div class="card3d">
-                <h2>✝️ Înainte de spovedanie</h2>
-                <p>Pregătirea sufletului.</p>
-                <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-spovedanie.html" target="_blank">Deschide</a>
-            </div>
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html?m=1" target="_blank">
+        <span class="title-green">🙏 Rugăciuni după spovedanie</span>
+    </a>
 
-            <div class="card3d">
-                <h2>✝️ După spovedanie</h2>
-                <p>Rugăciuni de mulțumire.</p>
-                <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-spovedanie.html" target="_blank">Deschide</a>
-            </div>
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-inainte-de-impartasanie.html?m=1" target="_blank">
+        <span class="title-green">🕊️ Rugăciuni înainte de împărtășanie</span>
+    </a>
 
-            <div class="card3d">
-                <h2>🍷 Înainte de împărtășanie</h2>
-                <p>Pregătirea pentru Sfintele Taine.</p>
-                <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciunile-pentru-sf-impartasanie.html" target="_blank">Deschide</a>
-            </div>
+    <a class="card3d" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-dupa-impartasanie.html?m=1" target="_blank">
+        <span class="title-green">✨ Rugăciuni după împărtășanie</span>
+    </a>
 
-            <div class="card3d">
-                <h2>🍷 După împărtășanie</h2>
-                <p>Rugăciuni de mulțumire.</p>
-                <a class="btn-premium" href="https://cartiduhovnicesti.blogspot.com/2020/04/rugaciuni-de-multumire-dupa-sf.html" target="_blank">Deschide</a>
-            </div>
-
-        </div>
-    </div>
-
-</div>
+</main>
 
 <nav class="bottom-nav">
-    <a href="index.html">🏠<br>Acasă</a>
-    <a href="calendar.html">📅<br>Calendar</a>
-    <a href="setari.html">⚙️<br>Setări</a>
+    <a href="index.html">🏠 Acasă</a>
+    <a href="pravila.html" class="active">📘 Pravila</a>
+    <a href="rugaciuni.html">✝️ Rugăciuni</a>
+    <a href="setari.html">⚙️ Setări</a>
 </nav>
+
+<script src="settings-loader.js"></script>
 
 </body>
 </html>
