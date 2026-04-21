@@ -2,14 +2,14 @@
   "name": "Hrana pentru suflet",
   "short_name": "Hrana",
   "description": "Aplicație duhovnicească cu rugăciuni, psaltire, acatiste, resurse și citire audio naturală.",
-  
+
   "start_url": "/App-hrana-pentru-suflet/index.html?v=20240419",
   "scope": "/App-hrana-pentru-suflet/",
   "display": "standalone",
   "orientation": "portrait",
 
-  "background_color": "#ffffff",
-  "theme_color": "#ffd700",
+  "background_color": "#000000",
+  "theme_color": "#000000",
 
   "icons": [
     {
