@@ -5,104 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hrana pentru suflet</title>
 
-    <!-- Stil general -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Manifest PWA -->
     <link rel="manifest" href="manifest.json?v=20240419">
 
-    <!-- ====== BUTON PLUTITOR TTS PREMIUM ====== -->
-    <style>
-    .floating-tts {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 99999;
-    }
-
-    .tts-main-btn {
-        background: linear-gradient(135deg, #ffd700, #ffb300);
-        border: none;
-        padding: 18px 22px;
-        border-radius: 50%;
-        font-size: 26px;
-        cursor: pointer;
-        color: #000;
-        font-weight: bold;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-        transition: transform 0.2s ease;
-    }
-    .tts-main-btn:hover {
-        transform: scale(1.1);
-    }
-
-    .tts-menu {
-        display: none;
-        position: absolute;
-        bottom: 80px;
-        right: 0;
-        width: 350px;
-
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-
-        border-radius: 18px;
-        padding: 15px;
-        border: 1px solid rgba(255, 215, 0, 0.4);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-
-        animation: slideDown 0.25s ease-out;
-    }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(15px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .tts-group-title {
-        background: rgba(255, 215, 0, 0.35);
-        border: 1px solid rgba(255, 215, 0, 0.6);
-        padding: 10px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 8px;
-        color: #000;
-        transition: 0.2s;
-    }
-    .tts-group-title:hover {
-        background: rgba(255, 215, 0, 0.55);
-    }
-
-    .tts-group-content {
-        display: none;
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 12px;
-    }
-
-    .tts-btn {
-        width: 100%;
-        padding: 12px;
-        background: rgba(255,255,255,0.35);
-        border: 1px solid rgba(255,215,0,0.4);
-        border-radius: 10px;
-        font-size: 15px;
-        cursor: pointer;
-        text-align: center;
-        color: #000;
-        font-weight: 500;
-        transition: 0.2s;
-    }
-    .tts-btn:hover {
-        background: rgba(255,255,255,0.55);
-        transform: scale(1.03);
-    }
-    </style>
-
-    <!-- Animație scroll -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const cards = document.querySelectorAll(".card3d");
@@ -116,43 +21,63 @@
 
             cards.forEach(card => observer.observe(card));
         });
+
+        function closeApp() {
+            window.close();
+        }
     </script>
 </head>
 
 <body>
 
-<header class="header">
-    <h1>🙏 Hrana pentru suflet</h1>
-</header>
-
 <div class="container">
 
-    <!-- CARD 1 -->
-    <div class="card3d scroll-appear">
-        <h2>📖 Rugăciuni</h2>
-        <p>Rugăciuni de dimineață, seară și pentru diferite trebuințe.</p>
+    <!-- TITLU -->
+    <div class="card3d">
+        <h2>📖 Hrana pentru suflet</h2>
+        <p>Rugăciuni și resurse duhovnicești.</p>
+    </div>
+
+    <!-- PRAVILA -->
+    <div class="card3d">
+        <h2>✝️ Pravila zilnică</h2>
+        <p>Rugăciunile de dimineață, seară și Sfintele Taine.</p>
         <a class="btn-premium" href="pravila.html">Deschide pravila</a>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="card3d scroll-appear">
-        <h2>📜 Psaltirea</h2>
-        <p>Psaltirea împărțită pe catisme, pentru citire zilnică.</p>
-        <a class="btn-premium" href="psaltirea.html">Deschide Psaltirea</a>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="card3d scroll-appear">
-        <h2>🌹 Acatiste</h2>
-        <p>Acatiste către Maica Domnului și sfinți.</p>
-        <a class="btn-premium" href="acatiste.html">Vezi acatistele</a>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="card3d scroll-appear">
+    <!-- RESURSE -->
+    <div class="card3d">
         <h2>📚 Resurse duhovnicești</h2>
-        <p>Articole, predici, cărți duhovnicești și alte resurse.</p>
+        <p>Rugăciuni, acatiste, paraclise, psaltire.</p>
         <a class="btn-premium" href="resurse.html">Deschide resursele</a>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="card3d">
+        <h2>📅 Calendar Ortodox</h2>
+        <p>Sfinții zilei și sărbătorile.</p>
+        <a class="btn-premium" href="calendar.html">Deschide calendarul</a>
+    </div>
+
+    <!-- SETĂRI -->
+    <div class="card3d">
+        <h2>⚙️ Setări</h2>
+        <p>Citire text, voce, temă, mărime text.</p>
+        <a class="btn-premium" href="setari.html">Deschide setările</a>
+    </div>
+
+    <!-- DESCARCĂ APLICAȚIA -->
+    <div class="card3d">
+        <h2>⬇️ Descarcă aplicația</h2>
+        <p>Instalează aplicația pe telefon sau PC.</p>
+        <a class="btn-premium" href="app-release.apk" download>Descarcă APK</a>
+    </div>
+
+    <!-- ÎNCHIDE APLICAȚIA -->
+    <div class="card3d">
+        <h2>❌ Închide aplicația</h2>
+        <p>Închide aplicația complet.</p>
+        <button class="btn-premium" onclick="closeApp()">Închide aplicația</button>
     </div>
 
 </div>
@@ -162,71 +87,6 @@
     <a href="calendar.html">📅<br>Calendar</a>
     <a href="setari.html">⚙️<br>Setări</a>
 </nav>
-
-<!-- BUTON PLUTITOR TTS PREMIUM -->
-<div class="floating-tts">
-    <button class="tts-main-btn" onclick="toggleTTSMenu()">🔊</button>
-
-    <div class="tts-menu" id="ttsMenu">
-
-        <!-- GRUP 1: CITIRE -->
-        <div class="tts-group">
-            <div class="tts-group-title" onclick="toggleGroup('g1')">📖 Citire</div>
-            <div class="tts-group-content" id="g1">
-                <button class="tts-btn" onclick="readPage()">Citește pagina</button>
-                <button class="tts-btn" onclick="readSelection()">Citește selecția</button>
-                <button class="tts-btn" onclick="readFromHere()">Citește de aici</button>
-                <button class="tts-btn" onclick="readTitles()">Citește titlurile</button>
-            </div>
-        </div>
-
-        <!-- GRUP 2: CONTROL -->
-        <div class="tts-group">
-            <div class="tts-group-title" onclick="toggleGroup('g2')">🎛 Control</div>
-            <div class="tts-group-content" id="g2">
-                <button class="tts-btn" onclick="pauseReading()">Pauză</button>
-                <button class="tts-btn" onclick="resumeReading()">Reia</button>
-                <button class="tts-btn" onclick="stopReading()">Stop</button>
-            </div>
-        </div>
-
-        <!-- GRUP 3: SETĂRI RAPIDE -->
-        <div class="tts-group">
-            <div class="tts-group-title" onclick="toggleGroup('g3')">⚙️ Setări rapide</div>
-            <div class="tts-group-content" id="g3">
-                <button class="tts-btn" onclick="setVoice('female')">Voce feminină</button>
-                <button class="tts-btn" onclick="setVoice('male')">Voce masculină</button>
-                <button class="tts-btn" onclick="setRate(0.8)">Lent</button>
-                <button class="tts-btn" onclick="setRate(1)">Normal</button>
-                <button class="tts-btn" onclick="setRate(1.3)">Rapid</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- Script TTS complet -->
-<script src="tts-full.js"></script>
-
-<!-- Script meniu TTS premium -->
-<script>
-function toggleTTSMenu() {
-    let menu = document.getElementById("ttsMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-
-function toggleGroup(id) {
-    const groups = document.querySelectorAll(".tts-group-content");
-
-    groups.forEach(g => {
-        if (g.id === id) {
-            g.style.display = (g.style.display === "flex") ? "none" : "flex";
-        } else {
-            g.style.display = "none";
-        }
-    });
-}
-</script>
 
 </body>
 </html>
