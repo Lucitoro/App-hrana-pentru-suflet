@@ -51,21 +51,37 @@ body {
     backdrop-filter: blur(6px);
 }
 
-/* TITLURI VERZI PREMIUM */
+/* ===============================
+   TITLURI VERZI PREMIUM – VIZIBILITATE MAXIMĂ
+=============================== */
 .title-green {
     color: #32ff7e;
-    font-weight: 700;
-    font-size: 28px;
-    text-shadow: 0 0 4px rgba(0,255,120,0.4);
+    font-weight: 800;
+    font-size: 30px;
+    text-shadow:
+        0 0 6px rgba(0,255,120,0.8),
+        0 0 12px rgba(0,255,120,0.6),
+        0 0 18px rgba(0,255,120,0.4);
 }
 
-/* DARK MODE – titluri verzi luminoase */
 [data-theme="dark"] .title-green {
     color: #7CFF7C;
     text-shadow:
-        0 0 6px #00ff88,
-        0 0 12px #00ff88,
-        0 0 18px #00ff88;
+        0 0 8px #00ff88,
+        0 0 16px #00ff88,
+        0 0 24px #00ff88;
+}
+
+/* ===============================
+   SUBTITLU GALBEN PREMIUM
+=============================== */
+.subtitle {
+    color: #ffd700 !important;
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow:
+        0 0 4px rgba(255,215,0,0.7),
+        0 0 8px rgba(255,215,0,0.5);
 }
 
 /* ===============================
@@ -97,13 +113,11 @@ body {
     transition: 0.3s ease;
 }
 
-/* Text din card */
 .card3d span.title-green {
     font-size: 20px;
     font-weight: 700;
 }
 
-/* HOVER – efect 3D */
 .card3d:hover,
 .button-premium:hover {
     transform: translateY(-4px);
@@ -111,25 +125,32 @@ body {
 }
 
 /* ===============================
-   BUTOANE PREMIUM
+   BUTOANE PREMIUM – FUNDAL AURIU ÎNCHIS
 =============================== */
 .btn-premium {
     display: inline-block;
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    background: var(--btn-bg);
-    border: none;
+    background: linear-gradient(135deg, #5a4a1f, #3a2f12) !important;
+    border: 2px solid #d4af37 !important;
     border-radius: 10px;
-    color: #000;
-    font-weight: bold;
+    color: #d8ffd8 !important;
+    font-weight: 700;
     cursor: pointer;
     text-align: center;
-    transition: 0.2s;
+    transition: 0.25s ease;
+    box-shadow:
+        0 0 6px rgba(0,0,0,0.6),
+        0 0 10px rgba(212,175,55,0.4);
 }
 
 .btn-premium:hover {
+    background: linear-gradient(135deg, #3a2f12, #1f1809) !important;
     transform: scale(1.03);
+    box-shadow:
+        0 0 10px rgba(212,175,55,0.8),
+        0 0 16px rgba(212,175,55,0.6);
 }
 
 /* ===============================
@@ -162,7 +183,6 @@ body {
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
 }
 
-/* DARK MODE – și mai contrastant */
 [data-theme="dark"] .bottom-nav {
     background: rgba(0, 0, 0, 0.95);
     border-top: 1px solid rgba(0, 255, 120, 0.45);
