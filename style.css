@@ -14,12 +14,12 @@ html, body {
 =============================== */
 h1, h2, h3, h4, h5, h6,
 .title-green {
-    color: #33ff88 !important; /* verde deschis, clar */
+    color: #44ff99 !important; /* verde deschis, clar */
     font-weight: 900 !important;
-    font-size: 32px !important; /* titluri mai mari */
+    font-size: 34px !important; /* titluri mai mari */
     text-shadow:
-        0 0 2px #004d26,
-        0 0 3px #004d26 !important; /* contur fin, fără blur */
+        0 0 2px #00331a,
+        0 0 3px #00331a !important; /* contur fin, fără blur */
 }
 
 /* ===============================
@@ -66,40 +66,47 @@ h3.subtitle {
 
 /* ===============================
    BUTOANE SUPER PREMIUM
-   AUR ÎNVECHIT + CONTUR AURIU
+   AUR VECHI + CONTUR AURIU PUTERNIC
 =============================== */
 .btn-premium {
     display: block;
     width: 100%;
-    padding: 14px;
-    margin-top: 12px;
+    padding: 16px;
+    margin-top: 14px;
 
-    /* AUR ÎNVECHIT (maroniu) */
-    background: linear-gradient(135deg, #7a5a28, #3d2a10) !important;
+    /* AUR VECHI – MARONIU AURIU */
+    background: linear-gradient(135deg, #8c6a32, #4e3717) !important;
 
-    border: 3px solid #d4af37 !important; /* contur auriu clar */
-    border-radius: 12px;
+    /* CONTUR AURIU GROS, ACCENTUAT */
+    border: 4px solid #e6c15a !important;
 
-    color: #b6ffb6 !important; /* verde deschis */
+    border-radius: 14px;
+
+    /* TEXT VERDE DESCHIS, CLAR */
+    color: #c2ffcc !important;
     font-weight: 900 !important;
-    font-size: 20px !important;
+    font-size: 22px !important;
 
     text-shadow: none !important;
     cursor: pointer;
 
+    /* GLOW AURIU PREMIUM */
     box-shadow:
-        0 0 10px rgba(212,175,55,0.5),
-        0 0 18px rgba(212,175,55,0.25) !important;
+        0 0 12px rgba(230,193,90,0.6),
+        0 0 22px rgba(230,193,90,0.35) !important;
 
     transition: 0.25s ease;
 }
 
 .btn-premium:hover {
-    background: linear-gradient(135deg, #4a3515, #1f1507) !important;
-    transform: scale(1.06);
+    /* AUR VECHI MAI ÎNCHIS LA HOVER */
+    background: linear-gradient(135deg, #5c431f, #2b1d0c) !important;
+
+    transform: scale(1.07);
+
     box-shadow:
-        0 0 16px rgba(212,175,55,0.9),
-        0 0 26px rgba(212,175,55,0.7) !important;
+        0 0 18px rgba(230,193,90,0.9),
+        0 0 28px rgba(230,193,90,0.7) !important;
 }
 
 /* ===============================
@@ -107,7 +114,7 @@ h3.subtitle {
 =============================== */
 .bottom-nav {
     position: fixed;
-    bottom: 0; /* LIPIT DE MARGINE */
+    bottom: 0;
     left: 0;
     width: 100%;
     background: #000000 !important;
@@ -125,8 +132,8 @@ h3.subtitle {
 }
 
 .bottom-nav a.active {
-    color: #33ff88 !important;
-    text-shadow: 0 0 4px #004d26 !important;
+    color: #44ff99 !important;
+    text-shadow: 0 0 4px #00331a !important;
 }
 
 /* ===============================
@@ -138,7 +145,7 @@ h3.subtitle {
     right: 20px;
     width: 65px;
     height: 65px;
-    background: #33ff88; /* verde deschis */
+    background: #44ff99; /* verde deschis */
     border-radius: 50%;
     box-shadow:
         0 4px 10px rgba(0,0,0,0.6),
