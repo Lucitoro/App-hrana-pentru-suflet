@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6,
 .title-green {
     color: #44ff99 !important; /* verde deschis, clar */
     font-weight: 900 !important;
-    font-size: 28px !important; /* REDUS puțin */
+    font-size: 26px !important; /* puțin mai mici */
     text-shadow:
         0 0 2px #00331a,
         0 0 3px #00331a !important;
@@ -46,10 +46,14 @@ h3.subtitle {
     padding: 20px;
     background: #000000 !important;
     border-radius: 18px;
-    border: 2px solid rgba(0,255,120,0.25) !important; /* MAI SLAB decât butonul */
+
+    /* CONTUR VERDE SLAB – ca să nu concureze cu butonul */
+    border: 2px solid rgba(0,255,120,0.25) !important;
+
     box-shadow:
         0 0 10px rgba(0,255,120,0.15),
         0 0 18px rgba(0,255,120,0.10) !important;
+
     text-align: center;
     color: #ffffff !important;
     transition: 0.3s ease;
@@ -64,8 +68,8 @@ h3.subtitle {
 }
 
 /* ===============================
-   BUTOANE PREMIUM – AUR VECHI
-   DIFERITE DE STRUCTURĂ
+   BUTOANE PREMIUM – AUR VECHI DESCHIS
+   + CONTUR AURIU PUTERNIC
 =============================== */
 .btn-premium {
     display: block;
@@ -73,36 +77,36 @@ h3.subtitle {
     padding: 16px;
     margin-top: 14px;
 
-    /* AUR VECHI – MARONIU AURIU */
-    background: linear-gradient(135deg, #9c7a3a, #5a3f1c) !important;
+    /* AUR VECHI DESCHIS – MARONIU AURIU PREMIUM */
+    background: linear-gradient(135deg, #c89b52, #7a5528) !important;
 
-    /* CONTUR AURIU PUTERNIC, DIFERIT DE CARDURI */
-    border: 4px solid #e6c15a !important;
+    /* CONTUR AURIU FOARTE ACCENTUAT */
+    border: 5px solid #f7d98a !important;
 
     border-radius: 14px;
 
     /* TEXT VERDE DESCHIS */
-    color: #c8ffd2 !important;
+    color: #e0ffe8 !important;
     font-weight: 900 !important;
     font-size: 22px !important;
 
     text-shadow: none !important;
     cursor: pointer;
 
-    /* GLOW AURIU PREMIUM */
+    /* GLOW AURIU PUTERNIC – clar diferit de carduri */
     box-shadow:
-        0 0 14px rgba(230,193,90,0.7),
-        0 0 26px rgba(230,193,90,0.45) !important;
+        0 0 18px rgba(247,217,138,0.9),
+        0 0 32px rgba(247,217,138,0.55) !important;
 
     transition: 0.25s ease;
 }
 
 .btn-premium:hover {
-    background: linear-gradient(135deg, #6b4c22, #2e1f0d) !important;
-    transform: scale(1.07);
+    background: linear-gradient(135deg, #8a622f, #3d260f) !important;
+    transform: scale(1.08);
     box-shadow:
-        0 0 20px rgba(230,193,90,0.9),
-        0 0 32px rgba(230,193,90,0.7) !important;
+        0 0 26px rgba(247,217,138,1),
+        0 0 40px rgba(247,217,138,0.8) !important;
 }
 
 /* ===============================
