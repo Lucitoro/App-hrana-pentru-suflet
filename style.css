@@ -25,7 +25,11 @@ h1, h2, h3, h4, h5, h6,
 /* ===============================
    SUBTITLURI GALBENE CLARE
 =============================== */
-.subtitle {
+.subtitle,
+.card3d .subtitle,
+.submenu-card .subtitle,
+h2.subtitle,
+h3.subtitle {
     color: #ffd700 !important;
     font-weight: 700 !important;
     font-size: 22px !important;
