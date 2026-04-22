@@ -5,37 +5,37 @@ html, body {
     background: #000000 !important;
     color: #ffffff !important;
     font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* ===============================
-   TITLURI VERZI CLARE (FĂRĂ SFOCARE)
+   TITLURI VERZI CLARE, MAI DESCHISE
 =============================== */
 h1, h2, h3, h4, h5, h6,
-.title-green,
-.card3d .title-green,
-.button-premium .title-green {
-    color: #00ff66 !important; /* verde clar, tăios */
+.title-green {
+    color: #33ff88 !important; /* verde deschis, clar */
     font-weight: 900 !important;
+    font-size: 32px !important; /* titluri mai mari */
     text-shadow:
-        0 0 2px #003300,
-        0 0 3px #003300 !important; /* contur fin, fără blur */
+        0 0 2px #004d26,
+        0 0 3px #004d26 !important; /* contur fin, fără blur */
 }
 
 /* ===============================
    SUBTITLURI GALBENE CLARE
 =============================== */
-.subtitle,
-.card3d .subtitle,
-h2.subtitle, h3.subtitle {
+.subtitle {
     color: #ffd700 !important;
     font-weight: 700 !important;
+    font-size: 22px !important;
     text-shadow:
         0 0 2px #4d3b00,
-        0 0 3px #4d3b00 !important; /* clar, fără glow */
+        0 0 3px #4d3b00 !important;
 }
 
 /* ===============================
-   CARDURI 3D SUPER PREMIUM
+   CARDURI 3D PREMIUM
 =============================== */
 .card3d, .submenu-card, .button-premium {
     display: block;
@@ -61,58 +61,100 @@ h2.subtitle, h3.subtitle {
 }
 
 /* ===============================
-   BUTOANE SUPER PREMIUM AURII
+   BUTOANE SUPER PREMIUM
+   AUR ÎNVECHIT + CONTUR AURIU
 =============================== */
 .btn-premium {
     display: block;
     width: 100%;
     padding: 14px;
     margin-top: 12px;
-    background: linear-gradient(135deg, #6b5a28, #3a2f12) !important;
-    border: 2px solid #d4af37 !important;
+
+    /* AUR ÎNVECHIT (maroniu) */
+    background: linear-gradient(135deg, #7a5a28, #3d2a10) !important;
+
+    border: 3px solid #d4af37 !important; /* contur auriu clar */
     border-radius: 12px;
-    color: #9aff9a !important; /* verde clar */
-    font-weight: 800 !important;
-    text-shadow: none !important; /* clar, fără blur */
+
+    color: #b6ffb6 !important; /* verde deschis */
+    font-weight: 900 !important;
+    font-size: 20px !important;
+
+    text-shadow: none !important;
     cursor: pointer;
-    transition: 0.25s ease;
+
     box-shadow:
-        0 0 10px rgba(212,175,55,0.4),
+        0 0 10px rgba(212,175,55,0.5),
         0 0 18px rgba(212,175,55,0.25) !important;
+
+    transition: 0.25s ease;
 }
 
 .btn-premium:hover {
-    background: linear-gradient(135deg, #3a2f12, #1f1809) !important;
-    transform: scale(1.05);
+    background: linear-gradient(135deg, #4a3515, #1f1507) !important;
+    transform: scale(1.06);
     box-shadow:
         0 0 16px rgba(212,175,55,0.9),
         0 0 26px rgba(212,175,55,0.7) !important;
 }
 
 /* ===============================
-   SUBMENIURI PREMIUM
-=============================== */
-.submenu-card {
-    margin-top: 10px;
-    padding: 18px;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-/* ===============================
-   BOTTOM NAV PREMIUM
+   MENIU DE JOS – LIPIT DE MARGINE
 =============================== */
 .bottom-nav {
+    position: fixed;
+    bottom: 0; /* LIPIT DE MARGINE */
+    left: 0;
+    width: 100%;
     background: #000000 !important;
     border-top: 2px solid rgba(0,255,120,0.45) !important;
+    padding: 14px 0;
+    display: flex;
+    justify-content: space-around;
+    z-index: 99999;
 }
 
 .bottom-nav a {
     color: #d8ffd8 !important;
     font-weight: 700 !important;
+    font-size: 18px !important;
 }
 
 .bottom-nav a.active {
-    color: #00ff66 !important;
-    text-shadow: 0 0 6px #003300 !important;
+    color: #33ff88 !important;
+    text-shadow: 0 0 4px #004d26 !important;
+}
+
+/* ===============================
+   BUTON PLUTITOR – STIL BLOGGER
+=============================== */
+#floating-tts-btn {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 65px;
+    height: 65px;
+    background: #33ff88; /* verde deschis */
+    border-radius: 50%;
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.6),
+        0 0 10px rgba(0,255,120,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#floating-tts-btn:hover {
+    transform: scale(1.12);
+    box-shadow:
+        0 6px 14px rgba(0,0,0,0.7),
+        0 0 14px rgba(0,255,120,0.7);
+}
+
+#floating-tts-btn img {
+    width: 36px;
+    height: 36px;
 }
