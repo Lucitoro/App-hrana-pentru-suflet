@@ -4,61 +4,60 @@
 html, body {
     background: #000000 !important;
     color: #ffffff !important;
+    font-family: "Segoe UI", sans-serif;
 }
 
 /* ===============================
-   TITLURI VERZI SUPER PREMIUM
+   TITLURI VERZI CLARE (FĂRĂ SFOCARE)
 =============================== */
 h1, h2, h3, h4, h5, h6,
 .title-green,
-.card3d span.title-green,
+.card3d .title-green,
 .button-premium .title-green {
-    color: #7CFF7C !important;
+    color: #00ff66 !important; /* verde clar, tăios */
     font-weight: 900 !important;
     text-shadow:
-        0 0 6px #00ff88,
-        0 0 12px #00ff88,
-        0 0 22px #00ff88 !important;
+        0 0 2px #003300,
+        0 0 3px #003300 !important; /* contur fin, fără blur */
 }
 
 /* ===============================
-   SUBTITLURI GALBENE PREMIUM
+   SUBTITLURI GALBENE CLARE
 =============================== */
 .subtitle,
 .card3d .subtitle,
 h2.subtitle, h3.subtitle {
-    color: #FFD700 !important;
+    color: #ffd700 !important;
     font-weight: 700 !important;
     text-shadow:
-        0 0 6px rgba(255,215,0,0.8),
-        0 0 14px rgba(255,215,0,0.6) !important;
+        0 0 2px #4d3b00,
+        0 0 3px #4d3b00 !important; /* clar, fără glow */
 }
 
 /* ===============================
    CARDURI 3D SUPER PREMIUM
 =============================== */
-.card3d, .button-premium, .submenu-card {
+.card3d, .submenu-card, .button-premium {
     display: block;
     padding: 20px;
     background: #000000 !important;
     border-radius: 18px;
-    border: 2px solid rgba(0,255,120,0.45) !important;
+    border: 2px solid rgba(0,255,120,0.35) !important;
     box-shadow:
-        0 0 12px rgba(0,255,120,0.35),
-        0 0 22px rgba(0,255,120,0.25) !important;
+        0 0 12px rgba(0,255,120,0.25),
+        0 0 22px rgba(0,255,120,0.15) !important;
     text-align: center;
-    text-decoration: none;
     color: #ffffff !important;
     transition: 0.3s ease;
 }
 
 .card3d:hover,
-.button-premium:hover,
-.submenu-card:hover {
+.submenu-card:hover,
+.button-premium:hover {
     transform: translateY(-6px) scale(1.02);
     box-shadow:
-        0 0 18px rgba(0,255,120,0.55),
-        0 0 28px rgba(0,255,120,0.45) !important;
+        0 0 18px rgba(0,255,120,0.45),
+        0 0 28px rgba(0,255,120,0.35) !important;
 }
 
 /* ===============================
@@ -72,14 +71,14 @@ h2.subtitle, h3.subtitle {
     background: linear-gradient(135deg, #6b5a28, #3a2f12) !important;
     border: 2px solid #d4af37 !important;
     border-radius: 12px;
-    color: #9aff9a !important;
+    color: #9aff9a !important; /* verde clar */
     font-weight: 800 !important;
-    text-align: center;
+    text-shadow: none !important; /* clar, fără blur */
     cursor: pointer;
     transition: 0.25s ease;
     box-shadow:
-        0 0 10px rgba(212,175,55,0.5),
-        0 0 18px rgba(212,175,55,0.35) !important;
+        0 0 10px rgba(212,175,55,0.4),
+        0 0 18px rgba(212,175,55,0.25) !important;
 }
 
 .btn-premium:hover {
@@ -114,6 +113,6 @@ h2.subtitle, h3.subtitle {
 }
 
 .bottom-nav a.active {
-    color: #7CFF7C !important;
-    text-shadow: 0 0 12px #00ff88 !important;
+    color: #00ff66 !important;
+    text-shadow: 0 0 6px #003300 !important;
 }
