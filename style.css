@@ -10,16 +10,16 @@ html, body {
 }
 
 /* ===============================
-   TITLURI VERZI CLARE, MAI DESCHISE
+   TITLURI VERZI CLARE, PUȚIN MAI MICI
 =============================== */
 h1, h2, h3, h4, h5, h6,
 .title-green {
     color: #44ff99 !important; /* verde deschis, clar */
     font-weight: 900 !important;
-    font-size: 34px !important; /* titluri mai mari */
+    font-size: 28px !important; /* REDUS puțin */
     text-shadow:
         0 0 2px #00331a,
-        0 0 3px #00331a !important; /* contur fin, fără blur */
+        0 0 3px #00331a !important;
 }
 
 /* ===============================
@@ -32,41 +32,40 @@ h2.subtitle,
 h3.subtitle {
     color: #ffd700 !important;
     font-weight: 700 !important;
-    font-size: 22px !important;
+    font-size: 20px !important;
     text-shadow:
         0 0 2px #4d3b00,
         0 0 3px #4d3b00 !important;
 }
 
 /* ===============================
-   CARDURI 3D PREMIUM
+   CARDURI 3D PREMIUM (STRUCTURA)
 =============================== */
-.card3d, .submenu-card, .button-premium {
+.card3d, .submenu-card {
     display: block;
     padding: 20px;
     background: #000000 !important;
     border-radius: 18px;
-    border: 2px solid rgba(0,255,120,0.35) !important;
+    border: 2px solid rgba(0,255,120,0.25) !important; /* MAI SLAB decât butonul */
     box-shadow:
-        0 0 12px rgba(0,255,120,0.25),
-        0 0 22px rgba(0,255,120,0.15) !important;
+        0 0 10px rgba(0,255,120,0.15),
+        0 0 18px rgba(0,255,120,0.10) !important;
     text-align: center;
     color: #ffffff !important;
     transition: 0.3s ease;
 }
 
 .card3d:hover,
-.submenu-card:hover,
-.button-premium:hover {
-    transform: translateY(-6px) scale(1.02);
+.submenu-card:hover {
+    transform: translateY(-4px) scale(1.01);
     box-shadow:
-        0 0 18px rgba(0,255,120,0.45),
-        0 0 28px rgba(0,255,120,0.35) !important;
+        0 0 14px rgba(0,255,120,0.35),
+        0 0 22px rgba(0,255,120,0.25) !important;
 }
 
 /* ===============================
-   BUTOANE SUPER PREMIUM
-   AUR VECHI + CONTUR AURIU PUTERNIC
+   BUTOANE PREMIUM – AUR VECHI
+   DIFERITE DE STRUCTURĂ
 =============================== */
 .btn-premium {
     display: block;
@@ -75,15 +74,15 @@ h3.subtitle {
     margin-top: 14px;
 
     /* AUR VECHI – MARONIU AURIU */
-    background: linear-gradient(135deg, #8c6a32, #4e3717) !important;
+    background: linear-gradient(135deg, #9c7a3a, #5a3f1c) !important;
 
-    /* CONTUR AURIU GROS, ACCENTUAT */
+    /* CONTUR AURIU PUTERNIC, DIFERIT DE CARDURI */
     border: 4px solid #e6c15a !important;
 
     border-radius: 14px;
 
-    /* TEXT VERDE DESCHIS, CLAR */
-    color: #c2ffcc !important;
+    /* TEXT VERDE DESCHIS */
+    color: #c8ffd2 !important;
     font-weight: 900 !important;
     font-size: 22px !important;
 
@@ -92,21 +91,18 @@ h3.subtitle {
 
     /* GLOW AURIU PREMIUM */
     box-shadow:
-        0 0 12px rgba(230,193,90,0.6),
-        0 0 22px rgba(230,193,90,0.35) !important;
+        0 0 14px rgba(230,193,90,0.7),
+        0 0 26px rgba(230,193,90,0.45) !important;
 
     transition: 0.25s ease;
 }
 
 .btn-premium:hover {
-    /* AUR VECHI MAI ÎNCHIS LA HOVER */
-    background: linear-gradient(135deg, #5c431f, #2b1d0c) !important;
-
+    background: linear-gradient(135deg, #6b4c22, #2e1f0d) !important;
     transform: scale(1.07);
-
     box-shadow:
-        0 0 18px rgba(230,193,90,0.9),
-        0 0 28px rgba(230,193,90,0.7) !important;
+        0 0 20px rgba(230,193,90,0.9),
+        0 0 32px rgba(230,193,90,0.7) !important;
 }
 
 /* ===============================
