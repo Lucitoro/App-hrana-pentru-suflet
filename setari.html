@@ -6,7 +6,7 @@
     <title>Setări</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json?v=20240419">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
@@ -18,18 +18,15 @@
 <main class="container">
 
     <!-- TEMA -->
-    <div class="card3d scroll-appear settings-card">
+    <div class="card3d settings-card">
         <h2 class="title-green">🎨 Tema aplicației</h2>
-        <p>Alege modul luminos sau întunecat.</p>
         <button class="btn-premium" onclick="setTheme('light')">Mod luminos</button>
         <button class="btn-premium" onclick="setTheme('dark')">Mod întunecat</button>
     </div>
 
     <!-- TTS -->
-    <div class="card3d scroll-appear settings-card">
+    <div class="card3d settings-card">
         <h2 class="title-green">🔊 Citire text (TTS)</h2>
-        <p>Selectează vocea și viteza de citire.</p>
-
         <button class="btn-premium" onclick="setVoice('male')">Voce masculină</button>
         <button class="btn-premium" onclick="setVoice('female')">Voce feminină</button>
 
@@ -38,13 +35,12 @@
         <button class="btn-premium" onclick="setRate(1.3)">Citire rapidă</button>
 
         <button class="btn-premium" onclick="setReadMode('titles')">Citește doar titlurile</button>
+        <button class="btn-premium" onclick="setReadMode('full')">Citește tot textul</button>
     </div>
 
     <!-- MĂRIME TEXT -->
-    <div class="card3d scroll-appear settings-card">
+    <div class="card3d settings-card">
         <h2 class="title-green">🔠 Mărime text</h2>
-        <p>Alege dimensiunea textului:</p>
-
         <button class="btn-premium" onclick="setTextSize('small')">Mic</button>
         <button class="btn-premium" onclick="setTextSize('normal')">Normal</button>
         <button class="btn-premium" onclick="setTextSize('large')">Mare</button>
@@ -52,17 +48,15 @@
     </div>
 
     <!-- LIMBA -->
-    <div class="card3d scroll-appear settings-card">
+    <div class="card3d settings-card">
         <h2 class="title-green">🌍 Limba aplicației</h2>
-        <p>Selectează limba interfeței:</p>
-
         <button class="btn-premium" onclick="setLanguage('ro')">Română</button>
         <button class="btn-premium" onclick="setLanguage('it')">Italiană</button>
         <button class="btn-premium" onclick="setLanguage('en')">Engleză</button>
     </div>
 
     <!-- DESPRE -->
-    <div class="card3d scroll-appear settings-card">
+    <div class="card3d settings-card">
         <h2 class="title-green">ℹ️ Despre aplicație</h2>
         <p>
             Versiune: 1.0.0<br>
@@ -72,21 +66,22 @@
     </div>
 
     <!-- RESETARE -->
-    <div class="card3d scroll-appear settings-card">
+    <div class="card3d settings-card">
         <h2 class="title-green">♻️ Resetare setări</h2>
-        <p>Revino la setările inițiale ale aplicației.</p>
         <button class="btn-premium" onclick="resetSettings()">Resetează tot</button>
     </div>
 
 </main>
 
 <nav class="bottom-nav">
-    <a href="index.html">🏠<br>Acasă</a>
-    <a href="calendar.html">📅<br>Calendar</a>
-    <a href="setari.html" class="active">⚙️<br>Setări</a>
+    <a href="index.html">🏠 Acasă</a>
+    <a href="pravila.html">📘 Pravila</a>
+    <a href="psaltirea.html">📖 Psaltirea</a>
+    <a href="setari.html" class="active">⚙️ Setări</a>
 </nav>
 
 <script src="settings.js"></script>
+<script src="settings-loader.js"></script>
 
 </body>
 </html>
