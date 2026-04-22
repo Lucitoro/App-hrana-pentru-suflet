@@ -1,5 +1,6 @@
 // ===============================
 // SETTINGS.JS FINAL PREMIUM
+// Sistem complet funcțional global
 // ===============================
 
 // -------------------------------
@@ -25,14 +26,14 @@ function setRate(r) {
 }
 
 // -------------------------------
-// MOD CITIRE (titluri / normal)
+// MOD CITIRE (titluri / full)
 // -------------------------------
 function setReadMode(m) {
     localStorage.setItem("readMode", m);
 }
 
 // -------------------------------
-// MĂRIME TEXT
+// MĂRIME TEXT GLOBALĂ
 // -------------------------------
 function setTextSize(size) {
     let value = "16px";
@@ -51,6 +52,7 @@ function setTextSize(size) {
 // -------------------------------
 function setLanguage(lang) {
     localStorage.setItem("language", lang);
+    document.documentElement.setAttribute("lang", lang);
     location.reload();
 }
 
@@ -83,5 +85,23 @@ window.onload = () => {
     let lang = localStorage.getItem("language");
     if (lang) {
         document.documentElement.setAttribute("lang", lang);
+    }
+
+    // TTS – voce
+    let voice = localStorage.getItem("voice");
+    if (!voice) {
+        localStorage.setItem("voice", "female");
+    }
+
+    // TTS – viteză
+    let rate = localStorage.getItem("rate");
+    if (!rate) {
+        localStorage.setItem("rate", 1);
+    }
+
+    // Mod citire
+    let readMode = localStorage.getItem("readMode");
+    if (!readMode) {
+        localStorage.setItem("readMode", "full");
     }
 };
