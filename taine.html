@@ -4,76 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sfintele Taine</title>
+
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* ICONIȚE ANIMATE */
-        .icon-anim {
-            display: inline-block;
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-
-        /* SUBMENIU ASCUNS */
-        .details {
-            display: none;
-            margin-top: 10px;
-            padding: 12px;
-            background: rgba(255,255,255,0.06);
-            border-left: 3px solid gold;
-            border-radius: 12px;
-            line-height: 1.5;
-            animation: slideDown 0.4s ease forwards;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* BUTON DESCHIDERE */
-        .btn-toggle {
-            margin-top: 10px;
-            background: linear-gradient(135deg, gold, #b8860b);
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: bold;
-            cursor: pointer;
-            color: black;
-            transition: 0.2s;
-        }
-
-        .btn-toggle:hover {
-            background: linear-gradient(135deg, #ffea00, gold);
-        }
-    </style>
-
-    <script>
-        function toggleDetails(id) {
-            const box = document.getElementById(id);
-            box.style.display = box.style.display === "block" ? "none" : "block";
-        }
-    </script>
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
-
-<!-- MENIU LATERAL -->
-<nav id="sideMenu" class="side-menu">
-    <a href="index.html">🏠 Acasă</a>
-    <a href="resurse.html">📚 Resurse</a>
-    <a href="pravila.html">📜 Pravila</a>
-    <a href="calendar.html">📅 Calendar</a>
-    <a href="setari.html">⚙️ Setări</a>
-</nav>
 
 <!-- HEADER -->
 <header class="header">
@@ -93,11 +29,19 @@
         <div class="btn-toggle" onclick="toggleDetails('det1')">Deschide detalii</div>
 
         <div class="details" id="det1">
-            Prin Sfântul Botez, omul se naște din nou duhovnicește și intră în viața cea nouă în Hristos.
-            Este curățit de păcatul strămoșesc și devine mădular al Bisericii, primind începutul mântuirii.
-            Botezul este poarta tuturor celorlalte Taine, începutul vieții creștine, lumina care deschide sufletul
-            către Dumnezeu și către lucrarea harului. Prin scufundarea în apă, omul moare împreună cu Hristos
-            pentru păcat, iar prin ridicare, învie împreună cu El pentru viața cea veșnică.
+            Botezul este poarta prin care omul intră în viața cea nouă în Hristos. Prin scufundarea în apă,
+            omul moare împreună cu Hristos pentru păcat, iar prin ridicare învie împreună cu El pentru viața
+            cea veșnică. Este curățirea de păcatul strămoșesc și începutul unei vieți noi, luminate de har.
+            <br><br>
+            <strong>Ce se întâmplă în Botez?</strong><br>
+            – se șterge păcatul strămoșesc;<br>
+            – se iartă toate păcatele făcute până atunci;<br>
+            – omul devine fiu al lui Dumnezeu;<br>
+            – intră în Biserică, Trupul lui Hristos;<br>
+            – primește harul mântuirii.
+            <br><br>
+            <strong>Simbol:</strong> Apa – curățire, moarte și înviere.<br>
+            <strong>Harul primit:</strong> luminare, renaștere, începutul vieții duhovnicești.
         </div>
     </div>
 
@@ -110,11 +54,19 @@
         <div class="btn-toggle" onclick="toggleDetails('det2')">Deschide detalii</div>
 
         <div class="details" id="det2">
-            Mirungerea este Taina prin care credinciosul primește pecetea darurilor Sfântului Duh:
-            înțelepciune, pricepere, sfat, tărie, cunoștință, evlavie și frica de Dumnezeu.
-            Este continuarea Botezului și întărirea în viața creștină. Prin ungerea cu Sfântul Mir,
-            sufletul este luminat, întărit și înarmat împotriva ispitelor, devenind capabil să crească
-            duhovnicește și să mărturisească credința cu putere și curaj.
+            Mirungerea este Cincizecimea personală a fiecărui creștin. Prin ungerea cu Sfântul Mir,
+            credinciosul primește pecetea darurilor Duhului Sfânt: înțelepciune, pricepere, sfat,
+            tărie, cunoștință, evlavie și frica de Dumnezeu.
+            <br><br>
+            <strong>Ce face Mirungerea?</strong><br>
+            – întărește credința;<br>
+            – luminează mintea;<br>
+            – dă putere împotriva ispitelor;<br>
+            – deschide sufletul către lucrarea harului;<br>
+            – îl face pe om mărturisitor al lui Hristos.
+            <br><br>
+            <strong>Simbol:</strong> Sfântul Mir – pecetea darurilor Duhului Sfânt.<br>
+            <strong>Harul primit:</strong> întărire, luminare, putere duhovnicească.
         </div>
     </div>
 
@@ -127,11 +79,18 @@
         <div class="btn-toggle" onclick="toggleDetails('det3')">Deschide detalii</div>
 
         <div class="details" id="det3">
-            Sfânta Împărtășanie este Taina unirii reale și tainice cu Hristos.
-            Prin primirea Trupului și Sângelui Domnului, credinciosul se împărtășește de viața cea veșnică,
-            primește iertarea păcatelor, luminare, întărire și pace sufletească.
-            Este cea mai mare și mai sfântă Taină, izvorul harului și al sfințeniei.
-            Împărtășania este hrană duhovnicească, medicament al nemuririi și legătura vie cu Dumnezeu.
+            Împărtășania este cea mai mare dintre Taine, pentru că în ea primim chiar Trupul și Sângele
+            Domnului. Este unirea reală cu Hristos, izvorul vieții veșnice și al sfințeniei.
+            <br><br>
+            <strong>Ce aduce Împărtășania?</strong><br>
+            – iertarea păcatelor;<br>
+            – luminare și pace;<br>
+            – întărire în credință;<br>
+            – vindecare sufletească;<br>
+            – viață veșnică.
+            <br><br>
+            <strong>Simbol:</strong> pâinea și vinul – Trupul și Sângele Domnului.<br>
+            <strong>Harul primit:</strong> viață, sfințire, unire cu Hristos.
         </div>
     </div>
 
@@ -144,10 +103,19 @@
         <div class="btn-toggle" onclick="toggleDetails('det4')">Deschide detalii</div>
 
         <div class="details" id="det4">
-            Spovedania este Taina în care credinciosul își deschide sufletul înaintea lui Dumnezeu,
-            mărturisindu-și păcatele cu sinceritate și pocăință. Prin cuvântul preotului,
-            Hristos Însuși dăruiește iertarea și ridică povara păcatelor.
-            Este Taina vindecării sufletești, a eliberării de greutatea conștiinței și a renașterii lăuntrice.
+            Spovedania este Taina vindecării sufletești. Prin mărturisirea sinceră, credinciosul își
+            descarcă sufletul de povara păcatelor, iar prin cuvântul preotului, Hristos Însuși dăruiește
+            iertarea.
+            <br><br>
+            <strong>Ce aduce Spovedania?</strong><br>
+            – iertare și eliberare;<br>
+            – vindecare sufletească;<br>
+            – pace și liniște;<br>
+            – renaștere lăuntrică;<br>
+            – întărire împotriva păcatului.
+            <br><br>
+            <strong>Simbol:</strong> epitrahilul – semnul milei lui Dumnezeu.<br>
+            <strong>Harul primit:</strong> iertare, vindecare, pace.
         </div>
     </div>
 
@@ -160,9 +128,19 @@
         <div class="btn-toggle" onclick="toggleDetails('det5')">Deschide detalii</div>
 
         <div class="details" id="det5">
-            Sfântul Maslu este Taina prin care Dumnezeu dăruiește vindecare trupească și sufletească,
-            întărire în suferință și iertarea păcatelor. Prin ungerea cu untdelemn sfințit și rugăciunile preoților,
-            credinciosul primește harul mângâierii dumnezeiești, alinarea durerilor și întărirea credinței.
+            Maslul este Taina prin care Dumnezeu dăruiește vindecare, alinare și întărire în suferință.
+            Prin ungerea cu untdelemn sfințit și rugăciunile preoților, credinciosul primește harul
+            mângâierii dumnezeiești.
+            <br><br>
+            <strong>Ce aduce Maslul?</strong><br>
+            – vindecare trupească;<br>
+            – vindecare sufletească;<br>
+            – iertarea păcatelor;<br>
+            – întărire în încercări;<br>
+            – mângâiere de la Dumnezeu.
+            <br><br>
+            <strong>Simbol:</strong> untdelemnul – semnul milei și vindecării.<br>
+            <strong>Harul primit:</strong> vindecare, alinare, întărire.
         </div>
     </div>
 
@@ -175,9 +153,18 @@
         <div class="btn-toggle" onclick="toggleDetails('det6')">Deschide detalii</div>
 
         <div class="details" id="det6">
-            Cununia este Taina în care Dumnezeu unește un bărbat și o femeie într-o singură inimă și un singur trup,
-            binecuvântând familia și dăruindu-le har pentru a trăi în dragoste, pace și credință.
-            Este icoana unirii dintre Hristos și Biserică, o chemare la iubire jertfelnică și răbdare.
+            Cununia este Taina în care Dumnezeu unește un bărbat și o femeie într-o singură inimă și un
+            singur trup. Este icoana unirii dintre Hristos și Biserică.
+            <br><br>
+            <strong>Ce aduce Cununia?</strong><br>
+            – binecuvântarea familiei;<br>
+            – unitate și pace;<br>
+            – har pentru a crește în iubire;<br>
+            – putere în încercări;<br>
+            – rodire și ocrotire.
+            <br><br>
+            <strong>Simbol:</strong> cununiile – biruința iubirii.<br>
+            <strong>Harul primit:</strong> unitate, pace, binecuvântare.
         </div>
     </div>
 
@@ -191,8 +178,17 @@
 
         <div class="details" id="det7">
             Preoția este Taina prin care Dumnezeu cheamă și hirotonește slujitori ai Bisericii,
-            dăruindu-le harul de a săvârși Sfintele Taine, de a predica Evanghelia și de a păstori poporul credincios.
-            Este o chemare sfântă, o slujire jertfelnică și o responsabilitate duhovnicească.
+            dăruindu-le harul de a săvârși Sfintele Taine și de a păstori poporul credincios.
+            <br><br>
+            <strong>Ce aduce Preoția?</strong><br>
+            – harul slujirii;<br>
+            – puterea de a săvârși Tainele;<br>
+            – responsabilitate duhovnicească;<br>
+            – chemare sfântă;<br>
+            – lucrare în numele lui Hristos.
+            <br><br>
+            <strong>Simbol:</strong> punerea mâinilor – transmiterea harului apostolic.<br>
+            <strong>Harul primit:</strong> slujire, putere, binecuvântare.
         </div>
     </div>
 
