@@ -1,40 +1,35 @@
 // ===============================
-// MOD CITIRE: CONTROL ON/OFF
+// INIT GLOBAL TTS + UI 3D AVANSAT
 // ===============================
 
-// Dacă nu există setare, implicit este OFF
-if (!localStorage.getItem("readingMode")) {
-    localStorage.setItem("readingMode", "off");
-}
+// setări implicite
+if (!localStorage.getItem("readingMode")) localStorage.setItem("readingMode", "off");
+if (!localStorage.getItem("language")) localStorage.setItem("language", "ro-RO");
+if (!localStorage.getItem("ttsRate")) localStorage.setItem("ttsRate", "1");
 
-// Variabile globale
 let lastReadText = "";
 let selectedVoice = null;
 
-
-// ===============================
-// ÎNCĂRCARE SIGURĂ A VOCILOR
-// ===============================
+// -------------------------------
+// ÎNCĂRCARE VOCILOR
+// -------------------------------
 function loadVoices() {
     const voices = speechSynthesis.getVoices();
     if (!voices || voices.length === 0) return;
 
-    // FEMININĂ implicit
+    const pref = localStorage.getItem("ttsVoice") || "female";
+
     selectedVoice =
-        voices.find(v => v.name.toLowerCase().includes("female")) ||
-        voices.find(v => v.name.toLowerCase().includes("femeie")) ||
-        voices.find(v => v.lang.startsWith("ro") && v.gender === "female") ||
+        voices.find(v => v.lang.startsWith("ro") && v.name.toLowerCase().includes(pref)) ||
         voices.find(v => v.lang.startsWith("ro")) ||
         voices[0];
 }
-
 speechSynthesis.onvoiceschanged = loadVoices;
 loadVoices();
 
-
-// ===============================
-// ACTIVARE SETĂRI CÂND MODUL ESTE ACTIV
-// ===============================
+// -------------------------------
+// APLICARE SETĂRI MOD CITIRE
+// -------------------------------
 function applyReadingSettings() {
     document.body.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
@@ -43,18 +38,16 @@ function applyReadingSettings() {
     localStorage.setItem("textSize", "large");
 
     localStorage.setItem("language", "ro-RO");
-    localStorage.setItem("ttsRate", "1");
+    if (!localStorage.getItem("ttsRate")) localStorage.setItem("ttsRate", "1");
 }
 
-
-// ===============================
-// TTS — FUNCȚIE PRINCIPALĂ
-// ===============================
+// -------------------------------
+// ENGINE TTS UNIFICAT
+// -------------------------------
 function speakText(text) {
     if (!text || !text.trim()) return;
 
     lastReadText = text;
-
     speechSynthesis.cancel();
 
     const utter = new SpeechSynthesisUtterance(text);
@@ -66,62 +59,17 @@ function speakText(text) {
     speechSynthesis.speak(utter);
 }
 
-
-// ===============================
-// FUNCȚIA REIA — REIA ULTIMA CITIRE
-// ===============================
 function reiaCitirea() {
     if (!lastReadText.trim()) {
-        speakText("Nu există o citire anterioară de reluat.");
+        speakText("Nu există o citire anterioară.");
         return;
     }
-    speechSynthesis.cancel();
     speakText(lastReadText);
 }
 
-
-// ===============================
-// CITIRE AUTOMATĂ A TEXTULUI SELECTAT (OPTIMIZATĂ)
-// ===============================
-let selectionTimeout = null;
-
-document.addEventListener("selectionchange", () => {
-    if (localStorage.getItem("readingMode") !== "on") return;
-
-    clearTimeout(selectionTimeout);
-
-    selectionTimeout = setTimeout(() => {
-        const selected = window.getSelection().toString().trim();
-        if (selected.length > 2) speakText(selected);
-    }, 200);
-});
-
-
-// ===============================
-// CITIRE TITLU / H1 / H2
-// ===============================
-function readSelectedOrTitle() {
-    if (localStorage.getItem("readingMode") !== "on") return;
-
-    const sel = window.getSelection().toString().trim();
-    if (sel) return speakText(sel);
-
-    const title = document.title.trim();
-    if (title) return speakText(title);
-
-    const h1 = document.querySelector("h1");
-    if (h1) return speakText(h1.innerText.trim());
-
-    const h2 = document.querySelector("h2");
-    if (h2) return speakText(h2.innerText.trim());
-
-    speakText("Nu există text de citit.");
-}
-
-
-// ===============================
-// CITEȘTE TOT TEXTUL DIN PAGINĂ
-// ===============================
+// -------------------------------
+// FUNCȚII TTS CONTROLATE DIN MENIU
+// -------------------------------
 function readPage() {
     const iframe = document.querySelector("iframe");
 
@@ -132,10 +80,6 @@ function readPage() {
     speakText(text);
 }
 
-
-// ===============================
-// CITEȘTE DOAR TEXTUL SELECTAT
-// ===============================
 function readSelection() {
     let selection = window.getSelection().toString().trim();
 
@@ -144,20 +88,9 @@ function readSelection() {
         selection = iframe.contentWindow.getSelection().toString().trim();
     }
 
-    if (!selection && document.activeElement &&
-        ["TEXTAREA", "INPUT"].includes(document.activeElement.tagName)) {
-
-        const el = document.activeElement;
-        selection = el.value.substring(el.selectionStart, el.selectionEnd).trim();
-    }
-
-    speakText(selection || "Nu ai selectat niciun text.");
+    speakText(selection || "Nu ai selectat text.");
 }
 
-
-// ===============================
-// CITEȘTE TITLURILE H1, H2, H3
-// ===============================
 function readTitles() {
     const iframe = document.querySelector("iframe");
 
@@ -167,13 +100,9 @@ function readTitles() {
 
     const text = titles.map(t => t.innerText.trim()).join(". ");
 
-    speakText(text || "Nu există titluri de citit pe această pagină.");
+    speakText(text || "Nu există titluri.");
 }
 
-
-// ===============================
-// CITEȘTE DE LA SELECȚIE ÎN JOS
-// ===============================
 function readFromHere() {
     let selection = window.getSelection().toString().trim();
 
@@ -182,23 +111,40 @@ function readFromHere() {
         selection = iframe.contentWindow.getSelection().toString().trim();
     }
 
-    if (!selection) return speakText("Selectează un cuvânt de unde să încep citirea.");
+    if (!selection) return speakText("Selectează un cuvânt.");
 
     const fullText = iframe?.contentDocument
         ? iframe.contentDocument.body.innerText
         : document.body.innerText;
 
     const index = fullText.indexOf(selection);
-    if (index === -1) return speakText("Nu pot găsi textul selectat în pagină.");
+    if (index === -1) return speakText("Nu pot găsi textul.");
 
     speakText(fullText.substring(index));
 }
 
+// -------------------------------
+// CONTROL TTS
+// -------------------------------
+function stopReading() { speechSynthesis.cancel(); }
+function pauseReading() { speechSynthesis.pause(); }
+function resumeReading() { speechSynthesis.resume(); }
 
-// ===============================
-// BUTON MOD CITIRE — ON/OFF
-// ===============================
-document.addEventListener("DOMContentLoaded", () => {
+function setVoice(type) {
+    localStorage.setItem("ttsVoice", type);
+    loadVoices();
+    speakText("Vocea a fost schimbată.");
+}
+
+function setRate(rate) {
+    localStorage.setItem("ttsRate", rate);
+    speakText("Viteza a fost schimbată.");
+}
+
+// -------------------------------
+// MOD CITIRE – DOAR SETĂRI (NU AUTO-READ)
+// -------------------------------
+function initReadingModeToggle() {
     const btn = document.getElementById("toggleReadingMode");
     if (!btn) return;
 
@@ -221,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.classList.add("active");
             btn.textContent = "Modul de citire este activ";
             applyReadingSettings();
-            speakText("Modul de citire este activat. Selectează textul pentru a fi citit.");
+            speakText("Modul de citire este activat.");
         } else {
             localStorage.setItem("readingMode", "off");
             btn.classList.remove("active");
@@ -229,4 +175,178 @@ document.addEventListener("DOMContentLoaded", () => {
             speakText("Modul de citire a fost dezactivat.");
         }
     });
+}
+
+// -------------------------------
+// UI 3D AVANSAT – INJECT CSS + HTML
+// -------------------------------
+function injectTTS3DUI() {
+    // CSS
+    const style = document.createElement("style");
+    style.textContent = `
+.floating-tts {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 999999;
+    transition: opacity 0.3s ease;
+}
+.tts-main-btn {
+    background: linear-gradient(145deg, #ffe680, #d4a300);
+    border: 2px solid #fff4c2;
+    padding: 18px 24px;
+    border-radius: 50px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #4a3b00;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 8px 0 #b38f00,
+        0 8px 18px rgba(0,0,0,0.45);
+    transition: all 0.2s ease;
+}
+.tts-main-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    background: radial-gradient(circle, rgba(255,255,200,0.6), transparent 70%);
+    opacity: 0.0;
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+@keyframes pulseGlow {
+    0% { opacity: 0.0; }
+    50% { opacity: 0.35; }
+    100% { opacity: 0.0; }
+}
+.tts-main-btn:active {
+    transform: translateY(5px);
+    box-shadow:
+        0 3px 0 #b38f00,
+        0 3px 10px rgba(0,0,0,0.45);
+}
+.tts-main-btn::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 200%;
+    height: 300%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.6) 50%,
+        transparent 100%
+    );
+    transform: rotate(25deg);
+    animation: shimmer 4s infinite;
+}
+@keyframes shimmer {
+    0% { transform: translateX(-150%) rotate(25deg); }
+    100% { transform: translateX(150%) rotate(25deg); }
+}
+.tts-menu {
+    display: none;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    padding: 14px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35),
+        inset 0 0 12px rgba(255,255,255,0.5);
+    animation: fadeInUp 0.25s ease;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.tts-menu button {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+    padding: 10px;
+    border: none;
+    background: linear-gradient(145deg, #fdfdfd, #e2e2e2);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow:
+        0 4px 0 #bdbdbd,
+        0 4px 10px rgba(0,0,0,0.25);
+    transition: all 0.15s ease;
+}
+.tts-menu button:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 1px 0 #bdbdbd,
+        0 1px 4px rgba(0,0,0,0.25);
+}
+`;
+    document.head.appendChild(style);
+
+    // HTML
+    const container = document.createElement("div");
+    container.innerHTML = `
+<div class="floating-tts">
+    <button class="tts-main-btn" onclick="toggleTTSMenu()">🔊</button>
+    <div class="tts-menu" id="ttsMenu">
+        <button onclick="readPage()">📄 Citește pagina</button>
+        <button onclick="readSelection()">✂️ Citește selecția</button>
+        <button onclick="readFromHere()">➡️ Citește de aici</button>
+        <button onclick="readTitles()">🏷️ Citește titlurile</button>
+        <hr />
+        <button onclick="pauseReading()">⏸️ Pauză</button>
+        <button onclick="resumeReading()">▶️ Reia</button>
+        <button onclick="stopReading()">⛔ Oprește</button>
+        <hr />
+        <button onclick="setVoice('female')">👩 Voce feminină</button>
+        <button onclick="setVoice('male')">👨 Voce masculină</button>
+        <hr />
+        <button onclick="setRate(0.8)">🐢 Lent</button>
+        <button onclick="setRate(1)">⚖️ Normal</button>
+        <button onclick="setRate(1.3)">🐇 Rapid</button>
+    </div>
+</div>`;
+    document.body.appendChild(container);
+
+    // închidere meniu când se apasă în afară
+    document.addEventListener("click", (e) => {
+        const menu = document.getElementById("ttsMenu");
+        const btn = document.querySelector(".tts-main-btn");
+        if (!menu || !btn) return;
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.style.display = "none";
+        }
+    });
+
+    // buton plutitor inteligent (ascunde la scroll în jos)
+    let lastScroll = 0;
+    window.addEventListener("scroll", () => {
+        const btn = document.querySelector(".floating-tts");
+        if (!btn) return;
+        const current = window.scrollY;
+        btn.style.opacity = current > lastScroll ? "0" : "1";
+        lastScroll = current;
+    });
+}
+
+// -------------------------------
+// TOGGLE MENIU
+// -------------------------------
+function toggleTTSMenu() {
+    const menu = document.getElementById("ttsMenu");
+    if (!menu) return;
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+// -------------------------------
+// INIT GLOBAL
+// -------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    injectTTS3DUI();
+    initReadingModeToggle();
 });
