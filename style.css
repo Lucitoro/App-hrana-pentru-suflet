@@ -165,3 +165,40 @@ html, body {
     width: 36px;
     height: 36px;
 }
+/* OPTIMIZARE PENTRU ANDROID – BUTOANE MAI MICI, TITLURI FIXE */
+@media (max-width: 480px) {
+
+    .card3d, .btn-premium {
+        padding: 10px !important;
+        margin: 8px 0 !important;
+        border-radius: 10px !important;
+    }
+
+    .card3d span,
+    .btn-premium span,
+    .title-green {
+        font-size: 16px !important;
+        line-height: 20px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .icon-anim {
+        font-size: 26px !important;
+        margin-bottom: 6px !important;
+    }
+
+    h2 {
+        font-size: 18px !important;
+        margin: 5px 0 !important;
+        text-align: center !important;
+    }
+
+    p {
+        font-size: 14px !important;
+        line-height: 18px !important;
+        text-align: center !important;
+    }
+}
