@@ -75,10 +75,28 @@
 </main>
 
 <nav class="bottom-nav">
-    <a href="index.html" class="active">🏠 Acasă</a>
+    <a href="index.html">🏠 Acasă</a>
     <a href="pravila.html">📘 Pravila</a>
     <a href="setari.html">⚙️ Setări</a>
+
+    <!-- BUTON ANIMAT SCARICA -->
+    <a href="app-release.apk" download class="download-btn">⬇️ Scarica Applicazione</a>
 </nav>
+
+<style>
+.download-btn {
+    color: #ffd700;
+    font-weight: bold;
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.12); opacity: 0.85; }
+    100% { transform: scale(1); opacity: 1; }
+}
+</style>
+
 
 <script src="settings-loader.js"></script>
 
