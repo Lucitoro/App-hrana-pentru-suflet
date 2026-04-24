@@ -7,6 +7,42 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
+
+    <style>
+        /* ANIMAȚIE PREMIUM PENTRU DETALII */
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-5px);
+            transition:
+                max-height 0.35s ease,
+                opacity 0.35s ease,
+                transform 0.35s ease;
+        }
+
+        .details.open {
+            max-height: 1000px; /* suficient pentru textele lungi */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-toggle {
+            margin-top: 10px;
+            padding: 10px;
+            background: #b8860b;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        .btn-toggle:hover {
+            background: #d4a017;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,19 +65,20 @@
         <div class="btn-toggle" onclick="toggleDetails('det1')">Deschide detalii</div>
 
         <div class="details" id="det1">
-            Botezul este poarta prin care omul intră în viața cea nouă în Hristos. Prin scufundarea în apă,
-            omul moare împreună cu Hristos pentru păcat, iar prin ridicare învie împreună cu El pentru viața
-            cea veșnică. Este curățirea de păcatul strămoșesc și începutul unei vieți noi, luminate de har.
-            <br><br>
-            <strong>Ce se întâmplă în Botez?</strong><br>
-            – se șterge păcatul strămoșesc;<br>
-            – se iartă toate păcatele făcute până atunci;<br>
-            – omul devine fiu al lui Dumnezeu;<br>
-            – intră în Biserică, Trupul lui Hristos;<br>
-            – primește harul mântuirii.
-            <br><br>
-            <strong>Simbol:</strong> Apa – curățire, moarte și înviere.<br>
-            <strong>Harul primit:</strong> luminare, renaștere, începutul vieții duhovnicești.
+           Prin Sfântul Botez, omul se naște din nou duhovnicește și intră în viața cea nouă în Hristos.
+Este curățit de păcatul strămoșesc și devine mădular al Bisericii, primind începutul mântuirii.
+Botezul este poarta tuturor celorlalte Taine, începutul vieții creștine, lumina care deschide sufletul
+către Dumnezeu și către lucrarea harului.
+
+Botezul nu este doar un simbol, ci o lucrare reală a lui Dumnezeu în sufletul omului.
+Prin scufundarea în apă, omul moare împreună cu Hristos pentru păcat, iar prin ridicare,
+înviază împreună cu El pentru viața cea veșnică. Este o trecere de la întuneric la lumină,
+de la moarte la viață, de la robia păcatului la libertatea harului.
+
+Botezul dăruiește omului o identitate nouă: devine fiu al lui Dumnezeu, moștenitor al Împărăției,
+purtător al luminii lui Hristos. Este începutul unei călătorii duhovnicești care continuă
+toată viața, o chemare la sfințenie, la iubire și la trăirea Evangheliei.
+
         </div>
     </div>
 
@@ -54,19 +91,18 @@
         <div class="btn-toggle" onclick="toggleDetails('det2')">Deschide detalii</div>
 
         <div class="details" id="det2">
-            Mirungerea este Cincizecimea personală a fiecărui creștin. Prin ungerea cu Sfântul Mir,
-            credinciosul primește pecetea darurilor Duhului Sfânt: înțelepciune, pricepere, sfat,
-            tărie, cunoștință, evlavie și frica de Dumnezeu.
-            <br><br>
-            <strong>Ce face Mirungerea?</strong><br>
-            – întărește credința;<br>
-            – luminează mintea;<br>
-            – dă putere împotriva ispitelor;<br>
-            – deschide sufletul către lucrarea harului;<br>
-            – îl face pe om mărturisitor al lui Hristos.
-            <br><br>
-            <strong>Simbol:</strong> Sfântul Mir – pecetea darurilor Duhului Sfânt.<br>
-            <strong>Harul primit:</strong> întărire, luminare, putere duhovnicească.
+            Mirungerea este Taina prin care credinciosul primește pecetea darurilor Sfântului Duh:
+înțelepciune, pricepere, sfat, tărie, cunoștință, evlavie și frica de Dumnezeu.
+Este continuarea Botezului și întărirea în viața creștină.
+
+Prin ungerea cu Sfântul Mir, sufletul este luminat, întărit și înarmat împotriva ispitelor,
+devenind capabil să crească duhovnicește și să mărturisească credința cu putere și curaj.
+Mirungerea este Cincizecimea personală a fiecărui creștin, momentul în care Duhul Sfânt
+își face sălaș în om și îl înzestrează cu daruri pentru viața duhovnicească.
+
+Această Taină îl face pe om mărturisitor al lui Hristos în lume, îl întărește în încercări,
+îi luminează mintea pentru a înțelege voia lui Dumnezeu și îi dă puterea de a trăi în adevăr.
+
         </div>
     </div>
 
@@ -79,18 +115,18 @@
         <div class="btn-toggle" onclick="toggleDetails('det3')">Deschide detalii</div>
 
         <div class="details" id="det3">
-            Împărtășania este cea mai mare dintre Taine, pentru că în ea primim chiar Trupul și Sângele
-            Domnului. Este unirea reală cu Hristos, izvorul vieții veșnice și al sfințeniei.
-            <br><br>
-            <strong>Ce aduce Împărtășania?</strong><br>
-            – iertarea păcatelor;<br>
-            – luminare și pace;<br>
-            – întărire în credință;<br>
-            – vindecare sufletească;<br>
-            – viață veșnică.
-            <br><br>
-            <strong>Simbol:</strong> pâinea și vinul – Trupul și Sângele Domnului.<br>
-            <strong>Harul primit:</strong> viață, sfințire, unire cu Hristos.
+           Sfânta Împărtășanie este Taina unirii reale și tainice cu Hristos.
+Prin primirea Trupului și Sângelui Domnului, credinciosul se împărtășește de viața cea veșnică,
+primește iertarea păcatelor, luminare, întărire și pace sufletească.
+
+Împărtășania este cea mai mare și mai sfântă Taină, izvorul harului și al sfințeniei.
+Ea este „medicamentul nemuririi”, hrana duhovnicească ce întărește sufletul și trupul,
+vindecă rănile păcatului și aprinde în inimă iubirea de Dumnezeu.
+
+Prin această Taină, omul se unește cu Hristos într-un mod mai profund decât poate exprima
+limbajul omenesc. Este o pregustare a Împărăției lui Dumnezeu, o întâlnire vie cu Domnul,
+o lucrare de sfințire și de înnoire lăuntrică.
+
         </div>
     </div>
 
@@ -103,19 +139,17 @@
         <div class="btn-toggle" onclick="toggleDetails('det4')">Deschide detalii</div>
 
         <div class="details" id="det4">
-            Spovedania este Taina vindecării sufletești. Prin mărturisirea sinceră, credinciosul își
-            descarcă sufletul de povara păcatelor, iar prin cuvântul preotului, Hristos Însuși dăruiește
-            iertarea.
-            <br><br>
-            <strong>Ce aduce Spovedania?</strong><br>
-            – iertare și eliberare;<br>
-            – vindecare sufletească;<br>
-            – pace și liniște;<br>
-            – renaștere lăuntrică;<br>
-            – întărire împotriva păcatului.
-            <br><br>
-            <strong>Simbol:</strong> epitrahilul – semnul milei lui Dumnezeu.<br>
-            <strong>Harul primit:</strong> iertare, vindecare, pace.
+            Spovedania este Taina în care credinciosul își deschide sufletul înaintea lui Dumnezeu,
+mărturisindu-și păcatele cu sinceritate și pocăință. Prin cuvântul preotului,
+Hristos Însuși dăruiește iertarea și ridică povara păcatelor.
+
+Este Taina vindecării sufletești, a eliberării de greutatea conștiinței și a renașterii lăuntrice.
+Spovedania nu este o judecată, ci o întâlnire cu iubirea lui Dumnezeu, care primește pe cel
+căzut și îl ridică, îl curățește și îl întărește.
+
+Prin această Taină, sufletul se luminează, se liniștește și se întoarce la pacea lui Hristos.
+Este un nou început, o șansă de a repara, de a iubi, de a trăi în adevăr și curăție.
+
         </div>
     </div>
 
@@ -128,19 +162,17 @@
         <div class="btn-toggle" onclick="toggleDetails('det5')">Deschide detalii</div>
 
         <div class="details" id="det5">
-            Maslul este Taina prin care Dumnezeu dăruiește vindecare, alinare și întărire în suferință.
-            Prin ungerea cu untdelemn sfințit și rugăciunile preoților, credinciosul primește harul
-            mângâierii dumnezeiești.
-            <br><br>
-            <strong>Ce aduce Maslul?</strong><br>
-            – vindecare trupească;<br>
-            – vindecare sufletească;<br>
-            – iertarea păcatelor;<br>
-            – întărire în încercări;<br>
-            – mângâiere de la Dumnezeu.
-            <br><br>
-            <strong>Simbol:</strong> untdelemnul – semnul milei și vindecării.<br>
-            <strong>Harul primit:</strong> vindecare, alinare, întărire.
+           Sfântul Maslu este Taina prin care Dumnezeu dăruiește vindecare trupească și sufletească,
+întărire în suferință și iertarea păcatelor. Prin ungerea cu untdelemn sfințit și rugăciunile preoților,
+credinciosul primește harul mângâierii dumnezeiești, alinarea durerilor și întărirea credinței.
+
+Maslul nu este doar pentru cei bolnavi trupește, ci și pentru cei slăbiți sufletește,
+pentru cei apăsați de griji, de tristețe, de ispite. Este o Taină a vindecării profunde,
+care atinge rădăcina suferinței și aduce pace, lumină și putere.
+
+Prin această Taină, Dumnezeu lucrează în chip tainic, ridicând poverile,
+vindecând rănile și întărind sufletul pentru a merge mai departe cu nădejde.
+
         </div>
     </div>
 
@@ -153,18 +185,15 @@
         <div class="btn-toggle" onclick="toggleDetails('det6')">Deschide detalii</div>
 
         <div class="details" id="det6">
-            Cununia este Taina în care Dumnezeu unește un bărbat și o femeie într-o singură inimă și un
-            singur trup. Este icoana unirii dintre Hristos și Biserică.
-            <br><br>
-            <strong>Ce aduce Cununia?</strong><br>
-            – binecuvântarea familiei;<br>
-            – unitate și pace;<br>
-            – har pentru a crește în iubire;<br>
-            – putere în încercări;<br>
-            – rodire și ocrotire.
-            <br><br>
-            <strong>Simbol:</strong> cununiile – biruința iubirii.<br>
-            <strong>Harul primit:</strong> unitate, pace, binecuvântare.
+            Cununia este Taina în care Dumnezeu unește un bărbat și o femeie într-o singură inimă și un singur trup,
+binecuvântând familia și dăruindu-le har pentru a trăi în dragoste, pace și credință.
+
+Este icoana unirii dintre Hristos și Biserică, o chemare la iubire jertfelnică, la răbdare,
+la iertare și la creștere împreună. Prin Cununie, Dumnezeu întărește legătura soților,
+le dăruiește har pentru a depăși încercările și pentru a crește în unitate și sfințenie.
+
+Familia devine un mic altar al iubirii, un loc al binecuvântării și al lucrării lui Dumnezeu.
+
         </div>
     </div>
 
@@ -178,21 +207,25 @@
 
         <div class="details" id="det7">
             Preoția este Taina prin care Dumnezeu cheamă și hirotonește slujitori ai Bisericii,
-            dăruindu-le harul de a săvârși Sfintele Taine și de a păstori poporul credincios.
-            <br><br>
-            <strong>Ce aduce Preoția?</strong><br>
-            – harul slujirii;<br>
-            – puterea de a săvârși Tainele;<br>
-            – responsabilitate duhovnicească;<br>
-            – chemare sfântă;<br>
-            – lucrare în numele lui Hristos.
-            <br><br>
-            <strong>Simbol:</strong> punerea mâinilor – transmiterea harului apostolic.<br>
-            <strong>Harul primit:</strong> slujire, putere, binecuvântare.
+dăruindu-le harul de a săvârși Sfintele Taine, de a predica Evanghelia și de a păstori poporul credincios.
+
+Preotul devine un vas al harului, un martor al lui Hristos, un slujitor al iubirii dumnezeiești.
+El poartă o mare responsabilitate: să fie lumină, să fie păstor, să fie rugător pentru lume.
+
+Preoția este o chemare sfântă, o slujire jertfelnică și o lucrare neîntreruptă pentru mântuirea oamenilor.
+Prin această Taină, Dumnezeu continuă lucrarea Sa în lume prin mâinile slujitorilor Săi.
+
         </div>
     </div>
 
 </div>
+
+<script>
+function toggleDetails(id) {
+    const box = document.getElementById(id);
+    box.classList.toggle("open");
+}
+</script>
 
 <script src="nav.js"></script>
 </body>
