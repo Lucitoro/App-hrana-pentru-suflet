@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hrana pentru suflet</title>
 
+    <!-- Stiluri -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Manifest PWA -->
     <link rel="manifest" href="manifest.json">
+
+    <!-- Icon -->
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
 </head>
+
+<!-- SERVICE WORKER -->
 <script>
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/App-hrana-pentru-suflet/service-worker.js")
+    navigator.serviceWorker.register("service-worker.js")
     .then(() => console.log("Service Worker înregistrat"))
     .catch(err => console.log("Eroare SW:", err));
 }
@@ -69,7 +77,7 @@ if ("serviceWorker" in navigator) {
         <span class="title-green">📦 Resurse duhovnicești</span>
     </a>
 
-    <!-- SFINTELOR TAINE (BUTON PRINCIPAL) -->
+    <!-- SFINTELOR TAINE -->
     <a class="card3d btn-premium" href="taine.html">
         <span class="title-green">✝️ Sfintele Taine</span>
     </a>
@@ -79,123 +87,54 @@ if ("serviceWorker" in navigator) {
         <span class="title-green">ℹ️ Despre aplicație</span>
     </a>
 
+    <!-- SUBMENIU DESCĂRCARE -->
+    <button class="btn-action" onclick="toggleDownloadMenu()">
+        <i class="fas fa-chevron-down"></i> Afișează opțiunile
+    </button>
+
+    <div id="downloadMenu" style="display:none; margin-top:15px;">
+
+        <!-- APK SUBMENIU -->
+        <a href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
+           class="btn-action" download>
+           <i class="fas fa-mobile"></i> Descarcă aplicația (APK)
+        </a>
+
+        <button class="btn-action" onclick="downloadResources()">
+            <i class="fas fa-file-arrow-down"></i> Descarcă resurse offline
+        </button>
+
+        <button class="btn-action" onclick="enableOffline()">
+            <i class="fas fa-wifi-slash"></i> Activează modul offline
+        </button>
+
+    </div>
+
 </main>
 
+<!-- MENIU JOS -->
 <nav class="bottom-nav">
     <a href="index.html">🏠 Acasă</a>
     <a href="pravila.html">📘 Pravila</a>
     <a href="setari.html">⚙️ Setări</a>
-    
-<a  <!-- BUTON ANIMAT SCARICA -->
-    href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
-   class="btn-action" download>
-   <i class="fas fa-mobile"></i> Descarcă aplicația (APK)
- </a>
+
+    <!-- APK MENIU PRINCIPAL -->
+    <a href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
+       class="btn-action" download>
+       📥 APK
+    </a>
 </nav>
 
-<style>
-.download-btn {
-    color: #ffd700;
-    font-weight: bold;
-    animation: pulse 1.6s infinite;
+<!-- SCRIPT SUBMENIU -->
+<script>
+function toggleDownloadMenu() {
+    const menu = document.getElementById("downloadMenu");
+    menu.style.display = menu.style.display === "none" ? "block" : "none";
 }
+</script>
 
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.12); opacity: 0.85; }
-    100% { transform: scale(1); opacity: 1; }
-}
-</style>
-
-
+<!-- LOADER SETĂRI -->
 <script src="settings-loader.js"></script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Hrana pentru suflet</title>
-
-<!-- Manifest PWA -->
-<link rel="manifest" href="manifest.json">
-
-<!-- Tema aplicației -->
-<meta name="theme-color" content="#000000">
-
-<!-- Icon principal -->
-<link rel="icon" href="icons/icon-192.png" type="image/png">
-
-<!-- Stiluri -->
-<link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-
-<!-- HEADER SIMPLU -->
-<header style="text-align:center; padding:20px 0;">
-    <h1 style="color:#d4af37; font-weight:800;">Hrana pentru suflet</h1>
-</header>
-
-<!-- CONȚINUT PRINCIPAL -->
-<main style="max-width:900px; margin:0 auto; padding:20px; text-align:center;">
-
-    <p style="font-size:20px; color:#e6e6e6;">
-        Cărți duhovnicești, rugăciuni și învățături pentru suflet.
-    </p>
-
-    <!-- BUTON DESCĂRCARE APK -->
-    <div style="margin:40px 0;">
-        <a class="btn-premium"
-           href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
-           download>
-           📥 Descarcă aplicația (APK)
-        </a>
-    </div>
-
-    <!-- BUTON INSTALARE PWA -->
-    <button id="installBtn" class="btn-premium" style="display:none; margin-top:20px;">
-        📲 Instalează aplicația
-    </button>
-
-</main>
-
-<!-- FOOTER -->
-<footer style="text-align:center; padding:20px; color:#aaa;">
-    © Hrana pentru suflet
-</footer>
-
-<!-- REGISTRARE SERVICE WORKER -->
-<script>
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-    .then(() => console.log("Service Worker înregistrat"))
-    .catch(err => console.log("Eroare SW:", err));
-}
-</script>
-
-<!-- SCRIPT INSTALARE PWA -->
-<script>
-let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
-
-window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtn.style.display = "inline-block";
-});
-
-installBtn.addEventListener("click", async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const rez = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    installBtn.style.display = "none";
-});
-</script>
 
 </body>
 </html>
