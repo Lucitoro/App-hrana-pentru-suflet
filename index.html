@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
 </head>
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/App-hrana-pentru-suflet/service-worker.js")
+    .then(() => console.log("Service Worker înregistrat"))
+    .catch(err => console.log("Eroare SW:", err));
+}
+</script>
 
 <body>
 
