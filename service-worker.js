@@ -2,12 +2,12 @@ self.addEventListener("install", event => {
   event.waitUntil(
     caches.open("hrana-cache-v1").then(cache => {
       return cache.addAll([
-        "/",
-        "/index.html",
-        "/offline.html",
-        "/style.css",
-        "/nav2.js",
-        "/manifest.json"
+        "/App-hrana-pentru-suflet/",
+        "/App-hrana-pentru-suflet/index.html",
+        "/App-hrana-pentru-suflet/offline.html",
+        "/App-hrana-pentru-suflet/style.css",
+        "/App-hrana-pentru-suflet/nav2.js",
+        "/App-hrana-pentru-suflet/manifest.json"
       ]);
     })
   );
@@ -31,6 +31,8 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request).then(resp => resp || caches.match("/offline.html")))
+    fetch(event.request).catch(() =>
+      caches.match(event.request).then(resp => resp || caches.match("/App-hrana-pentru-suflet/offline.html"))
+    )
   );
 });
