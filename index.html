@@ -87,6 +87,18 @@ if ("serviceWorker" in navigator) {
         <span class="title-green">ℹ️ Despre aplicație</span>
     </a>
 
+    <!-- BUTOANE NOI – MENIU PRINCIPAL -->
+    <a class="card3d btn-premium"
+       href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
+       download>
+       📥 Descarcă aplicația (APK)
+    </a>
+
+    <a class="card3d btn-premium"
+       href="whatsapp://send?text=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+       🤝 Trimite unui prieten
+    </a>
+
     <!-- SUBMENIU DESCĂRCARE -->
     <button class="btn-action" onclick="toggleDownloadMenu()">
         <i class="fas fa-chevron-down"></i> Afișează opțiunile
@@ -100,10 +112,42 @@ if ("serviceWorker" in navigator) {
            <i class="fas fa-mobile"></i> Descarcă aplicația (APK)
         </a>
 
+        <!-- TRIMITE UNUI PRIETEN – WHATSAPP -->
+        <a class="btn-action"
+           href="whatsapp://send?text=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           <i class="fas fa-share"></i> Trimite pe WhatsApp
+        </a>
+
+        <!-- TRIMITE PRIN SMS -->
+        <a class="btn-action"
+           href="sms:?body=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           <i class="fas fa-sms"></i> Trimite prin SMS
+        </a>
+
+        <!-- TRIMITE PRIN MESSENGER -->
+        <a class="btn-action"
+           href="fb-messenger://share/?link=https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           <i class="fab fa-facebook-messenger"></i> Trimite pe Messenger
+        </a>
+
+        <!-- TRIMITE PRIN TELEGRAM -->
+        <a class="btn-action"
+           href="https://t.me/share/url?url=https://lucitoro.github.io/App-hrana-pentru-suflet/&text=Descarcă aplicația Hrana pentru suflet">
+           <i class="fab fa-telegram"></i> Trimite pe Telegram
+        </a>
+
+        <!-- TRIMITE PRIN EMAIL -->
+        <a class="btn-action"
+           href="mailto:?subject=Hrana pentru suflet&body=Descarcă aplicația:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           <i class="fas fa-envelope"></i> Trimite prin Email
+        </a>
+
+        <!-- DESCARCĂ RESURSE -->
         <button class="btn-action" onclick="downloadResources()">
             <i class="fas fa-file-arrow-down"></i> Descarcă resurse offline
         </button>
 
+        <!-- MODUL OFFLINE -->
         <button class="btn-action" onclick="enableOffline()">
             <i class="fas fa-wifi-slash"></i> Activează modul offline
         </button>
