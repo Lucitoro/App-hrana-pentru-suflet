@@ -21,14 +21,59 @@
     <a class="card3d btn-premium" href="taine.html">✝️ Sfintele Taine</a>
     <a class="card3d btn-premium" href="despre.html">ℹ️ Despre aplicație</a>
 
+    <!-- LINKUL PE CARE L‑AI PIERDUT -->
+    <a class="card3d btn-premium"
+       href="https://cartiduhovnicesti.blogspot.com/?m=1"
+       target="_blank">
+       📖 Deschide aplicația pe cartiduhovnicesti
+    </a>
+
     <a class="card3d btn-premium"
        href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
        download>📥 Descarcă aplicația (APK)</a>
 
-    <a class="card3d btn-premium"
-       href="whatsapp://send?text=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
-       🤝 Trimite unui prieten
-    </a>
+    <!-- BUTON TRIMITE UNUI PRIETEN -->
+    <button class="card3d btn-premium" onclick="toggleShareMenu()">
+        🤝 Trimite unui prieten
+    </button>
+
+    <!-- SUBMENIU COMPLET -->
+    <div id="shareMenu" style="display:none; margin-top:15px;">
+
+        <a class="btn-action"
+           href="whatsapp://send?text=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           📲 Trimite pe WhatsApp
+        </a>
+
+        <a class="btn-action"
+           href="fb-messenger://share/?link=https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           💬 Trimite pe Messenger
+        </a>
+
+        <a class="btn-action"
+           href="https://t.me/share/url?url=https://lucitoro.github.io/App-hrana-pentru-suflet/&text=Descarcă aplicația Hrana pentru suflet">
+           📡 Trimite pe Telegram
+        </a>
+
+        <a class="btn-action"
+           href="sms:?body=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           ✉️ Trimite prin SMS
+        </a>
+
+        <a class="btn-action"
+           href="mailto:?subject=Hrana pentru suflet&body=Descarcă aplicația:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+           📧 Trimite prin Email
+        </a>
+
+        <button class="btn-action" onclick="copyLink()">
+            🔗 Copiază linkul
+        </button>
+
+        <button class="btn-action" onclick="shareUniversal()">
+            🌍 Distribuie (universal)
+        </button>
+
+    </div>
 
 </main>
 
@@ -36,6 +81,8 @@
 <script src="header.js"></script>
 <script src="menu.js"></script>
 <script src="settings-loader.js"></script>
+
+<!-- SCRIPT SUBMENIU -->
 <script>
 function toggleShareMenu() {
     const menu = document.getElementById("shareMenu");
