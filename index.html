@@ -5,180 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hrana pentru suflet</title>
 
-    <!-- Stiluri -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Manifest PWA -->
     <link rel="manifest" href="manifest.json">
-
-    <!-- Icon -->
-    <link rel="icon" href="icons/icon-192.png" type="image/png">
 </head>
-
-<!-- SERVICE WORKER -->
-<script>
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-    .then(() => console.log("Service Worker înregistrat"))
-    .catch(err => console.log("Eroare SW:", err));
-}
-</script>
 
 <body>
 
-<header class="header-premium">
-    <h1 class="title-green">🙏 Hrana pentru suflet</h1>
-</header>
-
 <main class="container">
 
-    <!-- PRAVILA ZILNICĂ -->
-    <a class="card3d btn-premium" href="pravila.html">
-        <span class="title-green">📘 Pravila zilnică</span>
-    </a>
+    <h1 class="title-green">🙏 Hrana pentru suflet</h1>
 
-    <!-- RUGĂCIUNI LA DIFERITE NEVOI -->
-    <a class="card3d btn-premium" 
-       href="https://cartiduhovnicesti.blogspot.com/2018/01/rugaciuni-la-nevoie.html?m=1" 
-       target="_blank">
-        <span class="title-green">🙌 Rugăciuni la diferite nevoi</span>
-    </a>
+    <a class="card3d btn-premium" href="pravila.html">📘 Pravila zilnică</a>
+    <a class="card3d btn-premium" href="psaltirea.html">📖 Psaltirea</a>
+    <a class="card3d btn-premium" href="acatiste.html">🌹 Acatiste și Paraclise</a>
+    <a class="card3d btn-premium" href="taine.html">✝️ Sfintele Taine</a>
+    <a class="card3d btn-premium" href="despre.html">ℹ️ Despre aplicație</a>
 
-    <!-- PSALTIREA -->
-    <a class="card3d btn-premium" href="psaltirea.html">
-        <span class="title-green">📖 Psaltirea</span>
-    </a>
-
-    <!-- ACATISTE -->
-    <a class="card3d btn-premium" 
-       href="https://cartiduhovnicesti.blogspot.com/2020/04/acatiste.html?m=0" 
-       target="_blank">
-        <span class="title-green">🙏 Acatiste și Paraclise</span>
-    </a>
-
-    <!-- CALENDAR ORTODOX 2026 -->
-    <a class="card3d btn-premium" 
-       href="https://cartiduhovnicesti.blogspot.com/2025/03/calendarul-2026.html" 
-       target="_blank">
-        <span class="title-green">📅 Calendar Ortodox 2026</span>
-    </a>
-
-    <!-- CĂRȚI DUHOVNICEȘTI -->
-    <a class="card3d btn-premium" 
-       href="https://cartiduhovnicesti.blogspot.com/2020/05/carti.html?m=0" 
-       target="_blank">
-        <span class="title-green">📚 Cărți duhovnicești</span>
-    </a>
-
-    <!-- RESURSE DUHOVNICEȘTI -->
-    <a class="card3d btn-premium" 
-       href="https://cartiduhovnicesti.blogspot.com/2025/04/resurse-duhovnicesti_1.html" 
-       target="_blank">
-        <span class="title-green">📦 Resurse duhovnicești</span>
-    </a>
-
-    <!-- SFINTELOR TAINE -->
-    <a class="card3d btn-premium" href="taine.html">
-        <span class="title-green">✝️ Sfintele Taine</span>
-    </a>
-
-    <!-- DESPRE APLICAȚIE -->
-    <a class="card3d btn-premium" href="despre.html">
-        <span class="title-green">ℹ️ Despre aplicație</span>
-    </a>
-
-    <!-- BUTOANE NOI – MENIU PRINCIPAL -->
     <a class="card3d btn-premium"
        href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
-       download>
-       📥 Descarcă aplicația (APK)
-    </a>
+       download>📥 Descarcă aplicația (APK)</a>
 
     <a class="card3d btn-premium"
        href="whatsapp://send?text=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
        🤝 Trimite unui prieten
     </a>
 
-    <!-- SUBMENIU DESCĂRCARE -->
-    <button class="btn-action" onclick="toggleDownloadMenu()">
-        <i class="fas fa-chevron-down"></i> Afișează opțiunile
-    </button>
-
-    <div id="downloadMenu" style="display:none; margin-top:15px;">
-
-        <!-- APK SUBMENIU -->
-        <a href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
-           class="btn-action" download>
-           <i class="fas fa-mobile"></i> Descarcă aplicația (APK)
-        </a>
-
-        <!-- TRIMITE UNUI PRIETEN – WHATSAPP -->
-        <a class="btn-action"
-           href="whatsapp://send?text=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
-           <i class="fas fa-share"></i> Trimite pe WhatsApp
-        </a>
-
-        <!-- TRIMITE PRIN SMS -->
-        <a class="btn-action"
-           href="sms:?body=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
-           <i class="fas fa-sms"></i> Trimite prin SMS
-        </a>
-
-        <!-- TRIMITE PRIN MESSENGER -->
-        <a class="btn-action"
-           href="fb-messenger://share/?link=https://lucitoro.github.io/App-hrana-pentru-suflet/">
-           <i class="fab fa-facebook-messenger"></i> Trimite pe Messenger
-        </a>
-
-        <!-- TRIMITE PRIN TELEGRAM -->
-        <a class="btn-action"
-           href="https://t.me/share/url?url=https://lucitoro.github.io/App-hrana-pentru-suflet/&text=Descarcă aplicația Hrana pentru suflet">
-           <i class="fab fa-telegram"></i> Trimite pe Telegram
-        </a>
-
-        <!-- TRIMITE PRIN EMAIL -->
-        <a class="btn-action"
-           href="mailto:?subject=Hrana pentru suflet&body=Descarcă aplicația:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
-           <i class="fas fa-envelope"></i> Trimite prin Email
-        </a>
-
-        <!-- DESCARCĂ RESURSE -->
-        <button class="btn-action" onclick="downloadResources()">
-            <i class="fas fa-file-arrow-down"></i> Descarcă resurse offline
-        </button>
-
-        <!-- MODUL OFFLINE -->
-        <button class="btn-action" onclick="enableOffline()">
-            <i class="fas fa-wifi-slash"></i> Activează modul offline
-        </button>
-
-    </div>
-
 </main>
 
-<!-- MENIU JOS -->
-<nav class="bottom-nav">
-    <a href="index.html">🏠 Acasă</a>
-    <a href="pravila.html">📘 Pravila</a>
-    <a href="setari.html">⚙️ Setări</a>
-
-    <!-- APK MENIU PRINCIPAL -->
-    <a href="https://raw.githubusercontent.com/Lucitoro/App-hrana-pentru-suflet/main/hrana-pentru-suflet.apk"
-       class="btn-action" download>
-       📥 APK
-    </a>
-</nav>
-
-<!-- SCRIPT SUBMENIU -->
+<!-- SCRIPTURI GLOBALE -->
+<script src="header.js"></script>
+<script src="menu.js"></script>
+<script src="settings-loader.js"></script>
 <script>
-function toggleDownloadMenu() {
-    const menu = document.getElementById("downloadMenu");
+function toggleShareMenu() {
+    const menu = document.getElementById("shareMenu");
     menu.style.display = menu.style.display === "none" ? "block" : "none";
 }
-</script>
 
-<!-- LOADER SETĂRI -->
-<script src="settings-loader.js"></script>
+function copyLink() {
+    navigator.clipboard.writeText("https://lucitoro.github.io/App-hrana-pentru-suflet/");
+    alert("Link copiat!");
+}
+
+function shareUniversal() {
+    if (navigator.share) {
+        navigator.share({
+            title: "Hrana pentru suflet",
+            text: "Descarcă aplicația Hrana pentru suflet",
+            url: "https://lucitoro.github.io/App-hrana-pentru-suflet/"
+        });
+    } else {
+        alert("Funcția de distribuire nu este suportată pe acest dispozitiv.");
+    }
+}
+</script>
 
 </body>
 </html>
