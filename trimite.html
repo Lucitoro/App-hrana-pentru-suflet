@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trimite unui prieten</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<main class="container">
+
+    <h1 class="title-green">🤝 Trimite unui prieten</h1>
+
+    <a class="btn-action"
+       href="whatsapp://send?text=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+       📲 Trimite pe WhatsApp
+    </a>
+
+    <a class="btn-action"
+       href="fb-messenger://share/?link=https://lucitoro.github.io/App-hrana-pentru-suflet/">
+       💬 Trimite pe Messenger
+    </a>
+
+    <a class="btn-action"
+       href="https://t.me/share/url?url=https://lucitoro.github.io/App-hrana-pentru-suflet/&text=Descarcă aplicația Hrana pentru suflet">
+       📡 Trimite pe Telegram
+    </a>
+
+    <a class="btn-action"
+       href="sms:?body=Descarcă aplicația Hrana pentru suflet:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+       ✉️ Trimite prin SMS
+    </a>
+
+    <a class="btn-action"
+       href="mailto:?subject=Hrana pentru suflet&body=Descarcă aplicația:%20https://lucitoro.github.io/App-hrana-pentru-suflet/">
+       📧 Trimite prin Email
+    </a>
+
+    <button class="btn-action" onclick="copyLink()">
+        🔗 Copiază linkul
+    </button>
+
+    <button class="btn-action" onclick="shareUniversal()">
+        🌍 Distribuie (universal)
+    </button>
+
+</main>
+
+<script src="header.js"></script>
+<script src="menu.js"></script>
+<script src="settings-loader.js"></script>
+
+<script>
+function copyLink() {
+    navigator.clipboard.writeText("https://lucitoro.github.io/App-hrana-pentru-suflet/");
+    alert("Link copiat!");
+}
+
+function shareUniversal() {
+    if (navigator.share) {
+        navigator.share({
+            title: "Hrana pentru suflet",
+            text: "Descarcă aplicația Hrana pentru suflet",
+            url: "https://lucitoro.github.io/App-hrana-pentru-suflet/"
+        });
+    } else {
+        alert("Funcția de distribuire nu este suportată pe acest dispozitiv.");
+    }
+}
+</script>
+
+</body>
+</html>
