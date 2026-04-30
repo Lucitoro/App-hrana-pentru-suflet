@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termeni și condiții – Hrana pentru suflet</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+<h1 class="title-green" style="text-align:center; margin-top:20px;">
+📜 Termeni și condiții
+</h1>
+
+<p style="font-size:18px; line-height:1.7; color:#ddd;">
+Acești termeni și condiții reglementează utilizarea aplicației <strong>Hrana pentru suflet</strong>, disponibilă ca PWA și APK. Prin utilizarea aplicației, sunteți de acord cu prevederile de mai jos.
+</p>
+
+<h2 style="color:#d4af37;">1. Scopul aplicației</h2>
+<p>
+Aplicația oferă acces gratuit la texte religioase: rugăciuni, acatiste, psaltire, pravila zilnică, calendar ortodox și resurse duhovnicești. Conținutul este destinat exclusiv uzului personal și spiritual.
+</p>
+
+<h2 style="color:#d4af37;">2. Utilizare permisă</h2>
+<p>
+Utilizatorul poate:
+</p>
+<ul>
+<li>citi și accesa conținutul în scop personal;</li>
+<li>folosi aplicația fără costuri;</li>
+<li>distribui linkul aplicației către alte persoane.</li>
+</ul>
+
+<p>
+Nu este permis:
+</p>
+<ul>
+<li>copierea integrală a conținutului în alte aplicații sau site‑uri;</li>
+<li>revânzarea, comercializarea sau redistribuirea materialelor;</li>
+<li>modificarea aplicației sau a codului sursă fără acordul autorului.</li>
+</ul>
+
+<h2 style="color:#d4af37;">3. Drepturi de autor</h2>
+<p>
+Textele religioase sunt de domeniu public sau preluate din surse care permit distribuirea lor necomercială. Structura aplicației, designul, codul, organizarea și elementele grafice sunt protejate de drepturile de autor ale dezvoltatorului.
+</p>
+
+<h2 style="color:#d4af37;">4. Lipsa colectării de date</h2>
+<p>
+Aplicația <strong>NU colectează</strong> date personale.  
+Nu există:
+</p>
+<ul>
+<li>conturi de utilizator;</li>
+<li>autentificare;</li>
+<li>cookie‑uri;</li>
+<li>statistici;</li>
+<li>tracking;</li>
+<li>reclame;</li>
+<li>analitice.</li>
+</ul>
+
+<p>
+Aplicația funcționează local, pe dispozitivul utilizatorului.
+</p>
+
+<h2 style="color:#d4af37;">5. Linkuri externe</h2>
+<p>
+Aplicația conține linkuri către site‑uri externe (ex.: cartiduhovnicesti.blogspot.com).  
+Aceste site‑uri sunt independente, iar autorul aplicației nu este responsabil pentru:
+</p>
+<ul>
+<li>conținutul lor;</li>
+<li>actualizări;</li>
+<li>politici de confidențialitate;</li>
+<li>eventuale erori sau modificări.</li>
+</ul>
+
+<h2 style="color:#d4af37;">6. Acuratețea informațiilor</h2>
+<p>
+Autorul depune eforturi pentru a menține informațiile corecte și actualizate, însă nu garantează absența erorilor. Utilizatorul folosește aplicația pe propria răspundere.
+</p>
+
+<h2 style="color:#d4af37;">7. Limitarea răspunderii</h2>
+<p>
+Autorul aplicației nu poate fi tras la răspundere pentru:
+</p>
+<ul>
+<li>interpretarea personală a textelor religioase;</li>
+<li>eventuale nefuncționări temporare ale aplicației;</li>
+<li>pierderi de date locale;</li>
+<li>probleme cauzate de dispozitivul utilizatorului.</li>
+</ul>
+
+<h2 style="color:#d4af37;">8. Modificări ale termenilor</h2>
+<p>
+Termenii și condițiile pot fi actualizați oricând. Versiunea curentă este disponibilă în aplicație.
+</p>
+
+<h2 style="color:#d4af37;">9. Contact</h2>
+<p>
+Pentru întrebări sau sugestii, ne puteți contacta la:<br>
+📧 <strong>lucitoro.contact@gmail.com</strong>  
+</p>
+
+<p style="margin-top:30px; text-align:center; color:#ccc;">
+🙏 Vă mulțumim pentru folosirea aplicației Hrana pentru suflet.
+</p>
+
+</main>
+
+</body>
+</html>
