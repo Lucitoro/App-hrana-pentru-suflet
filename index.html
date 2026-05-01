@@ -152,6 +152,52 @@ function shareUniversal() {
     }
 }
 </script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.addEventListener("message", (event) => {
+    if (event.data && event.data.type === "NEW_VERSION_AVAILABLE") {
+      const banner = document.createElement("div");
+      banner.style.position = "fixed";
+      banner.style.bottom = "20px";
+      banner.style.left = "50%";
+      banner.style.transform = "translateX(-50%)";
+      banner.style.background = "#d4af37";
+      banner.style.color = "#000";
+      banner.style.padding = "14px 22px";
+      banner.style.borderRadius = "12px";
+      banner.style.fontWeight = "700";
+      banner.style.boxShadow = "0 6px 20px rgba(0,0,0,0.45)";
+      banner.style.zIndex = "9999";
+      banner.style.textAlign = "center";
+      banner.style.fontSize = "17px";
+      banner.innerHTML = `
+        O versiune nouă este disponibilă.
+        <button id="updateAppBtn" style="
+          margin-left:12px;
+          padding:6px 14px;
+          background:#000;
+          color:#fff;
+          border:none;
+          border-radius:8px;
+          font-weight:700;
+          cursor:pointer;
+        ">Actualizează</button>
+      `;
+
+      document.body.appendChild(banner);
+
+      document.getElementById("updateAppBtn").onclick = () => {
+        navigator.serviceWorker.getRegistration().then((reg) => {
+          if (reg.waiting) {
+            reg.waiting.postMessage("checkForUpdate");
+          }
+          location.reload();
+        });
+      };
+    }
+  });
+}
+</script>
 
 </body>
 </html>
