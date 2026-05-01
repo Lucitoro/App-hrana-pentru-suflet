@@ -1,35 +1,59 @@
-// Hrana pentru suflet – Service Worker FINAL cu notificări de actualizare
+// ============================================================
+// Hrana pentru suflet – Service Worker FINAL cu sistem de update
+// ============================================================
 
-const CACHE_NAME = "hrana-cache-v3";
+const CACHE_NAME = "hrana-cache-v4";
 
 const FILES_TO_CACHE = [
   "/App-hrana-pentru-suflet/",
   "/App-hrana-pentru-suflet/index.html",
   "/App-hrana-pentru-suflet/style.css",
-  "/App-hrana-pentru-suflet/nav2.js",
+  "/App-hrana-pentru-suflet/header.js",
+  "/App-hrana-pentru-suflet/menu.js",
+  "/App-hrana-pentru-suflet/settings-loader.js",
   "/App-hrana-pentru-suflet/manifest.json",
   "/App-hrana-pentru-suflet/offline.html"
 ];
 
-// INSTALL
+// ------------------------------------------------------------
+// INSTALL – cache nou + notificare update
+// ------------------------------------------------------------
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
+
+  // Forțăm activarea imediată
   self.skipWaiting();
+
+  // Trimitem notificare către pagină
+  self.clients.matchAll().then((clients) => {
+    clients.forEach((client) =>
+      client.postMessage({ type: "NEW_VERSION_AVAILABLE" })
+    );
+  });
 });
 
-// ACTIVATE
+// ------------------------------------------------------------
+// ACTIVATE – șterge cache vechi
+// ------------------------------------------------------------
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.map((key) => key !== CACHE_NAME && caches.delete(key)))
+      Promise.all(
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
+      )
     )
   );
+
   self.clients.claim();
 });
 
-// FETCH
+// ------------------------------------------------------------
+// FETCH – online first, fallback offline
+// ------------------------------------------------------------
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(event.request)
@@ -42,15 +66,11 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-// UPDATE NOTIFIER
-self.addEventListener("install", () => {
-  self.clients.matchAll().then((clients) => {
-    clients.forEach((client) =>
-      client.postMessage({ type: "NEW_VERSION_AVAILABLE" })
-    );
-  });
-});
-
+// ------------------------------------------------------------
+// Mesaj din pagină → aplicăm update imediat
+// ------------------------------------------------------------
 self.addEventListener("message", (event) => {
-  if (event.data === "checkForUpdate") self.skipWaiting();
+  if (event.data === "checkForUpdate") {
+    self.skipWaiting();
+  }
 });
