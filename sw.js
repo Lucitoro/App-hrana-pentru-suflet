@@ -1,24 +1,17 @@
-// Hrana pentru suflet – Service Worker final
+// Hrana pentru suflet – Service Worker FINAL cu notificări de actualizare
 
-const CACHE_NAME = "hrana-cache-v2";
+const CACHE_NAME = "hrana-cache-v3";
 
 const FILES_TO_CACHE = [
-  "./",
-  "index.html",
-  "style.css",
-  "app.js",
-  "manifest.json",
-  "icons/icon-72.png",
-  "icons/icon-96.png",
-  "icons/icon-128.png",
-  "icons/icon-144.png",
-  "icons/icon-152.png",
-  "icons/icon-192.png",
-  "icons/icon-384.png",
-  "icons/icon-512.png"
+  "/App-hrana-pentru-suflet/",
+  "/App-hrana-pentru-suflet/index.html",
+  "/App-hrana-pentru-suflet/style.css",
+  "/App-hrana-pentru-suflet/nav2.js",
+  "/App-hrana-pentru-suflet/manifest.json",
+  "/App-hrana-pentru-suflet/offline.html"
 ];
 
-// Install
+// INSTALL
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
@@ -26,28 +19,38 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-// Activate
+// ACTIVATE
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) return caches.delete(key);
-        })
-      )
+      Promise.all(keys.map((key) => key !== CACHE_NAME && caches.delete(key)))
     )
   );
   self.clients.claim();
 });
 
-// Fetch
+// FETCH
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return (
-        response ||
-        fetch(event.request).catch(() => caches.match("index.html"))
-      );
-    })
+    fetch(event.request)
+      .then((response) => response)
+      .catch(() =>
+        caches.match(event.request).then((resp) =>
+          resp || caches.match("/App-hrana-pentru-suflet/offline.html")
+        )
+      )
   );
+});
+
+// UPDATE NOTIFIER
+self.addEventListener("install", () => {
+  self.clients.matchAll().then((clients) => {
+    clients.forEach((client) =>
+      client.postMessage({ type: "NEW_VERSION_AVAILABLE" })
+    );
+  });
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data === "checkForUpdate") self.skipWaiting();
 });
