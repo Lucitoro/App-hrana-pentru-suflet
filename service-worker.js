@@ -1,8 +1,8 @@
 // ============================================================
-// Hrana pentru suflet – Service Worker FINAL (v4)
+// Hrana pentru suflet – Service Worker FINAL (v11)
 // ============================================================
 
-const CACHE_NAME = "hrana-cache-v4";
+const CACHE_NAME = "hrana-cache-v11";
 
 const FILES_TO_CACHE = [
   "/App-hrana-pentru-suflet/",
@@ -12,72 +12,64 @@ const FILES_TO_CACHE = [
   "/App-hrana-pentru-suflet/menu.js",
   "/App-hrana-pentru-suflet/settings-loader.js",
   "/App-hrana-pentru-suflet/manifest.json",
+
+  // PAGINI APLICAȚIE
+  "/App-hrana-pentru-suflet/pravila.html",
+  "/App-hrana-pentru-suflet/rugaciuni-dimineata.html",
+  "/App-hrana-pentru-suflet/rugaciuni-inserare.html",
+  "/App-hrana-pentru-suflet/rugaciuni-seara.html",
+  "/App-hrana-pentru-suflet/rugaciuni-saptamana.html",
+  "/App-hrana-pentru-suflet/psaltirea.html",
+  "/App-hrana-pentru-suflet/acatiste.html",
+  "/App-hrana-pentru-suflet/calendar.html",
+  "/App-hrana-pentru-suflet/taine.html",
+  "/App-hrana-pentru-suflet/resurse.html",
+  "/App-hrana-pentru-suflet/despre.html",
+  "/App-hrana-pentru-suflet/contact.html",
+  "/App-hrana-pentru-suflet/termeni.html",
+
+  // FALLBACK OFFLINE
   "/App-hrana-pentru-suflet/offline.html"
- const CACHE_FILES = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/pravila.html",
-  "/rugaciuni-dimineata.html"
-];
-
-
 ];
 
 // ------------------------------------------------------------
-// INSTALL – cache nou + notificare update
+// INSTALL
 // ------------------------------------------------------------
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
-
   self.skipWaiting();
-
-  self.clients.matchAll().then((clients) => {
-    clients.forEach((client) =>
-      client.postMessage({ type: "NEW_VERSION_AVAILABLE" })
-    );
-  });
 });
 
 // ------------------------------------------------------------
-// ACTIVATE – șterge cache vechi
+// ACTIVATE
 // ------------------------------------------------------------
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
+        keys.map((key) => {
+          if (key !== CACHE_NAME) return caches.delete(key);
+        })
       )
     )
   );
-
   self.clients.claim();
 });
 
 // ------------------------------------------------------------
-// FETCH – online first, fallback offline
+// FETCH – Offline first
 // ------------------------------------------------------------
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    fetch(event.request)
-      .then((response) => response)
-      .catch(() =>
-        caches.match(event.request).then((resp) =>
-          resp || caches.match("/App-hrana-pentru-suflet/offline.html")
+    caches.match(event.request).then((response) => {
+      return (
+        response ||
+        fetch(event.request).catch(() =>
+          caches.match("/App-hrana-pentru-suflet/offline.html")
         )
-      )
+      );
+    })
   );
-});
-
-// ------------------------------------------------------------
-// Mesaj din pagină → aplicăm update imediat
-// ------------------------------------------------------------
-self.addEventListener("message", (event) => {
-  if (event.data === "checkForUpdate") {
-    self.skipWaiting();
-  }
 });
