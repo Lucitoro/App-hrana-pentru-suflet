@@ -13,6 +13,8 @@ const FILES_TO_CACHE = [
   "/App-hrana-pentru-suflet/settings-loader.js",
   "/App-hrana-pentru-suflet/manifest.json",
   "/App-hrana-pentru-suflet/offline.html"
+  "/rugaciuni-dimineata.html",
+
 ];
 
 // ------------------------------------------------------------
