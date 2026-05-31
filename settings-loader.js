@@ -15,6 +15,9 @@
     const rate      = localStorage.getItem("rate")      || "1";
     const readMode  = localStorage.getItem("readMode")  || "full";
 
+    // Mărime text manuală (A− / A+)
+    const manualFont = localStorage.getItem("fontSize") || "18";
+
     // -------------------------------
     // 2. Aplică tema global
     // -------------------------------
@@ -23,7 +26,7 @@
     }
 
     // -------------------------------
-    // 3. Aplică mărimea textului global
+    // 3. Aplică mărimea textului presetată (small / normal / large / xlarge)
     // -------------------------------
     function applyTextSize() {
         let value = "16px";
@@ -56,13 +59,33 @@
     }
 
     // -------------------------------
-    // 6. Aplică totul când pagina este gata
+    // 6. CONTROL MANUAL MĂRIME TEXT (A− / A+)
+    // -------------------------------
+    function applyManualFont() {
+        document.documentElement.style.setProperty("--app-font-size", manualFont + "px");
+    }
+
+    window.changeFontSize = function(direction) {
+        let size = parseInt(localStorage.getItem("fontSize") || "18");
+
+        size += direction; // +1 sau -1
+
+        if (size < 14) size = 14;
+        if (size > 28) size = 28;
+
+        localStorage.setItem("fontSize", size);
+        document.documentElement.style.setProperty("--app-font-size", size + "px");
+    };
+
+    // -------------------------------
+    // 7. Aplică totul când pagina este gata
     // -------------------------------
     document.addEventListener("DOMContentLoaded", function () {
         applyTheme();
         applyTextSize();
         applyLanguage();
         applyTTS();
+        applyManualFont();
     });
 
 })();
