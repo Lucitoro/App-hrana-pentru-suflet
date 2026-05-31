@@ -39,13 +39,16 @@
         <button class="btn-premium" onclick="setReadMode('full')">Citește tot textul</button>
     </div>
 
-    <!-- MĂRIME TEXT -->
+    <!-- CONTROL MANUAL MĂRIME TEXT -->
     <div class="card3d settings-card">
-        <h2 class="title-green">🔠 Mărime text</h2>
-        <button class="btn-premium" onclick="setTextSize('small')">Mic</button>
-        <button class="btn-premium" onclick="setTextSize('normal')">Normal</button>
-        <button class="btn-premium" onclick="setTextSize('large')">Mare</button>
-        <button class="btn-premium" onclick="setTextSize('xlarge')">Foarte mare</button>
+        <h2 class="title-green">🔠 Mărime text (manual)</h2>
+
+        <button class="btn-premium" onclick="changeFontSize(-1)">A− Micșorează</button>
+        <button class="btn-premium" onclick="changeFontSize(1)">A+ Mărește</button>
+
+        <p style="color:#d8ffd8; margin-top:10px; font-size:15px;">
+            Ajustează manual dimensiunea textului din aplicație.
+        </p>
     </div>
 
     <!-- LIMBA -->
