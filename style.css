@@ -1,4 +1,11 @@
 /* ===============================
+   VARIABILĂ GLOBALĂ MĂRIME TEXT
+=============================== */
+:root {
+    --app-font-size: 18px;
+}
+
+/* ===============================
    FUNDAL GLOBAL
 =============================== */
 html, body {
@@ -7,6 +14,7 @@ html, body {
     font-family: "Segoe UI", sans-serif;
     margin: 0;
     padding: 0;
+    font-size: var(--app-font-size) !important;
 }
 
 /* ===============================
@@ -27,7 +35,7 @@ html, body {
 .title-green, h1, h2, h3, h4, h5, h6 {
     color: #44ff99 !important;
     font-weight: 900 !important;
-    font-size: 28px !important;
+    font-size: calc(var(--app-font-size) + 10px) !important;
     text-align: center;
     text-shadow: 0 0 3px #00331a !important;
 }
@@ -40,17 +48,14 @@ html, body {
     padding: 20px;
     background: #000000 !important;
     border-radius: 18px;
-
-    /* contur verde slab – pentru contrast cu butonul */
     border: 2px solid rgba(0,255,120,0.25) !important;
-
     box-shadow:
         0 0 10px rgba(0,255,120,0.15),
         0 0 18px rgba(0,255,120,0.10) !important;
-
     text-align: center;
     color: #ffffff !important;
     transition: 0.25s ease;
+    font-size: var(--app-font-size) !important;
 }
 
 .card3d:hover {
@@ -68,23 +73,16 @@ html, body {
     width: 100%;
     padding: 18px;
     margin-top: 10px;
-
     background: linear-gradient(135deg, #c89b52, #7a5528) !important;
-
-    /* CONTUR AURIU PUTERNIC */
     border: 5px solid #f7d98a !important;
-
     border-radius: 14px;
-
     color: #e0ffe8 !important;
     font-weight: 900 !important;
-    font-size: 22px !important;
+    font-size: calc(var(--app-font-size) + 4px) !important;
     text-align: center;
-
     box-shadow:
         0 0 18px rgba(247,217,138,0.9),
         0 0 32px rgba(247,217,138,0.55) !important;
-
     cursor: pointer;
     transition: 0.25s ease;
 }
@@ -108,18 +106,16 @@ html, body {
     background: #000000 !important;
     border-top: 2px solid rgba(0,255,120,0.45) !important;
     padding: 14px 0;
-
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     z-index: 99999;
 }
 
 .bottom-nav a {
     color: #d8ffd8 !important;
     font-weight: 700 !important;
-    font-size: 18px !important;
+    font-size: calc(var(--app-font-size) - 2px) !important;
     text-decoration: none;
 }
 
@@ -137,18 +133,14 @@ html, body {
     right: 20px;
     width: 65px;
     height: 65px;
-
     background: #44ff99;
     border-radius: 50%;
-
     box-shadow:
         0 4px 10px rgba(0,0,0,0.6),
         0 0 10px rgba(0,255,120,0.5);
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     cursor: pointer;
     z-index: 999999;
     transition: 0.25s ease;
@@ -165,7 +157,10 @@ html, body {
     width: 36px;
     height: 36px;
 }
-/* OPTIMIZARE PENTRU ANDROID – BUTOANE MAI MICI, TITLURI FIXE */
+
+/* ===============================
+   OPTIMIZARE PENTRU ANDROID
+=============================== */
 @media (max-width: 480px) {
 
     .card3d, .btn-premium {
@@ -177,7 +172,7 @@ html, body {
     .card3d span,
     .btn-premium span,
     .title-green {
-        font-size: 16px !important;
+        font-size: calc(var(--app-font-size) - 2px) !important;
         line-height: 20px !important;
         font-weight: 600 !important;
         text-align: center !important;
@@ -191,28 +186,35 @@ html, body {
     }
 
     h2 {
-        font-size: 18px !important;
+        font-size: calc(var(--app-font-size) + 2px) !important;
         margin: 5px 0 !important;
         text-align: center !important;
     }
 
     p {
-        font-size: 14px !important;
+        font-size: calc(var(--app-font-size) - 4px) !important;
         line-height: 18px !important;
         text-align: center !important;
     }
 }
+
+/* ===============================
+   MENIU SUS / CENTRARE
+=============================== */
 header nav, 
 .top-menu, 
 #menu-principal {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* opțional, spațiere între butoane */
+    gap: 20px;
     width: 100%;
     text-align: center;
 }
-/* OPTIMIZARE MENIU JOS PENTRU ANDROID */
+
+/* ===============================
+   OPTIMIZARE MENIU JOS ANDROID
+=============================== */
 @media (max-width: 480px) {
 
     .bottom-nav {
@@ -225,7 +227,7 @@ header nav,
     }
 
     .bottom-nav a {
-        font-size: 12px !important;
+        font-size: calc(var(--app-font-size) - 6px) !important;
         line-height: 14px !important;
         padding: 0 !important;
         margin: 0 !important;
@@ -237,7 +239,7 @@ header nav,
     }
 
     .bottom-nav a::first-line {
-        font-size: 20px !important; /* iconițele */
+        font-size: 20px !important;
     }
 
     .download-btn {
