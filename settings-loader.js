@@ -26,7 +26,7 @@
     }
 
     // -------------------------------
-    // 3. Aplică mărimea textului presetată (small / normal / large / xlarge)
+    // 3. Aplică mărimea textului presetată
     // -------------------------------
     function applyTextSize() {
         let value = "16px";
@@ -44,7 +44,6 @@
     // -------------------------------
     function applyLanguage() {
         document.documentElement.setAttribute("lang", language);
-        document.documentElement.setAttribute("data-lang", language);
     }
 
     // -------------------------------
